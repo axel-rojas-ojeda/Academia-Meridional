@@ -16,15 +16,8 @@
   --rojo:#e11d48;
   --amarillo:#f59e0b;
 }
-
 *{box-sizing:border-box;font-family:Arial,sans-serif}
-
-body{
-  margin:0;
-  background:var(--fondo);
-  color:var(--texto);
-}
-
+body{margin:0;background:var(--fondo);color:var(--texto)}
 header{
   background:linear-gradient(135deg,var(--morado),var(--azul));
   color:white;
@@ -32,34 +25,12 @@ header{
   text-align:center;
   border-radius:0 0 34px 34px;
 }
-
-header h1{
-  margin:0;
-  font-size:34px;
-  line-height:1.1;
-  text-transform:uppercase;
-}
-
-header p{
-  margin:10px 0 0;
-  font-size:15px;
-}
-
-main{
-  padding:20px;
-  max-width:540px;
-  margin:auto;
-}
-
+header h1{margin:0;font-size:34px;line-height:1.1;text-transform:uppercase}
+header p{margin:10px 0 0;font-size:15px}
+main{padding:20px;max-width:540px;margin:auto}
 .section{display:none}
 .section.active{display:block}
-
-.title{
-  color:var(--morado);
-  font-size:23px;
-  margin:24px 0 14px;
-}
-
+.title{color:var(--morado);font-size:24px;margin:24px 0 14px}
 .card{
   background:white;
   border-radius:22px;
@@ -67,18 +38,8 @@ main{
   margin-bottom:14px;
   box-shadow:0 8px 20px rgba(75,15,191,.10);
 }
-
-.card h3{
-  margin:0;
-  color:var(--morado);
-  font-size:20px;
-}
-
-.card p{
-  color:var(--gris);
-  font-size:14px;
-}
-
+.card h3{margin:0;color:var(--morado);font-size:20px}
+.card p{color:var(--gris);font-size:14px}
 .badge{
   display:inline-block;
   background:#e9ddff;
@@ -89,58 +50,34 @@ main{
   font-weight:bold;
   margin-bottom:10px;
 }
-
-.grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:12px;
-}
-
-.grid button,
-.back,
-.save,
-.danger{
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.grid button,.back,.save,.danger{
   border:none;
   border-radius:18px;
   padding:14px;
   font-weight:bold;
 }
-
 .grid button{
-  min-height:88px;
+  min-height:92px;
   background:white;
   color:var(--morado);
   font-size:15px;
   box-shadow:0 8px 20px rgba(75,15,191,.10);
 }
-
-.grid span{
-  display:block;
-  font-size:27px;
-  margin-bottom:6px;
-}
-
+.grid span{display:block;font-size:28px;margin-bottom:6px}
 .back{
   background:white;
   color:var(--morado);
   box-shadow:0 8px 20px rgba(75,15,191,.12);
   margin-bottom:14px;
 }
-
 .save{
   width:100%;
   color:white;
   background:linear-gradient(135deg,var(--morado),var(--azul));
   margin-top:8px;
 }
-
-.danger{
-  width:100%;
-  background:#ffe8ef;
-  color:#c4003f;
-  margin-top:8px;
-}
-
+.danger{width:100%;background:#ffe8ef;color:#c4003f;margin-top:8px}
 input,select,textarea{
   width:100%;
   padding:13px;
@@ -149,50 +86,15 @@ input,select,textarea{
   margin:7px 0 13px;
   font-size:15px;
 }
-
 textarea{min-height:90px}
-
-label{
-  font-size:13px;
-  color:var(--gris);
-  font-weight:bold;
-}
-
-.persona{
-  padding:10px 0;
-  border-bottom:1px solid #eee;
-}
-
+label{font-size:13px;color:var(--gris);font-weight:bold}
+.persona{padding:10px 0;border-bottom:1px solid #eee}
 .persona:last-child{border-bottom:none}
-
 .record{border-left:5px solid var(--morado)}
-
-.kpi{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:10px;
-}
-
-.kpi div{
-  background:#f2ebff;
-  padding:14px;
-  border-radius:16px;
-}
-
-.kpi strong{
-  font-size:22px;
-  color:var(--morado);
-}
-
-.estado-ok{color:var(--verde);font-weight:bold}
-.estado-alerta{color:var(--amarillo);font-weight:bold}
-.estado-rojo{color:var(--rojo);font-weight:bold}
-
-.interno{
-  text-align:center;
-  margin:32px 0 12px;
-}
-
+.kpi{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.kpi div{background:#f2ebff;padding:14px;border-radius:16px}
+.kpi strong{font-size:22px;color:var(--morado)}
+.interno{text-align:center;margin:32px 0 12px}
 .interno button{
   background:transparent;
   border:none;
@@ -200,6 +102,46 @@ label{
   font-size:12px;
   text-decoration:underline;
   margin:4px;
+}
+.course-hero{
+  background:linear-gradient(135deg,var(--morado),var(--azul));
+  color:white;
+  border-radius:26px;
+  padding:24px;
+  margin-bottom:16px;
+}
+.course-hero h2{margin:0;font-size:27px;line-height:1.1}
+.course-hero p{color:#eee;margin:10px 0 0}
+.course-card{
+  background:white;
+  border-radius:22px;
+  padding:18px;
+  margin-bottom:14px;
+  border-left:6px solid var(--morado);
+  box-shadow:0 8px 20px rgba(75,15,191,.10);
+}
+.course-card h3{margin:0;color:var(--morado)}
+.material-btn{
+  display:block;
+  text-align:center;
+  background:linear-gradient(135deg,var(--morado),var(--azul));
+  color:white;
+  padding:16px;
+  border-radius:18px;
+  text-decoration:none;
+  font-weight:bold;
+  margin-top:10px;
+}
+.progress{
+  height:14px;
+  background:#eee4ff;
+  border-radius:20px;
+  overflow:hidden;
+  margin-top:10px;
+}
+.progress div{
+  height:100%;
+  background:linear-gradient(135deg,var(--morado),var(--azul));
 }
 </style>
 </head>
@@ -214,21 +156,26 @@ label{
 <main>
 
 <section id="home" class="section active">
-  <h2 class="title">Curso Activo</h2>
-  <div id="cursoActivoVista"></div>
-
   <h2 class="title">Academia</h2>
+
   <div class="grid">
+    <button onclick="showSection('cursoActivo')"><span>🎓</span>Curso Activo</button>
     <button onclick="showSection('tiendas')"><span>🏪</span>Tiendas</button>
     <button onclick="showSection('biblioteca')"><span>📚</span>Biblioteca</button>
     <button onclick="showSection('calendario')"><span>📅</span>Calendario</button>
     <button onclick="showSection('recursos')"><span>🧩</span>Recursos</button>
+    <button onclick="showSection('reportesPublicos')"><span>📊</span>Reportes</button>
   </div>
 
   <div class="interno">
     <button onclick="pedirCodigoEmbajador()">🔐 Embajador</button>
     <button onclick="pedirCodigoAdmin()">🏢 Administración Meridional</button>
   </div>
+</section>
+
+<section id="cursoActivo" class="section">
+  <button class="back" onclick="showSection('home')">← Volver</button>
+  <div id="cursoAcademiaVista"></div>
 </section>
 
 <section id="tiendas" class="section">
@@ -264,6 +211,13 @@ label{
   <div class="card"><h3>Reportes</h3><p>Documentos de seguimiento mensual.</p></div>
 </section>
 
+<section id="reportesPublicos" class="section">
+  <button class="back" onclick="showSection('home')">← Volver</button>
+  <h2 class="title">Reportes</h2>
+  <div class="card"><h3>Avance Curso Activo</h3><div id="avancePublico"></div></div>
+  <div class="card"><h3>Calendario y recursos</h3><p>Reportes generales de formación y recursos disponibles.</p></div>
+</section>
+
 <section id="embajador" class="section">
   <button class="back" onclick="showSection('home')">← Volver</button>
   <h2 class="title">Zona Embajador</h2>
@@ -290,43 +244,20 @@ label{
 <section id="admin" class="section">
   <button class="back" onclick="showSection('home')">← Volver</button>
   <h2 class="title">Administración Meridional</h2>
-
-  <div class="card">
-    <h3>Resumen Ejecutivo</h3>
-    <div id="dashboardAdmin"></div>
-  </div>
-
-  <div class="card">
-    <h3>Reporte Ejecutivo</h3>
-    <div id="reporteEjecutivo"></div>
-  </div>
-
-  <div class="card">
-    <h3>KPIs y Cumplimiento</h3>
-    <div id="adminKPI"></div>
-  </div>
+  <div class="card"><h3>Resumen Ejecutivo</h3><div id="dashboardAdmin"></div></div>
+  <div class="card"><h3>Reporte Ejecutivo</h3><div id="reporteEjecutivo"></div></div>
+  <div class="card"><h3>KPIs y Cumplimiento</h3><div id="adminKPI"></div></div>
 </section>
 
 <section id="analisisKPI" class="section">
   <button class="back" onclick="showSection('embajador')">← Volver</button>
   <h2 class="title">Análisis KPI</h2>
-
   <div class="card">
-    <label>Mes</label>
-    <input id="analisisMes" placeholder="Ej: Junio 2026">
-
-    <label>KPI analizado</label>
-    <input id="analisisKpiNombre" placeholder="Ej: Planes Empresa, Productividad, Portabilidad">
-
-    <label>Mejores resultados KPI</label>
-    <textarea id="analisisTop" placeholder="Nombres de ejecutivos destacados"></textarea>
-
-    <label>Resultados bajos / brechas</label>
-    <textarea id="analisisBajo" placeholder="Nombres o tiendas con bajo resultado"></textarea>
-
-    <label>Observaciones del análisis</label>
-    <textarea id="analisisObs"></textarea>
-
+    <label>Mes</label><input id="analisisMes" placeholder="Ej: Junio 2026">
+    <label>KPI analizado</label><input id="analisisKpiNombre" placeholder="Ej: Planes Empresa, Productividad">
+    <label>Mejores resultados KPI</label><textarea id="analisisTop"></textarea>
+    <label>Resultados bajos / brechas</label><textarea id="analisisBajo"></textarea>
+    <label>Observaciones del análisis</label><textarea id="analisisObs"></textarea>
     <button class="save" onclick="guardarAnalisis()">Guardar análisis</button>
   </div>
 </section>
@@ -334,29 +265,14 @@ label{
 <section id="entrevistas" class="section">
   <button class="back" onclick="showSection('embajador')">← Volver</button>
   <h2 class="title">Entrevista Buenas Prácticas</h2>
-
   <div class="card">
-    <label>Fecha</label>
-    <input id="entrevistaFecha" type="date">
-
-    <label>Tienda</label>
-    <select id="entrevistaTienda"></select>
-
-    <label>Ejecutivo destacado</label>
-    <input id="entrevistaPersona">
-
-    <label>KPI destacado</label>
-    <input id="entrevistaKPI">
-
-    <label>Buenas prácticas detectadas</label>
-    <textarea id="entrevistaBuenas"></textarea>
-
-    <label>Técnicas utilizadas</label>
-    <textarea id="entrevistaTecnicas"></textarea>
-
-    <label>Ideas para capacitación</label>
-    <textarea id="entrevistaIdeas"></textarea>
-
+    <label>Fecha</label><input id="entrevistaFecha" type="date">
+    <label>Tienda</label><select id="entrevistaTienda"></select>
+    <label>Ejecutivo destacado</label><input id="entrevistaPersona">
+    <label>KPI destacado</label><input id="entrevistaKPI">
+    <label>Buenas prácticas detectadas</label><textarea id="entrevistaBuenas"></textarea>
+    <label>Técnicas utilizadas</label><textarea id="entrevistaTecnicas"></textarea>
+    <label>Ideas para capacitación</label><textarea id="entrevistaIdeas"></textarea>
     <button class="save" onclick="guardarEntrevista()">Guardar entrevista</button>
   </div>
 </section>
@@ -366,32 +282,18 @@ label{
   <h2 class="title">Diseño Curso Activo</h2>
 
   <div class="card">
-    <label>Nombre del curso</label>
-    <input id="cursoNombre">
-
-    <label>Mes</label>
-    <input id="cursoMes">
-
-    <label>Objetivo</label>
-    <textarea id="cursoObjetivo"></textarea>
-
-    <label>Buenas prácticas incorporadas</label>
-    <textarea id="cursoBuenasPracticas"></textarea>
-
-    <label>Presentación / Link material</label>
-    <input id="cursoPresentacion" placeholder="Link Drive, PDF o presentación">
-
-    <label>Datos KPI</label>
-    <textarea id="cursoKpi"></textarea>
-
+    <label>Nombre del curso</label><input id="cursoNombre">
+    <label>Mes</label><input id="cursoMes">
+    <label>Objetivo</label><textarea id="cursoObjetivo"></textarea>
+    <label>Buenas prácticas incorporadas</label><textarea id="cursoBuenasPracticas"></textarea>
+    <label>Presentación / Link material</label><input id="cursoPresentacion" placeholder="Link Drive, PDF o presentación">
+    <label>Datos KPI</label><textarea id="cursoKpi"></textarea>
     <button class="save" onclick="guardarCurso()">Guardar curso</button>
   </div>
 
   <div class="card">
     <h3>Agregar participante</h3>
-    <label>Colaborador</label>
-    <select id="participanteNombre"></select>
-
+    <label>Colaborador</label><select id="participanteNombre"></select>
     <label>Estado</label>
     <select id="participanteEstado">
       <option>Convocado</option>
@@ -400,7 +302,6 @@ label{
       <option>Ausente</option>
       <option>Reforzar</option>
     </select>
-
     <button class="save" onclick="agregarParticipanteCurso()">Agregar participante</button>
   </div>
 
@@ -415,23 +316,12 @@ label{
 <section id="capacitacionOnline" class="section">
   <button class="back" onclick="showSection('embajador')">← Volver</button>
   <h2 class="title">Capacitación Online</h2>
-
   <div class="card">
-    <label>Fecha</label>
-    <input id="onlineFecha" type="date">
-
-    <label>Hora</label>
-    <input id="onlineHora" type="time">
-
-    <label>Link reunión</label>
-    <input id="onlineLink" placeholder="Teams / Meet">
-
-    <label>Duración</label>
-    <input id="onlineDuracion" placeholder="Ej: 45 minutos">
-
-    <label>Observaciones</label>
-    <textarea id="onlineObs"></textarea>
-
+    <label>Fecha</label><input id="onlineFecha" type="date">
+    <label>Hora</label><input id="onlineHora" type="time">
+    <label>Link reunión</label><input id="onlineLink" placeholder="Teams / Meet">
+    <label>Duración</label><input id="onlineDuracion" placeholder="Ej: 45 minutos">
+    <label>Observaciones</label><textarea id="onlineObs"></textarea>
     <button class="save" onclick="guardarOnline()">Guardar capacitación online</button>
   </div>
 </section>
@@ -439,30 +329,14 @@ label{
 <section id="inasistencias" class="section">
   <button class="back" onclick="showSection('embajador')">← Volver</button>
   <h2 class="title">Inasistencias</h2>
-
   <div class="card">
-    <label>Fecha</label>
-    <input id="inaFecha" type="date">
-
-    <label>Tienda</label>
-    <select id="inaTienda"></select>
-
-    <label>Colaborador</label>
-    <input id="inaPersona">
-
-    <label>Actividad</label>
-    <input id="inaActividad" placeholder="Capacitación / Entrevista">
-
-    <label>Motivo informado</label>
-    <textarea id="inaMotivo"></textarea>
-
+    <label>Fecha</label><input id="inaFecha" type="date">
+    <label>Tienda</label><select id="inaTienda"></select>
+    <label>Colaborador</label><input id="inaPersona">
+    <label>Actividad</label><input id="inaActividad" placeholder="Capacitación / Entrevista">
+    <label>Motivo informado</label><textarea id="inaMotivo"></textarea>
     <label>Reprogramar</label>
-    <select id="inaReprogramar">
-      <option>Sí</option>
-      <option>No</option>
-      <option>Pendiente</option>
-    </select>
-
+    <select id="inaReprogramar"><option>Sí</option><option>No</option><option>Pendiente</option></select>
     <button class="save" onclick="guardarInasistencia()">Guardar inasistencia</button>
   </div>
 </section>
@@ -470,30 +344,14 @@ label{
 <section id="seguimiento" class="section">
   <button class="back" onclick="showSection('embajador')">← Volver</button>
   <h2 class="title">Seguimiento</h2>
-
   <div class="card">
-    <label>Fecha</label>
-    <input id="segFecha" type="date">
-
-    <label>Tienda</label>
-    <select id="segTienda"></select>
-
-    <label>Colaborador</label>
-    <input id="segPersona">
-
-    <label>Compromiso</label>
-    <textarea id="segCompromiso"></textarea>
-
-    <label>Fecha próxima revisión</label>
-    <input id="segProxima" type="date">
-
+    <label>Fecha</label><input id="segFecha" type="date">
+    <label>Tienda</label><select id="segTienda"></select>
+    <label>Colaborador</label><input id="segPersona">
+    <label>Compromiso</label><textarea id="segCompromiso"></textarea>
+    <label>Fecha próxima revisión</label><input id="segProxima" type="date">
     <label>Estado</label>
-    <select id="segEstado">
-      <option>Pendiente</option>
-      <option>En seguimiento</option>
-      <option>Cerrado</option>
-    </select>
-
+    <select id="segEstado"><option>Pendiente</option><option>En seguimiento</option><option>Cerrado</option></select>
     <button class="save" onclick="guardarSeguimiento()">Guardar seguimiento</button>
   </div>
 </section>
@@ -501,27 +359,13 @@ label{
 <section id="planes" class="section">
   <button class="back" onclick="showSection('embajador')">← Volver</button>
   <h2 class="title">Planes de Acción</h2>
-
   <div class="card">
-    <label>Tienda</label>
-    <select id="planTienda"></select>
-
-    <label>Acción</label>
-    <textarea id="planAccion"></textarea>
-
-    <label>Responsable</label>
-    <input id="planResponsable">
-
-    <label>Fecha compromiso</label>
-    <input id="planFecha" type="date">
-
+    <label>Tienda</label><select id="planTienda"></select>
+    <label>Acción</label><textarea id="planAccion"></textarea>
+    <label>Responsable</label><input id="planResponsable">
+    <label>Fecha compromiso</label><input id="planFecha" type="date">
     <label>Estado</label>
-    <select id="planEstado">
-      <option>Pendiente</option>
-      <option>En proceso</option>
-      <option>Completado</option>
-    </select>
-
+    <select id="planEstado"><option>Pendiente</option><option>En proceso</option><option>Completado</option></select>
     <button class="save" onclick="guardarPlan()">Guardar plan</button>
   </div>
 </section>
@@ -529,23 +373,12 @@ label{
 <section id="cierreMensual" class="section">
   <button class="back" onclick="showSection('embajador')">← Volver</button>
   <h2 class="title">Cierre Mensual</h2>
-
   <div class="card">
-    <label>Mes</label>
-    <input id="cierreMes" placeholder="Ej: Junio 2026">
-
-    <label>Tienda</label>
-    <select id="cierreTienda" onchange="actualizarParticipantesCierre()"></select>
-
-    <label>Participante</label>
-    <select id="cierreParticipante"></select>
-
-    <label>Ventas del participante</label>
-    <input id="ventasParticipante" type="number">
-
-    <label>Ventas totales de la tienda</label>
-    <input id="ventasTienda" type="number">
-
+    <label>Mes</label><input id="cierreMes" placeholder="Ej: Junio 2026">
+    <label>Tienda</label><select id="cierreTienda" onchange="actualizarParticipantesCierre()"></select>
+    <label>Participante</label><select id="cierreParticipante"></select>
+    <label>Ventas del participante</label><input id="ventasParticipante" type="number">
+    <label>Ventas totales de la tienda</label><input id="ventasTienda" type="number">
     <button class="save" onclick="guardarCierreMensual()">Guardar cierre</button>
   </div>
 </section>
@@ -553,25 +386,19 @@ label{
 <section id="gestionBase" class="section">
   <button class="back" onclick="showSection('embajador')">← Volver</button>
   <h2 class="title">Tiendas y Colaboradores</h2>
-
   <div class="card">
     <h3>Agregar tienda</h3>
     <input id="nuevaTiendaNombre" placeholder="Nombre tienda">
     <input id="nuevaTiendaLider" placeholder="Líder">
     <button class="save" onclick="agregarTienda()">Agregar tienda</button>
   </div>
-
   <div class="card">
     <h3>Agregar colaborador</h3>
     <input id="nuevoColaboradorNombre" placeholder="Nombre">
-    <select id="nuevoColaboradorCargo">
-      <option>Ejecutivo WOM</option>
-      <option>Líder</option>
-    </select>
+    <select id="nuevoColaboradorCargo"><option>Ejecutivo WOM</option><option>Líder</option></select>
     <select id="nuevoColaboradorTienda"></select>
     <button class="save" onclick="agregarColaborador()">Agregar colaborador</button>
   </div>
-
   <div class="card"><h3>Tiendas registradas</h3><div id="gestionTiendas"></div></div>
   <div class="card"><h3>Colaboradores registrados</h3><div id="gestionColaboradores"></div></div>
 </section>
@@ -641,10 +468,55 @@ function abrirTienda(i){
 
 function mostrarCurso(){
  const curso=getCurso();
- ["cursoNombre","cursoMes","cursoObjetivo","cursoBuenasPracticas","cursoPresentacion","cursoKpi"].forEach(id=>{if(document.getElementById(id))document.getElementById(id).value=curso[id.replace("curso","").charAt(0).toLowerCase()+id.replace("curso","").slice(1)]||""});
- if(document.getElementById("cursoActivoVista")){
-  cursoActivoVista.innerHTML=`<div class="card"><span class="badge">Curso activo</span><h3>${curso.nombre}</h3><p><b>Mes:</b> ${curso.mes}</p><p><b>Objetivo:</b> ${curso.objetivo}</p><p><b>Presentación:</b> ${curso.presentacion?`<a href="${curso.presentacion}" target="_blank">Abrir material</a>`:"Sin material cargado"}</p><p><b>KPI:</b><br>${curso.kpi||"Sin KPI cargado"}</p><h3>Participantes</h3>${curso.participantes.length?curso.participantes.map(p=>`<div class="persona"><b>${p.nombre}</b><br><small>${p.cargo} · ${p.tienda}</small><br><small>Estado: ${p.estado}</small></div>`).join(""):"<p>No hay participantes cargados.</p>"}</div>`;
+
+ if(document.getElementById("cursoNombre"))cursoNombre.value=curso.nombre;
+ if(document.getElementById("cursoMes"))cursoMes.value=curso.mes;
+ if(document.getElementById("cursoObjetivo"))cursoObjetivo.value=curso.objetivo;
+ if(document.getElementById("cursoBuenasPracticas"))cursoBuenasPracticas.value=curso.buenasPracticas;
+ if(document.getElementById("cursoPresentacion"))cursoPresentacion.value=curso.presentacion;
+ if(document.getElementById("cursoKpi"))cursoKpi.value=curso.kpi;
+
+ const total=curso.participantes.length;
+ const asistio=curso.participantes.filter(p=>p.estado==="Asistió").length;
+ const avance=total?Math.round((asistio/total)*100):0;
+
+ if(document.getElementById("cursoAcademiaVista")){
+  cursoAcademiaVista.innerHTML=`
+  <div class="course-hero">
+    <span class="badge">Curso activo</span>
+    <h2>${curso.nombre}</h2>
+    <p>${curso.mes}</p>
+  </div>
+
+  <div class="course-card">
+    <h3>🎯 Objetivo</h3>
+    <p>${curso.objetivo || "Sin objetivo cargado."}</p>
+  </div>
+
+  <div class="course-card">
+    <h3>📎 Presentación</h3>
+    <p>${curso.presentacion ? "Material disponible para revisión." : "Sin material cargado."}</p>
+    ${curso.presentacion ? `<a class="material-btn" href="${curso.presentacion}" target="_blank">Abrir presentación</a>` : ""}
+  </div>
+
+  <div class="course-card">
+    <h3>📊 KPI del curso</h3>
+    <p>${curso.kpi || "Sin KPI cargado."}</p>
+  </div>
+
+  <div class="course-card">
+    <h3>✅ Estado de avance</h3>
+    <p>${asistio} de ${total} participantes con asistencia registrada.</p>
+    <div class="progress"><div style="width:${avance}%"></div></div>
+  </div>
+
+  <div class="course-card">
+    <h3>👥 Participantes</h3>
+    ${curso.participantes.length?curso.participantes.map(p=>`<div class="persona"><b>${p.nombre}</b><br><small>${p.cargo} · ${p.tienda}</small><br><small>Estado: ${p.estado}</small></div>`).join(""):"<p>No hay participantes cargados.</p>"}
+  </div>
+  `;
  }
+
  if(document.getElementById("gestionParticipantes")){
   gestionParticipantes.innerHTML=curso.participantes.length?curso.participantes.map((p,i)=>`<div class="card"><h3>${p.nombre}</h3><p>${p.cargo} · ${p.tienda}</p><select onchange="cambiarEstadoParticipante(${i},this.value)"><option ${p.estado==="Convocado"?"selected":""}>Convocado</option><option ${p.estado==="Confirmado"?"selected":""}>Confirmado</option><option ${p.estado==="Asistió"?"selected":""}>Asistió</option><option ${p.estado==="Ausente"?"selected":""}>Ausente</option><option ${p.estado==="Reforzar"?"selected":""}>Reforzar</option></select><button class="danger" onclick="eliminarParticipante(${i})">Eliminar</button></div>`).join(""):"<p>No hay participantes.</p>";
  }
@@ -683,6 +555,7 @@ function mostrarDashboards(){
  if(document.getElementById("adminKPI"))adminKPI.innerHTML=`<div class="kpi"><div><strong>${totalVentas}</strong><br>Ventas tiendas registradas</div><div><strong>${planes.length}</strong><br>Planes acción</div></div>`;
  if(document.getElementById("reporteEjecutivo"))reporteEjecutivo.innerHTML=`<p>Se registran ${entrevistas.length} entrevistas de buenas prácticas, ${online.length} capacitaciones online, ${curso.participantes.length} participantes en curso activo, ${inas.length} inasistencias y ${seg.length} seguimientos activos.</p>`;
  if(document.getElementById("calendarioVista"))calendarioVista.innerHTML=online.length?online.map(o=>`<div class="card"><h3>${getCurso().nombre}</h3><p>${o.fecha} · ${o.hora}</p><p>${o.link?`<a href="${o.link}" target="_blank">Entrar a capacitación</a>`:"Sin link"}</p></div>`).join(""):"<div class='card'><p>No hay capacitaciones programadas.</p></div>";
+ if(document.getElementById("avancePublico"))avancePublico.innerHTML=`<p>Participantes: ${curso.participantes.length}</p><p>Asistentes registrados: ${asistieron}</p><p>Ausentes registrados: ${ausentes}</p>`;
 }
 
 function mostrarGestion(){
