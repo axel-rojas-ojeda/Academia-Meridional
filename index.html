@@ -36,6 +36,9 @@ label{font-size:13px;color:var(--gris);font-weight:bold}
 .persona{padding:10px 0;border-bottom:1px solid #eee}
 .persona:last-child{border-bottom:none}
 .small-btn{border:none;background:#eee4ff;color:var(--morado);border-radius:14px;padding:10px 12px;font-weight:bold;margin-top:8px}
+.kpi{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.kpi div{background:#f2ebff;padding:14px;border-radius:16px}
+.kpi strong{font-size:22px;color:var(--morado)}
 </style>
 </head>
 
@@ -62,12 +65,12 @@ label{font-size:13px;color:var(--gris);font-weight:bold}
 <section id="embajador" class="section">
   <button class="back" onclick="showSection('home')">← Volver</button>
   <h2 class="title">Zona Embajador</h2>
-
   <div class="card" onclick="showSection('entrevistas')"><h3>🎤 Entrevistas</h3><p>Registro y seguimiento de entrevistas</p></div>
   <div class="card" onclick="showSection('planes')"><h3>📋 Planes de Acción</h3><p>Registro y seguimiento de planes</p></div>
   <div class="card" onclick="showSection('gestionarCurso')"><h3>🎓 Gestionar Capacitación del Mes</h3><p>Curso, KPIs, presentación y participantes</p></div>
+  <div class="card" onclick="showSection('cierreMensual')"><h3>📈 Cierre Mensual</h3><p>Ventas por participante y total mensual por tienda</p></div>
   <div class="card" onclick="showSection('gestionBase')"><h3>👥 Gestión de Colaboradores y Tiendas</h3><p>Agregar o eliminar colaboradores y tiendas</p></div>
-  <div class="card" onclick="showSection('misRegistros')"><h3>🗂️ Mis Registros</h3><p>Entrevistas, planes y capacitaciones guardadas</p></div>
+  <div class="card" onclick="showSection('misRegistros')"><h3>🗂️ Mis Registros</h3><p>Entrevistas, planes y cierres guardados</p></div>
 </section>
 
 <section id="tiendas" class="section">
@@ -81,6 +84,7 @@ label{font-size:13px;color:var(--gris);font-weight:bold}
   <h2 id="detalleNombre" class="title"></h2>
   <div class="card"><span class="badge">Líder</span><h3 id="detalleLider"></h3></div>
   <div class="card"><h3>Ejecutivos</h3><div id="detalleEjecutivos"></div></div>
+  <div class="card"><h3>Historial ventas tienda</h3><div id="historialTienda"></div></div>
 </section>
 
 <section id="capacitacionMes" class="section">
@@ -96,16 +100,12 @@ label{font-size:13px;color:var(--gris);font-weight:bold}
   <div class="card">
     <label>Nombre del curso</label>
     <input id="cursoNombre">
-
     <label>Mes</label>
     <input id="cursoMes">
-
     <label>Presentación / Link material</label>
-    <input id="cursoPresentacion" placeholder="Pega aquí link Drive, PDF o presentación">
-
+    <input id="cursoPresentacion" placeholder="Link Drive, PDF o presentación">
     <label>Datos KPI</label>
-    <textarea id="cursoKpi" placeholder="Ej: Productividad, avance, ventas empresa, cumplimiento"></textarea>
-
+    <textarea id="cursoKpi" placeholder="Ej: objetivo de ventas, foco comercial, meta del mes"></textarea>
     <button class="save" onclick="guardarCurso()">Guardar datos del curso</button>
   </div>
 
@@ -113,14 +113,12 @@ label{font-size:13px;color:var(--gris);font-weight:bold}
     <h3>Agregar participante</h3>
     <label>Colaborador</label>
     <select id="participanteNombre"></select>
-
     <label>Estado</label>
     <select id="participanteEstado">
       <option>Pendiente</option>
       <option>Capacitado</option>
       <option>Reforzar</option>
     </select>
-
     <button class="save" onclick="agregarParticipanteCurso()">Agregar participante</button>
   </div>
 
@@ -130,6 +128,38 @@ label{font-size:13px;color:var(--gris);font-weight:bold}
   </div>
 
   <button class="save" onclick="guardarCursoEnBiblioteca()">Guardar capacitación en biblioteca</button>
+</section>
+
+<section id="cierreMensual" class="section">
+  <button class="back" onclick="showSection('embajador')">← Volver</button>
+  <h2 class="title">Cierre Mensual</h2>
+
+  <div class="card">
+    <label>Mes</label>
+    <input id="cierreMes" placeholder="Ej: Junio 2026">
+
+    <label>Tienda</label>
+    <select id="cierreTienda" onchange="actualizarParticipantesCierre()"></select>
+
+    <label>Participante</label>
+    <select id="cierreParticipante"></select>
+
+    <label>Ventas del participante</label>
+    <input id="ventasParticipante" type="number" placeholder="Ej: 8">
+
+    <label>Ventas totales de la tienda</label>
+    <input id="ventasTienda" type="number" placeholder="Ej: 42">
+
+    <label>Observaciones</label>
+    <textarea id="cierreObs"></textarea>
+
+    <button class="save" onclick="guardarCierreMensual()">Guardar cierre</button>
+  </div>
+
+  <div class="card">
+    <h3>Resumen del mes</h3>
+    <div id="resumenCierre"></div>
+  </div>
 </section>
 
 <section id="bibliotecaCapacitaciones" class="section">
@@ -142,6 +172,7 @@ label{font-size:13px;color:var(--gris);font-weight:bold}
   <button class="back" onclick="showSection('home')">← Volver</button>
   <h2 class="title">Indicadores</h2>
   <div class="card"><h3>Avance Capacitación del Mes</h3><p id="avanceCurso"></p></div>
+  <div class="card"><h3>Ventas registradas</h3><div id="indicadoresVentas"></div></div>
 </section>
 
 <section id="gestionBase" class="section">
@@ -151,9 +182,9 @@ label{font-size:13px;color:var(--gris);font-weight:bold}
   <div class="card">
     <h3>Agregar tienda</h3>
     <label>Nombre tienda</label>
-    <input id="nuevaTiendaNombre" placeholder="Ej: Sucursal Nueva">
+    <input id="nuevaTiendaNombre">
     <label>Líder</label>
-    <input id="nuevaTiendaLider" placeholder="Nombre líder">
+    <input id="nuevaTiendaLider">
     <button class="save" onclick="agregarTienda()">Agregar tienda</button>
   </div>
 
@@ -171,15 +202,8 @@ label{font-size:13px;color:var(--gris);font-weight:bold}
     <button class="save" onclick="agregarColaborador()">Agregar colaborador</button>
   </div>
 
-  <div class="card">
-    <h3>Tiendas registradas</h3>
-    <div id="gestionTiendas"></div>
-  </div>
-
-  <div class="card">
-    <h3>Colaboradores registrados</h3>
-    <div id="gestionColaboradores"></div>
-  </div>
+  <div class="card"><h3>Tiendas registradas</h3><div id="gestionTiendas"></div></div>
+  <div class="card"><h3>Colaboradores registrados</h3><div id="gestionColaboradores"></div></div>
 </section>
 
 <section id="entrevistas" class="section">
@@ -201,117 +225,4 @@ label{font-size:13px;color:var(--gris);font-weight:bold}
   <button class="back" onclick="showSection('embajador')">← Volver</button>
   <h2 class="title">Planes de Acción</h2>
   <div class="card">
-    <label>Tienda</label><select id="planTienda"></select>
-    <label>Acción</label><textarea id="planAccion"></textarea>
-    <label>Responsable</label><input id="planResponsable">
-    <label>Fecha compromiso</label><input id="planFecha" type="date">
-    <label>Estado</label>
-    <select id="planEstado"><option>Pendiente</option><option>En proceso</option><option>Completado</option></select>
-    <button class="save" onclick="guardarPlan()">Guardar plan</button>
-  </div>
-</section>
-
-<section id="misRegistros" class="section">
-  <button class="back" onclick="showSection('embajador')">← Volver</button>
-  <h2 class="title">Mis Registros</h2>
-  <div class="card"><h3>Entrevistas</h3><div id="historialEntrevistas"></div></div>
-  <div class="card"><h3>Planes de Acción</h3><div id="listaPlanes"></div></div>
-</section>
-
-</main>
-
-<script>
-const baseTiendas = [
- {nombre:"Sucursal Puerto Varas",lider:"Angie Vanessa González Asenjo",ejecutivos:["Yessenia Maribel Riffo Oyarzo","Paulina Andrea Sánchez Rivera","Jaime Sebastián Bustamante Malpu"]},
- {nombre:"Sucursal Osorno",lider:"Rolando Ignacio Fuentealba Alvarado",ejecutivos:["Daniel Salamanca Silva","Constanza Elizabeth Echeverria Leyton","Yarela del Carmen Runca Hueichan","Nicolás Álvaro Veas Contreras"]},
- {nombre:"Sucursal Valdivia",lider:"Benllamin Alexander Gallegos Catalán",ejecutivos:["Katherine Helen Sepúlveda Sanchez","Natalia Andrea Poblete Gomez","Paula Andrea Matus Vera","Cristian Mauricio Quilodrán Quilodrán"]},
- {nombre:"Kiosco Plaza Los Ríos",lider:"Benllamin Alexander Gallegos Catalán",ejecutivos:["Yarela Belén Álvarez Monsalve","Elisa Sophia Levinier Sarabia","Ámbar Ignacia Muñoz Mora"]},
- {nombre:"Sucursal Villarrica",lider:"Felipe Alfonso Calderón Muñoz",ejecutivos:["Daniela Nicole Cruzat Garrido","Norberto Simón Arriagada Solis","Carlo Ignacio Bernales Navarrete","Yonatan Eduardo Jimenez Saez"]},
- {nombre:"Sucursal Paseo Costanera",lider:"Por definir",ejecutivos:[]},
- {nombre:"Sucursal Puerto Montt Centro",lider:"Gisel Danae Bustamante Oyarzo",ejecutivos:["Viviana Soledad Arismendi Contreras","Fernando José Jorquera Infante","Daniela Estefania Gallardo Hernández","Pamela del Pilar Rojas González"]},
- {nombre:"Sucursal Ancud",lider:"Gabriela Beatriz Valle Barría",ejecutivos:["Javier Alejandro Arismendi Allancán","Manuel Abraham Vasquez Toro","Brandon Germán Ramirez Ortloff"]},
- {nombre:"Sucursal Castro",lider:"Reannys Nerlibeth Chavez Labastidas",ejecutivos:["Constanza del Carmen Flores Agurto","Jessica Romina Aguila Vidal","Estefany Dominic Subiabre Barrientos","Riter Gerardo Oyarzo Cardenas"]},
- {nombre:"Kiosco Mall Castro",lider:"Reannys Nerlibeth Chavez Labastidas",ejecutivos:["Beatriz Andrea Dominguez Ruiz","Juan Carlos Albornoz Cardenas","Susana Katherine Acevedo Molina","Gabriela Soledad Oyarzo Diaz"]},
- {nombre:"Street Temuco",lider:"Max Aleksandr Chutzinski Mansilla",ejecutivos:["María Antonieta Orellana Vasquez","Claudio Enrique Rain Huentemil","Juan Pablo Valdivieso Padilla","Catalina Antonia Alvial Orellana","Karla Alejandra Navarrete Hill","David Alejandro Zambrano Zuñiga","Manuel Alejandro Mella Mella","Nicolás Eduardo Cerda Morales"]},
- {nombre:"Street Puerto Montt Osorno",lider:"Fabián Andrés Gallardo Gómez",ejecutivos:["Yessenia Alejandra Ojeda Ojeda","Antonia Millaray Eisele San Martín","Felipe Tomas Nahuelpan Cartes","Carlo Gustavo Nuñez Salgado","Aron Benjamín Loy Borquez","Cristina Andrea Billeke Saez"]},
- {nombre:"Street Chiloé",lider:"Axel Andrés Humberto Rojas Ojeda",ejecutivos:["Julieth Isabel Orozco Herrera","Paulina Isabel Pérez Vargas","Sebastián Alfonso Chacón Villarroel","Johanna Paola Varas Lagos"]}
-];
-
-function getTiendas(){return JSON.parse(localStorage.getItem("tiendas")||JSON.stringify(baseTiendas))}
-function setTiendas(data){localStorage.setItem("tiendas",JSON.stringify(data))}
-
-function getCurso(){return JSON.parse(localStorage.getItem("cursoActivo")||'{"nombre":"Planes WOM Segmento Empresa","mes":"Junio","presentacion":"","kpi":"","participantes":[] }')}
-function setCurso(c){localStorage.setItem("cursoActivo",JSON.stringify(c))}
-
-function pedirCodigo(){const c=prompt("Ingrese código Embajador");if(c==="2026")showSection("embajador");else if(c!==null)alert("Código incorrecto")}
-function showSection(id){document.querySelectorAll(".section").forEach(s=>s.classList.remove("active"));document.getElementById(id).classList.add("active");window.scrollTo(0,0);refrescarTodo()}
-
-function refrescarTodo(){cargarTiendas();cargarSelects();mostrarCurso();mostrarGestion();mostrarRegistros();mostrarBiblioteca();}
-
-function cargarSelects(){
- const tiendas=getTiendas();
- document.querySelectorAll("select").forEach(s=>{
-  if(s.id.toLowerCase().includes("tienda"))s.innerHTML=tiendas.map(t=>`<option>${t.nombre}</option>`).join("");
- });
- const colaboradores=[];
- tiendas.forEach(t=>{colaboradores.push({nombre:t.lider,cargo:"Líder",tienda:t.nombre});t.ejecutivos.forEach(e=>colaboradores.push({nombre:e,cargo:"Ejecutivo WOM",tienda:t.nombre}))});
- participanteNombre.innerHTML=colaboradores.map(c=>`<option value="${c.nombre}|${c.cargo}|${c.tienda}">${c.nombre} · ${c.tienda}</option>`).join("");
-}
-
-function cargarTiendas(){
- const tiendas=getTiendas();
- listaTiendas.innerHTML=tiendas.map((t,i)=>`<div class="card" onclick="abrirTienda(${i})"><h3>${t.nombre}</h3><p>${t.ejecutivos.length} ejecutivos · Ver detalle</p></div>`).join("");
-}
-
-function abrirTienda(i){
- const t=getTiendas()[i];
- detalleNombre.innerText=t.nombre;detalleLider.innerText=t.lider;
- detalleEjecutivos.innerHTML=t.ejecutivos.length?t.ejecutivos.map(e=>`<div class="persona">👤 <b>${e}</b><br><small>Ejecutivo WOM</small></div>`).join(""):"<p>No hay ejecutivos cargados.</p>";
- showSection("detalleTienda");
-}
-
-function mostrarCurso(){
- const c=getCurso();
- cursoActivoVista.innerHTML=`<div class="card"><span class="badge">Curso activo</span><h3>${c.nombre}</h3><p><b>Mes:</b> ${c.mes}</p><p><b>Presentación:</b> ${c.presentacion?`<a href="${c.presentacion}" target="_blank">Abrir material</a>`:"Sin presentación cargada"}</p><p><b>KPI:</b><br>${c.kpi||"Sin datos KPI"}</p><h3>Participantes</h3>${c.participantes.length?c.participantes.map((p,i)=>`<div class="persona"><b>${p.nombre}</b><br><small>${p.cargo} · ${p.tienda}</small><br><small>Estado: ${p.estado}</small></div>`).join(""):"<p>No hay participantes cargados.</p>"}</div>`;
- cursoNombre.value=c.nombre;cursoMes.value=c.mes;cursoPresentacion.value=c.presentacion;cursoKpi.value=c.kpi;
- const total=c.participantes.length, cap=c.participantes.filter(p=>p.estado==="Capacitado").length;
- avanceCurso.innerText= total?`${cap} de ${total} participantes capacitados (${Math.round(cap/total*100)}%)`:"Sin participantes cargados.";
- gestionParticipantes.innerHTML=c.participantes.length?c.participantes.map((p,i)=>`<div class="card"><h3>${p.nombre}</h3><p>${p.cargo} · ${p.tienda}</p><label>Estado</label><select onchange="cambiarEstadoParticipante(${i},this.value)"><option ${p.estado==="Pendiente"?"selected":""}>Pendiente</option><option ${p.estado==="Capacitado"?"selected":""}>Capacitado</option><option ${p.estado==="Reforzar"?"selected":""}>Reforzar</option></select><button class="danger" onclick="eliminarParticipante(${i})">Eliminar participante</button></div>`).join(""):"<p>No hay participantes.</p>";
-}
-
-function guardarCurso(){let c=getCurso();c.nombre=cursoNombre.value;c.mes=cursoMes.value;c.presentacion=cursoPresentacion.value;c.kpi=cursoKpi.value;setCurso(c);mostrarCurso();alert("Curso actualizado")}
-function agregarParticipanteCurso(){let c=getCurso();const [nombre,cargo,tienda]=participanteNombre.value.split("|");c.participantes.push({nombre,cargo,tienda,estado:participanteEstado.value});setCurso(c);mostrarCurso()}
-function cambiarEstadoParticipante(i,estado){let c=getCurso();c.participantes[i].estado=estado;setCurso(c);mostrarCurso()}
-function eliminarParticipante(i){let c=getCurso();c.participantes.splice(i,1);setCurso(c);mostrarCurso()}
-
-function guardarCursoEnBiblioteca(){
- const b=JSON.parse(localStorage.getItem("bibliotecaCursos")||"[]");b.unshift({...getCurso(),fecha:new Date().toLocaleDateString()});
- localStorage.setItem("bibliotecaCursos",JSON.stringify(b));alert("Capacitación guardada en biblioteca");mostrarBiblioteca();
-}
-function mostrarBiblioteca(){
- const b=JSON.parse(localStorage.getItem("bibliotecaCursos")||"[]");
- bibliotecaCursos.innerHTML=b.length?b.map(c=>`<div class="card"><h3>${c.nombre}</h3><p>${c.mes} · ${c.fecha}</p><p>${c.participantes.length} participantes</p><p>${c.kpi||""}</p></div>`).join(""):"<div class='card'><p>No hay capacitaciones guardadas.</p></div>";
-}
-
-function mostrarGestion(){
- const tiendas=getTiendas();
- gestionTiendas.innerHTML=tiendas.map((t,i)=>`<div class="card"><h3>${t.nombre}</h3><p>Líder: ${t.lider}</p><button class="danger" onclick="eliminarTienda(${i})">Eliminar tienda</button></div>`).join("");
- gestionColaboradores.innerHTML=tiendas.map((t,i)=>`<div class="card"><h3>${t.nombre}</h3><p><b>Líder:</b> ${t.lider}</p>${t.ejecutivos.map((e,j)=>`<div class="persona">${e}<button class="small-btn" onclick="eliminarColaborador(${i},${j})">Eliminar</button></div>`).join("")}</div>`).join("");
-}
-function agregarTienda(){let t=getTiendas();t.push({nombre:nuevaTiendaNombre.value,lider:nuevaTiendaLider.value||"Por definir",ejecutivos:[]});setTiendas(t);refrescarTodo()}
-function eliminarTienda(i){let t=getTiendas();t.splice(i,1);setTiendas(t);refrescarTodo()}
-function agregarColaborador(){let t=getTiendas();let tienda=t.find(x=>x.nombre===nuevoColaboradorTienda.value);if(nuevoColaboradorCargo.value==="Líder")tienda.lider=nuevoColaboradorNombre.value;else tienda.ejecutivos.push(nuevoColaboradorNombre.value);setTiendas(t);refrescarTodo()}
-function eliminarColaborador(i,j){let t=getTiendas();t[i].ejecutivos.splice(j,1);setTiendas(t);refrescarTodo()}
-
-function guardarEntrevista(){const d=JSON.parse(localStorage.getItem("entrevistas")||"[]");d.unshift({fecha:entrevistaFecha.value,tienda:entrevistaTienda.value,persona:entrevistaPersona.value,cargo:entrevistaCargo.value,compromisos:entrevistaCompromisos.value});localStorage.setItem("entrevistas",JSON.stringify(d));mostrarRegistros();alert("Entrevista guardada")}
-function guardarPlan(){const d=JSON.parse(localStorage.getItem("planes")||"[]");d.unshift({tienda:planTienda.value,accion:planAccion.value,responsable:planResponsable.value,fecha:planFecha.value,estado:planEstado.value});localStorage.setItem("planes",JSON.stringify(d));mostrarRegistros();alert("Plan guardado")}
-function mostrarRegistros(){
- const e=JSON.parse(localStorage.getItem("entrevistas")||"[]");historialEntrevistas.innerHTML=e.length?e.map(x=>`<div class="card record"><h3>${x.persona}</h3><p>${x.fecha} · ${x.tienda}</p><p>${x.cargo}</p></div>`).join(""):"<p>No hay entrevistas.</p>";
- const p=JSON.parse(localStorage.getItem("planes")||"[]");listaPlanes.innerHTML=p.length?p.map(x=>`<div class="card record"><h3>${x.tienda}</h3><p>${x.accion}</p><p>${x.estado}</p></div>`).join(""):"<p>No hay planes.</p>";
-}
-
-refrescarTodo();
-</script>
-
-</body>
-</html>
+    <
