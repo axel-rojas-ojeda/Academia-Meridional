@@ -6,39 +6,132 @@
 <title>Academia Meridional</title>
 
 <style>
-:root{--morado:#4b0fbf;--azul:#1e5eff;--fondo:#f7f3ff;--texto:#171127;--gris:#6d6790}
+:root{
+  --morado:#4b0fbf;
+  --azul:#1e5eff;
+  --fondo:#f7f3ff;
+  --texto:#171127;
+  --gris:#6d6790;
+}
 *{box-sizing:border-box;font-family:Arial,sans-serif}
 body{margin:0;background:var(--fondo);color:var(--texto)}
-header{background:linear-gradient(135deg,var(--morado),var(--azul));color:white;padding:34px 18px 42px;text-align:center;border-radius:0 0 34px 34px}
+header{
+  background:linear-gradient(135deg,var(--morado),var(--azul));
+  color:white;
+  padding:34px 18px 42px;
+  text-align:center;
+  border-radius:0 0 34px 34px;
+}
 header h1{margin:0;font-size:34px;line-height:1.1;text-transform:uppercase}
 header p{margin:10px 0 20px;font-size:15px}
 button{cursor:pointer}
-.embajador-btn,.back,.save,.danger{border:none;border-radius:18px;padding:14px;font-weight:bold}
-.embajador-btn{background:white;color:var(--morado);font-size:18px;padding:15px 28px}
 main{padding:20px;max-width:520px;margin:auto}
-.section{display:none}.section.active{display:block}
-.block-title{font-size:15px;font-weight:bold;color:var(--morado);margin:24px 0 14px;text-transform:uppercase}
+.section{display:none}
+.section.active{display:block}
 .menu{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.menu button{min-height:120px;border:none;border-radius:24px;background:white;color:var(--morado);font-size:18px;font-weight:bold;box-shadow:0 10px 25px rgba(75,15,191,.12)}
+.menu button{
+  min-height:115px;
+  border:none;
+  border-radius:24px;
+  background:white;
+  color:var(--morado);
+  font-size:18px;
+  font-weight:bold;
+  box-shadow:0 10px 25px rgba(75,15,191,.12);
+}
 .menu span{display:block;font-size:34px;margin-bottom:8px}
-.card{background:white;border-radius:20px;padding:18px;margin-bottom:14px;box-shadow:0 8px 20px rgba(75,15,191,.10)}
+.embajador-btn,.back,.save,.danger,.small-btn{
+  border:none;
+  border-radius:18px;
+  padding:14px;
+  font-weight:bold;
+}
+.embajador-btn{
+  background:white;
+  color:var(--morado);
+  font-size:18px;
+  padding:15px 28px;
+}
+.back{
+  background:white;
+  color:var(--morado);
+  box-shadow:0 8px 20px rgba(75,15,191,.12);
+  margin-bottom:14px;
+}
+.save{
+  width:100%;
+  color:white;
+  background:linear-gradient(135deg,var(--morado),var(--azul));
+  margin-top:6px;
+}
+.danger{
+  width:100%;
+  background:#ffe8ef;
+  color:#c4003f;
+  margin-top:8px;
+}
+.small-btn{
+  background:#eee4ff;
+  color:var(--morado);
+  margin-top:8px;
+}
+.card{
+  background:white;
+  border-radius:20px;
+  padding:18px;
+  margin-bottom:14px;
+  box-shadow:0 8px 20px rgba(75,15,191,.10);
+}
 .card h3{margin:0;color:var(--morado);font-size:20px}
 .card p{color:var(--gris);font-size:14px}
-.back{background:white;color:var(--morado);box-shadow:0 8px 20px rgba(75,15,191,.12);margin-bottom:14px}
-.save{width:100%;color:white;background:linear-gradient(135deg,var(--morado),var(--azul));margin-top:6px}
-.danger{width:100%;background:#ffe8ef;color:#c4003f;margin-top:8px}
-input,select,textarea{width:100%;padding:13px;border:1px solid #ddd;border-radius:14px;margin:7px 0 13px;font-size:15px}
+.title{color:var(--morado);font-size:22px}
+.block-title{
+  font-size:15px;
+  font-weight:bold;
+  color:var(--morado);
+  margin:24px 0 14px;
+  text-transform:uppercase;
+}
+input,select,textarea{
+  width:100%;
+  padding:13px;
+  border:1px solid #ddd;
+  border-radius:14px;
+  margin:7px 0 13px;
+  font-size:15px;
+}
 textarea{min-height:90px}
 label{font-size:13px;color:var(--gris);font-weight:bold}
-.title{color:var(--morado);font-size:22px}
-.badge{display:inline-block;background:#e9ddff;color:var(--morado);padding:7px 12px;border-radius:20px;font-size:13px;font-weight:bold;margin-bottom:10px}
-.record{border-left:5px solid var(--morado)}
-.persona{padding:10px 0;border-bottom:1px solid #eee}
+.badge{
+  display:inline-block;
+  background:#e9ddff;
+  color:var(--morado);
+  padding:7px 12px;
+  border-radius:20px;
+  font-size:13px;
+  font-weight:bold;
+  margin-bottom:10px;
+}
+.persona{
+  padding:10px 0;
+  border-bottom:1px solid #eee;
+}
 .persona:last-child{border-bottom:none}
-.small-btn{border:none;background:#eee4ff;color:var(--morado);border-radius:14px;padding:10px 12px;font-weight:bold;margin-top:8px}
-.kpi{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.kpi div{background:#f2ebff;padding:14px;border-radius:16px}
-.kpi strong{font-size:22px;color:var(--morado)}
+.record{border-left:5px solid var(--morado)}
+.kpi{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+}
+.kpi div{
+  background:#f2ebff;
+  padding:14px;
+  border-radius:16px;
+}
+.kpi strong{
+  font-size:22px;
+  color:var(--morado);
+}
 </style>
 </head>
 
@@ -65,12 +158,36 @@ label{font-size:13px;color:var(--gris);font-weight:bold}
 <section id="embajador" class="section">
   <button class="back" onclick="showSection('home')">← Volver</button>
   <h2 class="title">Zona Embajador</h2>
-  <div class="card" onclick="showSection('entrevistas')"><h3>🎤 Entrevistas</h3><p>Registro y seguimiento de entrevistas</p></div>
-  <div class="card" onclick="showSection('planes')"><h3>📋 Planes de Acción</h3><p>Registro y seguimiento de planes</p></div>
-  <div class="card" onclick="showSection('gestionarCurso')"><h3>🎓 Gestionar Capacitación del Mes</h3><p>Curso, KPIs, presentación y participantes</p></div>
-  <div class="card" onclick="showSection('cierreMensual')"><h3>📈 Cierre Mensual</h3><p>Ventas por participante y total mensual por tienda</p></div>
-  <div class="card" onclick="showSection('gestionBase')"><h3>👥 Gestión de Colaboradores y Tiendas</h3><p>Agregar o eliminar colaboradores y tiendas</p></div>
-  <div class="card" onclick="showSection('misRegistros')"><h3>🗂️ Mis Registros</h3><p>Entrevistas, planes y cierres guardados</p></div>
+
+  <div class="card" onclick="showSection('entrevistas')">
+    <h3>🎤 Entrevistas</h3>
+    <p>Registro y seguimiento de entrevistas</p>
+  </div>
+
+  <div class="card" onclick="showSection('planes')">
+    <h3>📋 Planes de Acción</h3>
+    <p>Registro y seguimiento de planes</p>
+  </div>
+
+  <div class="card" onclick="showSection('gestionarCurso')">
+    <h3>🎓 Gestionar Capacitación del Mes</h3>
+    <p>Curso, KPIs, presentación y participantes</p>
+  </div>
+
+  <div class="card" onclick="showSection('cierreMensual')">
+    <h3>📈 Cierre Mensual</h3>
+    <p>Ventas por participante y total mensual por tienda</p>
+  </div>
+
+  <div class="card" onclick="showSection('gestionBase')">
+    <h3>👥 Gestión de Colaboradores y Tiendas</h3>
+    <p>Agregar o eliminar colaboradores y tiendas</p>
+  </div>
+
+  <div class="card" onclick="showSection('misRegistros')">
+    <h3>🗂️ Mis Registros</h3>
+    <p>Entrevistas, planes y cierres guardados</p>
+  </div>
 </section>
 
 <section id="tiendas" class="section">
@@ -82,9 +199,18 @@ label{font-size:13px;color:var(--gris);font-weight:bold}
 <section id="detalleTienda" class="section">
   <button class="back" onclick="showSection('tiendas')">← Volver a tiendas</button>
   <h2 id="detalleNombre" class="title"></h2>
-  <div class="card"><span class="badge">Líder</span><h3 id="detalleLider"></h3></div>
-  <div class="card"><h3>Ejecutivos</h3><div id="detalleEjecutivos"></div></div>
-  <div class="card"><h3>Historial ventas tienda</h3><div id="historialTienda"></div></div>
+  <div class="card">
+    <span class="badge">Líder</span>
+    <h3 id="detalleLider"></h3>
+  </div>
+  <div class="card">
+    <h3>Ejecutivos</h3>
+    <div id="detalleEjecutivos"></div>
+  </div>
+  <div class="card">
+    <h3>Historial ventas tienda</h3>
+    <div id="historialTienda"></div>
+  </div>
 </section>
 
 <section id="capacitacionMes" class="section">
@@ -100,25 +226,32 @@ label{font-size:13px;color:var(--gris);font-weight:bold}
   <div class="card">
     <label>Nombre del curso</label>
     <input id="cursoNombre">
+
     <label>Mes</label>
     <input id="cursoMes">
+
     <label>Presentación / Link material</label>
     <input id="cursoPresentacion" placeholder="Link Drive, PDF o presentación">
+
     <label>Datos KPI</label>
-    <textarea id="cursoKpi" placeholder="Ej: objetivo de ventas, foco comercial, meta del mes"></textarea>
+    <textarea id="cursoKpi" placeholder="Objetivo de ventas, foco comercial o meta del mes"></textarea>
+
     <button class="save" onclick="guardarCurso()">Guardar datos del curso</button>
   </div>
 
   <div class="card">
     <h3>Agregar participante</h3>
+
     <label>Colaborador</label>
     <select id="participanteNombre"></select>
+
     <label>Estado</label>
     <select id="participanteEstado">
       <option>Pendiente</option>
       <option>Capacitado</option>
       <option>Reforzar</option>
     </select>
+
     <button class="save" onclick="agregarParticipanteCurso()">Agregar participante</button>
   </div>
 
@@ -171,8 +304,16 @@ label{font-size:13px;color:var(--gris);font-weight:bold}
 <section id="indicadores" class="section">
   <button class="back" onclick="showSection('home')">← Volver</button>
   <h2 class="title">Indicadores</h2>
-  <div class="card"><h3>Avance Capacitación del Mes</h3><p id="avanceCurso"></p></div>
-  <div class="card"><h3>Ventas registradas</h3><div id="indicadoresVentas"></div></div>
+
+  <div class="card">
+    <h3>Avance Capacitación del Mes</h3>
+    <p id="avanceCurso"></p>
+  </div>
+
+  <div class="card">
+    <h3>Ventas registradas</h3>
+    <div id="indicadoresVentas"></div>
+  </div>
 </section>
 
 <section id="gestionBase" class="section">
@@ -202,21 +343,43 @@ label{font-size:13px;color:var(--gris);font-weight:bold}
     <button class="save" onclick="agregarColaborador()">Agregar colaborador</button>
   </div>
 
-  <div class="card"><h3>Tiendas registradas</h3><div id="gestionTiendas"></div></div>
-  <div class="card"><h3>Colaboradores registrados</h3><div id="gestionColaboradores"></div></div>
+  <div class="card">
+    <h3>Tiendas registradas</h3>
+    <div id="gestionTiendas"></div>
+  </div>
+
+  <div class="card">
+    <h3>Colaboradores registrados</h3>
+    <div id="gestionColaboradores"></div>
+  </div>
 </section>
 
 <section id="entrevistas" class="section">
   <button class="back" onclick="showSection('embajador')">← Volver</button>
   <h2 class="title">Registro de Entrevista</h2>
+
   <div class="card">
-    <label>Fecha</label><input id="entrevistaFecha" type="date">
-    <label>Tienda</label><select id="entrevistaTienda"></select>
-    <label>Persona entrevistada</label><input id="entrevistaPersona">
-    <label>Cargo</label><input id="entrevistaCargo">
-    <label>Fortalezas</label><textarea id="entrevistaFortalezas"></textarea>
-    <label>Oportunidades</label><textarea id="entrevistaOportunidades"></textarea>
-    <label>Compromisos</label><textarea id="entrevistaCompromisos"></textarea>
+    <label>Fecha</label>
+    <input id="entrevistaFecha" type="date">
+
+    <label>Tienda</label>
+    <select id="entrevistaTienda"></select>
+
+    <label>Persona entrevistada</label>
+    <input id="entrevistaPersona">
+
+    <label>Cargo</label>
+    <input id="entrevistaCargo">
+
+    <label>Fortalezas</label>
+    <textarea id="entrevistaFortalezas"></textarea>
+
+    <label>Oportunidades</label>
+    <textarea id="entrevistaOportunidades"></textarea>
+
+    <label>Compromisos</label>
+    <textarea id="entrevistaCompromisos"></textarea>
+
     <button class="save" onclick="guardarEntrevista()">Guardar entrevista</button>
   </div>
 </section>
@@ -224,5 +387,665 @@ label{font-size:13px;color:var(--gris);font-weight:bold}
 <section id="planes" class="section">
   <button class="back" onclick="showSection('embajador')">← Volver</button>
   <h2 class="title">Planes de Acción</h2>
+
   <div class="card">
-    <
+    <label>Tienda</label>
+    <select id="planTienda"></select>
+
+    <label>Acción</label>
+    <textarea id="planAccion"></textarea>
+
+    <label>Responsable</label>
+    <input id="planResponsable">
+
+    <label>Fecha compromiso</label>
+    <input id="planFecha" type="date">
+
+    <label>Estado</label>
+    <select id="planEstado">
+      <option>Pendiente</option>
+      <option>En proceso</option>
+      <option>Completado</option>
+    </select>
+
+    <button class="save" onclick="guardarPlan()">Guardar plan</button>
+  </div>
+</section>
+
+<section id="misRegistros" class="section">
+  <button class="back" onclick="showSection('embajador')">← Volver</button>
+  <h2 class="title">Mis Registros</h2>
+
+  <div class="card">
+    <h3>Entrevistas</h3>
+    <div id="historialEntrevistas"></div>
+  </div>
+
+  <div class="card">
+    <h3>Planes de Acción</h3>
+    <div id="listaPlanes"></div>
+  </div>
+
+  <div class="card">
+    <h3>Cierres Mensuales</h3>
+    <div id="historialCierres"></div>
+  </div>
+</section>
+
+</main>
+
+<script>
+const baseTiendas = [
+  {
+    nombre:"Sucursal Puerto Varas",
+    lider:"Angie Vanessa González Asenjo",
+    ejecutivos:["Yessenia Maribel Riffo Oyarzo","Paulina Andrea Sánchez Rivera","Jaime Sebastián Bustamante Malpu"]
+  },
+  {
+    nombre:"Sucursal Osorno",
+    lider:"Rolando Ignacio Fuentealba Alvarado",
+    ejecutivos:["Daniel Salamanca Silva","Constanza Elizabeth Echeverria Leyton","Yarela del Carmen Runca Hueichan","Nicolás Álvaro Veas Contreras"]
+  },
+  {
+    nombre:"Sucursal Valdivia",
+    lider:"Benllamin Alexander Gallegos Catalán",
+    ejecutivos:["Katherine Helen Sepúlveda Sanchez","Natalia Andrea Poblete Gomez","Paula Andrea Matus Vera","Cristian Mauricio Quilodrán Quilodrán"]
+  },
+  {
+    nombre:"Kiosco Plaza Los Ríos",
+    lider:"Benllamin Alexander Gallegos Catalán",
+    ejecutivos:["Yarela Belén Álvarez Monsalve","Elisa Sophia Levinier Sarabia","Ámbar Ignacia Muñoz Mora"]
+  },
+  {
+    nombre:"Sucursal Villarrica",
+    lider:"Felipe Alfonso Calderón Muñoz",
+    ejecutivos:["Daniela Nicole Cruzat Garrido","Norberto Simón Arriagada Solis","Carlo Ignacio Bernales Navarrete","Yonatan Eduardo Jimenez Saez"]
+  },
+  {
+    nombre:"Sucursal Paseo Costanera",
+    lider:"Por definir",
+    ejecutivos:[]
+  },
+  {
+    nombre:"Sucursal Puerto Montt Centro",
+    lider:"Gisel Danae Bustamante Oyarzo",
+    ejecutivos:["Viviana Soledad Arismendi Contreras","Fernando José Jorquera Infante","Daniela Estefania Gallardo Hernández","Pamela del Pilar Rojas González"]
+  },
+  {
+    nombre:"Sucursal Ancud",
+    lider:"Gabriela Beatriz Valle Barría",
+    ejecutivos:["Javier Alejandro Arismendi Allancán","Manuel Abraham Vasquez Toro","Brandon Germán Ramirez Ortloff"]
+  },
+  {
+    nombre:"Sucursal Castro",
+    lider:"Reannys Nerlibeth Chavez Labastidas",
+    ejecutivos:["Constanza del Carmen Flores Agurto","Jessica Romina Aguila Vidal","Estefany Dominic Subiabre Barrientos","Riter Gerardo Oyarzo Cardenas"]
+  },
+  {
+    nombre:"Kiosco Mall Castro",
+    lider:"Reannys Nerlibeth Chavez Labastidas",
+    ejecutivos:["Beatriz Andrea Dominguez Ruiz","Juan Carlos Albornoz Cardenas","Susana Katherine Acevedo Molina","Gabriela Soledad Oyarzo Diaz"]
+  },
+  {
+    nombre:"Street Temuco",
+    lider:"Max Aleksandr Chutzinski Mansilla",
+    ejecutivos:["María Antonieta Orellana Vasquez","Claudio Enrique Rain Huentemil","Juan Pablo Valdivieso Padilla","Catalina Antonia Alvial Orellana","Karla Alejandra Navarrete Hill","David Alejandro Zambrano Zuñiga","Manuel Alejandro Mella Mella","Nicolás Eduardo Cerda Morales"]
+  },
+  {
+    nombre:"Street Puerto Montt Osorno",
+    lider:"Fabián Andrés Gallardo Gómez",
+    ejecutivos:["Yessenia Alejandra Ojeda Ojeda","Antonia Millaray Eisele San Martín","Felipe Tomas Nahuelpan Cartes","Carlo Gustavo Nuñez Salgado","Aron Benjamín Loy Borquez","Cristina Andrea Billeke Saez"]
+  },
+  {
+    nombre:"Street Chiloé",
+    lider:"Axel Andrés Humberto Rojas Ojeda",
+    ejecutivos:["Julieth Isabel Orozco Herrera","Paulina Isabel Pérez Vargas","Sebastián Alfonso Chacón Villorroel","Johanna Paola Varas Lagos"]
+  }
+];
+
+function getTiendas(){
+  return JSON.parse(localStorage.getItem("tiendas") || JSON.stringify(baseTiendas));
+}
+
+function setTiendas(data){
+  localStorage.setItem("tiendas", JSON.stringify(data));
+}
+
+function getCurso(){
+  return JSON.parse(localStorage.getItem("cursoActivo") || JSON.stringify({
+    nombre:"Planes WOM Segmento Empresa",
+    mes:"Junio",
+    presentacion:"",
+    kpi:"",
+    participantes:[]
+  }));
+}
+
+function setCurso(data){
+  localStorage.setItem("cursoActivo", JSON.stringify(data));
+}
+
+function getCierres(){
+  return JSON.parse(localStorage.getItem("cierresMensuales") || "[]");
+}
+
+function setCierres(data){
+  localStorage.setItem("cierresMensuales", JSON.stringify(data));
+}
+
+function pedirCodigo(){
+  const codigo = prompt("Ingrese código Embajador");
+  if(codigo === "2026"){
+    showSection("embajador");
+  }else if(codigo !== null){
+    alert("Código incorrecto");
+  }
+}
+
+function showSection(id){
+  document.querySelectorAll(".section").forEach(section => {
+    section.classList.remove("active");
+  });
+
+  const pantalla = document.getElementById(id);
+  if(pantalla){
+    pantalla.classList.add("active");
+  }
+
+  window.scrollTo(0,0);
+  safeRefresh();
+}
+
+function safeRefresh(){
+  try{
+    cargarTiendas();
+    cargarSelects();
+    mostrarCurso();
+    mostrarGestion();
+    mostrarRegistros();
+    mostrarBiblioteca();
+    mostrarIndicadores();
+    mostrarResumenCierre();
+  }catch(error){
+    console.log("Error al actualizar:", error);
+  }
+}
+
+function cargarSelects(){
+  const tiendas = getTiendas();
+
+  document.querySelectorAll("select").forEach(select => {
+    if(select.id.toLowerCase().includes("tienda")){
+      select.innerHTML = tiendas.map(t => `<option>${t.nombre}</option>`).join("");
+    }
+  });
+
+  const participanteSelect = document.getElementById("participanteNombre");
+  if(participanteSelect){
+    const colaboradores = [];
+    tiendas.forEach(t => {
+      colaboradores.push({nombre:t.lider, cargo:"Líder", tienda:t.nombre});
+      t.ejecutivos.forEach(e => {
+        colaboradores.push({nombre:e, cargo:"Ejecutivo WOM", tienda:t.nombre});
+      });
+    });
+
+    participanteSelect.innerHTML = colaboradores.map(c =>
+      `<option value="${c.nombre}|${c.cargo}|${c.tienda}">${c.nombre} · ${c.tienda}</option>`
+    ).join("");
+  }
+
+  actualizarParticipantesCierre();
+}
+
+function actualizarParticipantesCierre(){
+  const tiendaSelect = document.getElementById("cierreTienda");
+  const participanteSelect = document.getElementById("cierreParticipante");
+
+  if(!tiendaSelect || !participanteSelect) return;
+
+  const tienda = getTiendas().find(t => t.nombre === tiendaSelect.value);
+  if(!tienda) return;
+
+  const personas = [tienda.lider, ...tienda.ejecutivos];
+  participanteSelect.innerHTML = personas.map(p => `<option>${p}</option>`).join("");
+}
+
+function cargarTiendas(){
+  const contenedor = document.getElementById("listaTiendas");
+  if(!contenedor) return;
+
+  const tiendas = getTiendas();
+
+  contenedor.innerHTML = tiendas.map((t,i) => `
+    <div class="card" onclick="abrirTienda(${i})">
+      <h3>${t.nombre}</h3>
+      <p>${t.ejecutivos.length} ejecutivos · Ver detalle</p>
+    </div>
+  `).join("");
+}
+
+function abrirTienda(index){
+  const tienda = getTiendas()[index];
+
+  document.getElementById("detalleNombre").innerText = tienda.nombre;
+  document.getElementById("detalleLider").innerText = tienda.lider;
+
+  document.getElementById("detalleEjecutivos").innerHTML = tienda.ejecutivos.length
+    ? tienda.ejecutivos.map(e => `
+        <div class="persona">
+          👤 <b>${e}</b><br>
+          <small>Ejecutivo WOM</small>
+        </div>
+      `).join("")
+    : "<p>No hay ejecutivos cargados.</p>";
+
+  const cierres = getCierres().filter(c => c.tienda === tienda.nombre).slice(0,6);
+
+  document.getElementById("historialTienda").innerHTML = cierres.length
+    ? cierres.map(c => `
+        <div class="persona">
+          <b>${c.mes}</b><br>
+          Total tienda: ${c.ventasTienda} ventas<br>
+          ${c.participante}: ${c.ventasParticipante} ventas
+        </div>
+      `).join("")
+    : "<p>No hay cierres registrados.</p>";
+
+  showSection("detalleTienda");
+}
+
+function mostrarCurso(){
+  const vista = document.getElementById("cursoActivoVista");
+  const gestion = document.getElementById("gestionParticipantes");
+  const avance = document.getElementById("avanceCurso");
+
+  const curso = getCurso();
+
+  const nombreInput = document.getElementById("cursoNombre");
+  const mesInput = document.getElementById("cursoMes");
+  const presentacionInput = document.getElementById("cursoPresentacion");
+  const kpiInput = document.getElementById("cursoKpi");
+
+  if(nombreInput) nombreInput.value = curso.nombre;
+  if(mesInput) mesInput.value = curso.mes;
+  if(presentacionInput) presentacionInput.value = curso.presentacion;
+  if(kpiInput) kpiInput.value = curso.kpi;
+
+  const participantesHTML = curso.participantes.length
+    ? curso.participantes.map(p => `
+        <div class="persona">
+          <b>${p.nombre}</b><br>
+          <small>${p.cargo} · ${p.tienda}</small><br>
+          <small>Estado: ${p.estado}</small><br>
+          <small>${historialPersona(p.nombre)}</small>
+        </div>
+      `).join("")
+    : "<p>No hay participantes cargados.</p>";
+
+  if(vista){
+    vista.innerHTML = `
+      <div class="card">
+        <span class="badge">Curso activo</span>
+        <h3>${curso.nombre}</h3>
+        <p><b>Mes:</b> ${curso.mes}</p>
+        <p><b>Presentación:</b> ${
+          curso.presentacion
+          ? `<a href="${curso.presentacion}" target="_blank">Abrir material</a>`
+          : "Sin presentación cargada"
+        }</p>
+        <p><b>KPI:</b><br>${curso.kpi || "Sin datos KPI"}</p>
+        <h3>Participantes</h3>
+        ${participantesHTML}
+      </div>
+    `;
+  }
+
+  const total = curso.participantes.length;
+  const capacitados = curso.participantes.filter(p => p.estado === "Capacitado").length;
+
+  if(avance){
+    avance.innerText = total
+      ? `${capacitados} de ${total} participantes capacitados (${Math.round(capacitados / total * 100)}%)`
+      : "Sin participantes cargados.";
+  }
+
+  if(gestion){
+    gestion.innerHTML = curso.participantes.length
+      ? curso.participantes.map((p,i) => `
+          <div class="card">
+            <h3>${p.nombre}</h3>
+            <p>${p.cargo} · ${p.tienda}</p>
+
+            <label>Estado</label>
+            <select onchange="cambiarEstadoParticipante(${i}, this.value)">
+              <option ${p.estado === "Pendiente" ? "selected" : ""}>Pendiente</option>
+              <option ${p.estado === "Capacitado" ? "selected" : ""}>Capacitado</option>
+              <option ${p.estado === "Reforzar" ? "selected" : ""}>Reforzar</option>
+            </select>
+
+            <button class="danger" onclick="eliminarParticipante(${i})">Eliminar participante</button>
+          </div>
+        `).join("")
+      : "<p>No hay participantes.</p>";
+  }
+}
+
+function historialPersona(nombre){
+  const registros = getCierres().filter(c => c.participante === nombre).slice(0,6);
+  if(!registros.length) return "Sin historial de ventas";
+  return "Últimos registros: " + registros.map(r => `${r.mes}: ${r.ventasParticipante}`).join(" · ");
+}
+
+function guardarCurso(){
+  const curso = getCurso();
+
+  curso.nombre = document.getElementById("cursoNombre").value;
+  curso.mes = document.getElementById("cursoMes").value;
+  curso.presentacion = document.getElementById("cursoPresentacion").value;
+  curso.kpi = document.getElementById("cursoKpi").value;
+
+  setCurso(curso);
+  safeRefresh();
+  alert("Curso actualizado");
+}
+
+function agregarParticipanteCurso(){
+  const select = document.getElementById("participanteNombre");
+  const estado = document.getElementById("participanteEstado").value;
+
+  if(!select.value) return;
+
+  const [nombre, cargo, tienda] = select.value.split("|");
+  const curso = getCurso();
+
+  curso.participantes.push({nombre, cargo, tienda, estado});
+  setCurso(curso);
+
+  safeRefresh();
+}
+
+function cambiarEstadoParticipante(index, estado){
+  const curso = getCurso();
+  curso.participantes[index].estado = estado;
+  setCurso(curso);
+  safeRefresh();
+}
+
+function eliminarParticipante(index){
+  const curso = getCurso();
+  curso.participantes.splice(index,1);
+  setCurso(curso);
+  safeRefresh();
+}
+
+function guardarCierreMensual(){
+  const cierres = getCierres();
+
+  cierres.unshift({
+    mes: document.getElementById("cierreMes").value,
+    tienda: document.getElementById("cierreTienda").value,
+    participante: document.getElementById("cierreParticipante").value,
+    ventasParticipante: Number(document.getElementById("ventasParticipante").value || 0),
+    ventasTienda: Number(document.getElementById("ventasTienda").value || 0),
+    obs: document.getElementById("cierreObs").value
+  });
+
+  setCierres(cierres);
+  safeRefresh();
+  alert("Cierre mensual guardado");
+}
+
+function mostrarResumenCierre(){
+  const contenedor = document.getElementById("resumenCierre");
+  if(!contenedor) return;
+
+  const cierres = getCierres();
+
+  if(!cierres.length){
+    contenedor.innerHTML = "<p>No hay cierres registrados.</p>";
+    return;
+  }
+
+  const mes = cierres[0].mes;
+  const registrosMes = cierres.filter(c => c.mes === mes);
+  const ventasPorTienda = {};
+
+  registrosMes.forEach(r => {
+    ventasPorTienda[r.tienda] = r.ventasTienda;
+  });
+
+  const totalTiendas = Object.values(ventasPorTienda).reduce((a,b) => a + b, 0);
+
+  contenedor.innerHTML = `
+    <p><b>Mes:</b> ${mes}</p>
+    <p><b>Ventas totales tiendas:</b> ${totalTiendas}</p>
+    <p><b>Registros individuales:</b> ${registrosMes.length}</p>
+  `;
+}
+
+function mostrarIndicadores(){
+  const contenedor = document.getElementById("indicadoresVentas");
+  if(!contenedor) return;
+
+  const cierres = getCierres();
+
+  if(!cierres.length){
+    contenedor.innerHTML = "<p>No hay ventas registradas.</p>";
+    return;
+  }
+
+  const mes = cierres[0].mes;
+  const registrosMes = cierres.filter(c => c.mes === mes);
+  const ventasPorTienda = {};
+
+  registrosMes.forEach(r => {
+    ventasPorTienda[r.tienda] = r.ventasTienda;
+  });
+
+  const totalTiendas = Object.values(ventasPorTienda).reduce((a,b) => a + b, 0);
+
+  contenedor.innerHTML = `
+    <div class="kpi">
+      <div><strong>${totalTiendas}</strong><br>Ventas tiendas</div>
+      <div><strong>${registrosMes.length}</strong><br>Registros</div>
+    </div>
+  `;
+}
+
+function guardarCursoEnBiblioteca(){
+  const biblioteca = JSON.parse(localStorage.getItem("bibliotecaCursos") || "[]");
+
+  biblioteca.unshift({
+    ...getCurso(),
+    fecha: new Date().toLocaleDateString()
+  });
+
+  localStorage.setItem("bibliotecaCursos", JSON.stringify(biblioteca));
+  safeRefresh();
+  alert("Capacitación guardada en biblioteca");
+}
+
+function mostrarBiblioteca(){
+  const contenedor = document.getElementById("bibliotecaCursos");
+  if(!contenedor) return;
+
+  const biblioteca = JSON.parse(localStorage.getItem("bibliotecaCursos") || "[]");
+
+  contenedor.innerHTML = biblioteca.length
+    ? biblioteca.map(c => `
+        <div class="card">
+          <h3>${c.nombre}</h3>
+          <p>${c.mes} · ${c.fecha}</p>
+          <p>${c.participantes.length} participantes</p>
+          <p>${c.kpi || ""}</p>
+        </div>
+      `).join("")
+    : "<div class='card'><p>No hay capacitaciones guardadas.</p></div>";
+}
+
+function mostrarGestion(){
+  const tiendas = getTiendas();
+
+  const gestionTiendas = document.getElementById("gestionTiendas");
+  const gestionColaboradores = document.getElementById("gestionColaboradores");
+
+  if(gestionTiendas){
+    gestionTiendas.innerHTML = tiendas.map((t,i) => `
+      <div class="card">
+        <h3>${t.nombre}</h3>
+        <p>Líder: ${t.lider}</p>
+        <button class="danger" onclick="eliminarTienda(${i})">Eliminar tienda</button>
+      </div>
+    `).join("");
+  }
+
+  if(gestionColaboradores){
+    gestionColaboradores.innerHTML = tiendas.map((t,i) => `
+      <div class="card">
+        <h3>${t.nombre}</h3>
+        <p><b>Líder:</b> ${t.lider}</p>
+        ${t.ejecutivos.map((e,j) => `
+          <div class="persona">
+            ${e}
+            <button class="small-btn" onclick="eliminarColaborador(${i},${j})">Eliminar</button>
+          </div>
+        `).join("")}
+      </div>
+    `).join("");
+  }
+}
+
+function agregarTienda(){
+  const nombre = document.getElementById("nuevaTiendaNombre").value;
+  const lider = document.getElementById("nuevaTiendaLider").value || "Por definir";
+
+  if(!nombre) return alert("Ingresa el nombre de la tienda");
+
+  const tiendas = getTiendas();
+  tiendas.push({nombre,lider,ejecutivos:[]});
+  setTiendas(tiendas);
+
+  safeRefresh();
+}
+
+function eliminarTienda(index){
+  const tiendas = getTiendas();
+  tiendas.splice(index,1);
+  setTiendas(tiendas);
+  safeRefresh();
+}
+
+function agregarColaborador(){
+  const nombre = document.getElementById("nuevoColaboradorNombre").value;
+  const cargo = document.getElementById("nuevoColaboradorCargo").value;
+  const tiendaNombre = document.getElementById("nuevoColaboradorTienda").value;
+
+  if(!nombre) return alert("Ingresa el nombre del colaborador");
+
+  const tiendas = getTiendas();
+  const tienda = tiendas.find(t => t.nombre === tiendaNombre);
+
+  if(!tienda) return;
+
+  if(cargo === "Líder"){
+    tienda.lider = nombre;
+  }else{
+    tienda.ejecutivos.push(nombre);
+  }
+
+  setTiendas(tiendas);
+  safeRefresh();
+}
+
+function eliminarColaborador(tiendaIndex, colaboradorIndex){
+  const tiendas = getTiendas();
+  tiendas[tiendaIndex].ejecutivos.splice(colaboradorIndex,1);
+  setTiendas(tiendas);
+  safeRefresh();
+}
+
+function guardarEntrevista(){
+  const entrevistas = JSON.parse(localStorage.getItem("entrevistas") || "[]");
+
+  entrevistas.unshift({
+    fecha: document.getElementById("entrevistaFecha").value,
+    tienda: document.getElementById("entrevistaTienda").value,
+    persona: document.getElementById("entrevistaPersona").value,
+    cargo: document.getElementById("entrevistaCargo").value,
+    compromisos: document.getElementById("entrevistaCompromisos").value
+  });
+
+  localStorage.setItem("entrevistas", JSON.stringify(entrevistas));
+  safeRefresh();
+  alert("Entrevista guardada");
+}
+
+function guardarPlan(){
+  const planes = JSON.parse(localStorage.getItem("planes") || "[]");
+
+  planes.unshift({
+    tienda: document.getElementById("planTienda").value,
+    accion: document.getElementById("planAccion").value,
+    responsable: document.getElementById("planResponsable").value,
+    fecha: document.getElementById("planFecha").value,
+    estado: document.getElementById("planEstado").value
+  });
+
+  localStorage.setItem("planes", JSON.stringify(planes));
+  safeRefresh();
+  alert("Plan guardado");
+}
+
+function mostrarRegistros(){
+  const historialEntrevistas = document.getElementById("historialEntrevistas");
+  const listaPlanes = document.getElementById("listaPlanes");
+  const historialCierres = document.getElementById("historialCierres");
+
+  const entrevistas = JSON.parse(localStorage.getItem("entrevistas") || "[]");
+  const planes = JSON.parse(localStorage.getItem("planes") || "[]");
+  const cierres = getCierres();
+
+  if(historialEntrevistas){
+    historialEntrevistas.innerHTML = entrevistas.length
+      ? entrevistas.map(e => `
+          <div class="card record">
+            <h3>${e.persona || "Sin nombre"}</h3>
+            <p>${e.fecha} · ${e.tienda}</p>
+            <p>${e.cargo}</p>
+          </div>
+        `).join("")
+      : "<p>No hay entrevistas.</p>";
+  }
+
+  if(listaPlanes){
+    listaPlanes.innerHTML = planes.length
+      ? planes.map(p => `
+          <div class="card record">
+            <h3>${p.tienda}</h3>
+            <p>${p.accion}</p>
+            <p>${p.estado}</p>
+          </div>
+        `).join("")
+      : "<p>No hay planes.</p>";
+  }
+
+  if(historialCierres){
+    historialCierres.innerHTML = cierres.length
+      ? cierres.slice(0,20).map(c => `
+          <div class="card record">
+            <h3>${c.participante}</h3>
+            <p>${c.mes} · ${c.tienda}</p>
+            <p>Ventas participante: ${c.ventasParticipante}</p>
+            <p>Total tienda: ${c.ventasTienda}</p>
+          </div>
+        `).join("")
+      : "<p>No hay cierres.</p>";
+  }
+}
+
+safeRefresh();
+</script>
+
+</body>
+</html>
