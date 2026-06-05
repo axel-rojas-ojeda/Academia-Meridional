@@ -8,7 +8,6 @@
 <style>
 :root{
   --morado:#4b0fbf;
-  --morado2:#26045f;
   --azul:#1e5eff;
   --fondo:#f7f3ff;
   --texto:#171127;
@@ -16,10 +15,7 @@
   --blanco:#ffffff;
 }
 
-*{
-  box-sizing:border-box;
-  font-family:Arial, sans-serif;
-}
+*{box-sizing:border-box;font-family:Arial,sans-serif;}
 
 body{
   margin:0;
@@ -30,21 +26,31 @@ body{
 header{
   background:linear-gradient(135deg,var(--morado),var(--azul));
   color:white;
-  padding:30px 18px 34px;
+  padding:26px 18px 30px;
   text-align:center;
   border-radius:0 0 34px 34px;
 }
 
 header h1{
   margin:0;
-  font-size:34px;
-  line-height:1.1;
+  font-size:32px;
   text-transform:uppercase;
 }
 
 header p{
-  margin:10px 0 0;
+  margin:8px 0 18px;
   font-size:15px;
+}
+
+.embajador-btn{
+  background:white;
+  color:var(--morado);
+  border:none;
+  border-radius:18px;
+  padding:14px 22px;
+  font-size:17px;
+  font-weight:bold;
+  box-shadow:0 8px 20px rgba(0,0,0,.18);
 }
 
 main{
@@ -53,13 +59,8 @@ main{
   margin:auto;
 }
 
-.section{
-  display:none;
-}
-
-.section.active{
-  display:block;
-}
+.section{display:none;}
+.section.active{display:block;}
 
 .block-title{
   font-size:15px;
@@ -76,34 +77,46 @@ main{
 }
 
 .menu button{
-  min-height:92px;
+  min-height:100px;
   border:none;
   border-radius:22px;
   background:white;
   color:var(--morado);
-  font-size:17px;
+  font-size:18px;
   font-weight:bold;
   box-shadow:0 10px 25px rgba(75,15,191,.12);
 }
 
 .menu span{
   display:block;
-  font-size:26px;
+  font-size:28px;
   margin-bottom:6px;
 }
 
-.personal-box{
-  border:1.5px solid var(--morado);
-  border-radius:22px;
-  padding:14px;
-  background:rgba(255,255,255,.55);
+.card{
+  background:white;
+  border-radius:18px;
+  padding:16px;
+  margin-bottom:12px;
+  box-shadow:0 8px 20px rgba(75,15,191,.10);
+}
+
+.card h3{
+  margin:0;
+  color:var(--morado);
+}
+
+.card p{
+  margin:7px 0 0;
+  color:var(--gris);
+  font-size:14px;
 }
 
 .personal-card{
   background:white;
   border-radius:18px;
   padding:16px;
-  margin-bottom:10px;
+  margin-bottom:12px;
   box-shadow:0 8px 20px rgba(75,15,191,.10);
   display:flex;
   align-items:center;
@@ -111,18 +124,9 @@ main{
   gap:12px;
 }
 
-.personal-card:last-child{
-  margin-bottom:0;
-}
-
-.personal-card div{
-  flex:1;
-}
-
 .personal-card h3{
   margin:0;
   font-size:17px;
-  color:var(--texto);
 }
 
 .personal-card p{
@@ -147,27 +151,7 @@ main{
   font-weight:bold;
 }
 
-.card{
-  background:white;
-  border-radius:18px;
-  padding:16px;
-  margin-bottom:12px;
-  box-shadow:0 8px 20px rgba(75,15,191,.10);
-}
-
-.card h3{
-  margin:0;
-  color:var(--morado);
-}
-
-.card p{
-  margin:7px 0 0;
-  color:var(--gris);
-  font-size:14px;
-}
-
-.back,
-.save{
+.back,.save{
   border:none;
   border-radius:18px;
   padding:14px;
@@ -186,7 +170,7 @@ main{
   margin-top:8px;
 }
 
-input, select, textarea{
+input,select,textarea{
   width:100%;
   padding:13px;
   border:1px solid #ddd;
@@ -195,9 +179,7 @@ input, select, textarea{
   font-size:15px;
 }
 
-textarea{
-  min-height:90px;
-}
+textarea{min-height:90px;}
 
 label{
   font-size:13px;
@@ -222,12 +204,12 @@ label{
 <header>
   <h1>Academia<br>Meridional</h1>
   <p>Transformando conocimiento en resultados</p>
+  <button class="embajador-btn" onclick="accesoEmbajador()">🔐 Embajador</button>
 </header>
 
 <main>
 
 <section id="home" class="section active">
-
   <div class="block-title">Navegación general</div>
 
   <div class="menu">
@@ -236,56 +218,56 @@ label{
     <button onclick="showSection('biblioteca')"><span>📚</span>Biblioteca</button>
     <button onclick="showSection('indicadores')"><span>📊</span>Indicadores</button>
   </div>
+</section>
 
-  <div class="block-title">Uso exclusivo personal</div>
+<section id="embajador" class="section">
+  <button class="back" onclick="showSection('home')">← Volver</button>
+  <h2 class="title">Panel Embajador</h2>
 
-  <div class="personal-box">
-    <div class="personal-card" onclick="showSection('entrevistas')">
-      <span class="icon">🎤</span>
-      <div>
-        <h3>Entrevistas</h3>
-        <p>Registro y seguimiento de entrevistas realizadas</p>
-      </div>
-      <span class="arrow">›</span>
+  <div class="personal-card" onclick="showSection('entrevistas')">
+    <span class="icon">🎤</span>
+    <div>
+      <h3>Entrevistas</h3>
+      <p>Registro y seguimiento de entrevistas realizadas</p>
     </div>
-
-    <div class="personal-card" onclick="showSection('planes')">
-      <span class="icon">📋</span>
-      <div>
-        <h3>Planes de Acción</h3>
-        <p>Registro y seguimiento de planes de acción</p>
-      </div>
-      <span class="arrow">›</span>
-    </div>
-
-    <div class="personal-card" onclick="showSection('capacitaciones')">
-      <span class="icon">🎓</span>
-      <div>
-        <h3>Capacitaciones</h3>
-        <p>Registro y seguimiento de capacitaciones</p>
-      </div>
-      <span class="arrow">›</span>
-    </div>
-
-    <div class="personal-card" onclick="showSection('registroNuevos')">
-      <span class="icon">➕</span>
-      <div>
-        <h3>Registro de Colaboradores Nuevos</h3>
-        <p>Registro de nuevos colaboradores</p>
-      </div>
-      <span class="arrow">›</span>
-    </div>
-
-    <div class="personal-card" onclick="showSection('misRegistros')">
-      <span class="icon">🗂️</span>
-      <div>
-        <h3>Mis Registros</h3>
-        <p>Acceso rápido a todos tus registros</p>
-      </div>
-      <span class="arrow">›</span>
-    </div>
+    <span class="arrow">›</span>
   </div>
 
+  <div class="personal-card" onclick="showSection('planes')">
+    <span class="icon">📋</span>
+    <div>
+      <h3>Planes de Acción</h3>
+      <p>Registro y seguimiento de planes de acción</p>
+    </div>
+    <span class="arrow">›</span>
+  </div>
+
+  <div class="personal-card" onclick="showSection('capacitaciones')">
+    <span class="icon">🎓</span>
+    <div>
+      <h3>Capacitaciones</h3>
+      <p>Registro y seguimiento de capacitaciones</p>
+    </div>
+    <span class="arrow">›</span>
+  </div>
+
+  <div class="personal-card" onclick="showSection('registroNuevos')">
+    <span class="icon">➕</span>
+    <div>
+      <h3>Registro de Colaboradores Nuevos</h3>
+      <p>Registro de nuevos colaboradores</p>
+    </div>
+    <span class="arrow">›</span>
+  </div>
+
+  <div class="personal-card" onclick="showSection('misRegistros')">
+    <span class="icon">🗂️</span>
+    <div>
+      <h3>Mis Registros</h3>
+      <p>Acceso rápido a todos tus registros</p>
+    </div>
+    <span class="arrow">›</span>
+  </div>
 </section>
 
 <section id="tiendas" class="section">
@@ -351,7 +333,7 @@ label{
 </section>
 
 <section id="entrevistas" class="section">
-  <button class="back" onclick="showSection('home')">← Volver</button>
+  <button class="back" onclick="showSection('embajador')">← Volver</button>
   <h2 class="title">Registro de Entrevista</h2>
 
   <div class="card">
@@ -384,7 +366,7 @@ label{
 </section>
 
 <section id="planes" class="section">
-  <button class="back" onclick="showSection('home')">← Volver</button>
+  <button class="back" onclick="showSection('embajador')">← Volver</button>
   <h2 class="title">Planes de Acción</h2>
 
   <div class="card">
@@ -412,7 +394,7 @@ label{
 </section>
 
 <section id="capacitaciones" class="section">
-  <button class="back" onclick="showSection('home')">← Volver</button>
+  <button class="back" onclick="showSection('embajador')">← Volver</button>
   <h2 class="title">Registro de Capacitación</h2>
 
   <div class="card">
@@ -446,7 +428,7 @@ label{
 </section>
 
 <section id="registroNuevos" class="section">
-  <button class="back" onclick="showSection('home')">← Volver</button>
+  <button class="back" onclick="showSection('embajador')">← Volver</button>
   <h2 class="title">Registro de Colaborador Nuevo</h2>
 
   <div class="card">
@@ -471,7 +453,7 @@ label{
 </section>
 
 <section id="misRegistros" class="section">
-  <button class="back" onclick="showSection('home')">← Volver</button>
+  <button class="back" onclick="showSection('embajador')">← Volver</button>
   <h2 class="title">Mis Registros</h2>
 
   <div class="card">
@@ -493,6 +475,8 @@ label{
 </main>
 
 <script>
+const CODIGO_EMBAJADOR = "2026";
+
 const tiendas = [
   "Sucursal Valdivia",
   "Kiosco Plaza Los Ríos",
@@ -509,6 +493,15 @@ const tiendas = [
   "Street Puerto Montt",
   "Street Chiloé"
 ];
+
+function accesoEmbajador(){
+  const codigo = prompt("Ingresa el código de acceso");
+  if(codigo === CODIGO_EMBAJADOR){
+    showSection("embajador");
+  }else{
+    alert("Código incorrecto");
+  }
+}
 
 function showSection(id){
   document.querySelectorAll(".section").forEach(s => s.classList.remove("active"));
