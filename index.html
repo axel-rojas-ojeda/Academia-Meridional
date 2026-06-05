@@ -12,190 +12,52 @@
   --fondo:#f7f3ff;
   --texto:#171127;
   --gris:#6d6790;
-  --blanco:#ffffff;
 }
-
-*{box-sizing:border-box;font-family:Arial,sans-serif;}
-
-body{
-  margin:0;
-  background:var(--fondo);
-  color:var(--texto);
-}
-
+*{box-sizing:border-box;font-family:Arial,sans-serif}
+body{margin:0;background:var(--fondo);color:var(--texto)}
 header{
   background:linear-gradient(135deg,var(--morado),var(--azul));
-  color:white;
-  padding:26px 18px 30px;
-  text-align:center;
+  color:white;padding:34px 18px 42px;text-align:center;
   border-radius:0 0 34px 34px;
 }
-
-header h1{
-  margin:0;
-  font-size:32px;
-  text-transform:uppercase;
-}
-
-header p{
-  margin:8px 0 18px;
-  font-size:15px;
-}
-
+header h1{margin:0;font-size:34px;line-height:1.1;text-transform:uppercase}
+header p{margin:10px 0 20px;font-size:15px}
 .embajador-btn{
-  background:white;
-  color:var(--morado);
-  border:none;
-  border-radius:18px;
-  padding:14px 22px;
-  font-size:17px;
-  font-weight:bold;
-  box-shadow:0 8px 20px rgba(0,0,0,.18);
+  background:white;color:var(--morado);border:none;border-radius:20px;
+  padding:15px 28px;font-size:18px;font-weight:bold;
 }
-
-main{
-  padding:18px;
-  max-width:520px;
-  margin:auto;
-}
-
-.section{display:none;}
-.section.active{display:block;}
-
-.block-title{
-  font-size:15px;
-  font-weight:bold;
-  color:var(--morado);
-  margin:22px 0 12px;
-  text-transform:uppercase;
-}
-
-.menu{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:13px;
-}
-
+main{padding:20px;max-width:520px;margin:auto}
+.section{display:none}.section.active{display:block}
+.block-title{font-size:15px;font-weight:bold;color:var(--morado);margin:24px 0 14px;text-transform:uppercase}
+.menu{display:grid;grid-template-columns:1fr 1fr;gap:14px}
 .menu button{
-  min-height:100px;
-  border:none;
-  border-radius:22px;
-  background:white;
-  color:var(--morado);
-  font-size:18px;
-  font-weight:bold;
-  box-shadow:0 10px 25px rgba(75,15,191,.12);
+  min-height:120px;border:none;border-radius:24px;background:white;color:var(--morado);
+  font-size:19px;font-weight:bold;box-shadow:0 10px 25px rgba(75,15,191,.12);
 }
-
-.menu span{
-  display:block;
-  font-size:28px;
-  margin-bottom:6px;
-}
-
+.menu span{display:block;font-size:34px;margin-bottom:8px}
 .card{
-  background:white;
-  border-radius:18px;
-  padding:16px;
-  margin-bottom:12px;
+  background:white;border-radius:20px;padding:18px;margin-bottom:14px;
   box-shadow:0 8px 20px rgba(75,15,191,.10);
 }
-
-.card h3{
-  margin:0;
-  color:var(--morado);
-}
-
-.card p{
-  margin:7px 0 0;
-  color:var(--gris);
-  font-size:14px;
-}
-
-.personal-card{
-  background:white;
-  border-radius:18px;
-  padding:16px;
-  margin-bottom:12px;
-  box-shadow:0 8px 20px rgba(75,15,191,.10);
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:12px;
-}
-
-.personal-card h3{
-  margin:0;
-  font-size:17px;
-}
-
-.personal-card p{
-  margin:5px 0 0;
-  color:var(--gris);
-  font-size:13px;
-}
-
-.icon{
-  width:44px;
-  height:44px;
-  border-radius:50%;
-  background:#f0e8ff;
-  display:grid;
-  place-items:center;
-  font-size:23px;
-}
-
-.arrow{
-  color:var(--morado);
-  font-size:24px;
-  font-weight:bold;
-}
-
+.card h3{margin:0;color:var(--morado);font-size:20px}
+.card p{color:var(--gris);font-size:14px}
 .back,.save{
-  border:none;
-  border-radius:18px;
-  padding:14px;
-  font-size:15px;
-  font-weight:bold;
-  background:white;
-  color:var(--morado);
-  box-shadow:0 8px 20px rgba(75,15,191,.12);
-  margin-bottom:14px;
+  border:none;border-radius:18px;padding:14px;font-weight:bold;background:white;color:var(--morado);
+  box-shadow:0 8px 20px rgba(75,15,191,.12);margin-bottom:14px;
 }
-
-.save{
-  width:100%;
-  color:white;
-  background:linear-gradient(135deg,var(--morado),var(--azul));
-  margin-top:8px;
-}
-
+.save{width:100%;color:white;background:linear-gradient(135deg,var(--morado),var(--azul))}
 input,select,textarea{
-  width:100%;
-  padding:13px;
-  border:1px solid #ddd;
-  border-radius:14px;
-  margin:7px 0 13px;
-  font-size:15px;
+  width:100%;padding:13px;border:1px solid #ddd;border-radius:14px;margin:7px 0 13px;font-size:15px;
 }
-
-textarea{min-height:90px;}
-
-label{
-  font-size:13px;
-  color:var(--gris);
-  font-weight:bold;
-}
-
-.title{
-  color:var(--morado);
-  font-size:22px;
-  margin:8px 0 14px;
-}
-
-.record{
-  border-left:5px solid var(--morado);
-}
+textarea{min-height:90px}
+label{font-size:13px;color:var(--gris);font-weight:bold}
+.title{color:var(--morado);font-size:22px}
+.badge{display:inline-block;background:#e9ddff;color:var(--morado);padding:7px 12px;border-radius:20px;font-size:13px;font-weight:bold;margin-bottom:10px}
+.personal-card{background:white;border-radius:18px;padding:16px;margin-bottom:12px;box-shadow:0 8px 20px rgba(75,15,191,.10)}
+.record{border-left:5px solid var(--morado)}
+.persona{padding:10px 0;border-bottom:1px solid #eee}
+.persona:last-child{border-bottom:none}
+.persona b{color:var(--texto)}
 </style>
 </head>
 
@@ -204,17 +66,16 @@ label{
 <header>
   <h1>Academia<br>Meridional</h1>
   <p>Transformando conocimiento en resultados</p>
-  <button class="embajador-btn" onclick="accesoEmbajador()">🔐 Embajador</button>
+  <button class="embajador-btn" onclick="pedirCodigo()">🔐 Embajador</button>
 </header>
 
 <main>
 
 <section id="home" class="section active">
   <div class="block-title">Navegación general</div>
-
   <div class="menu">
     <button onclick="showSection('tiendas')"><span>🏪</span>Tiendas</button>
-    <button onclick="showSection('colaboradores')"><span>👥</span>Colaboradores</button>
+    <button onclick="showSection('capacitacionMes')"><span>🎓</span>Capacitación<br>del Mes</button>
     <button onclick="showSection('biblioteca')"><span>📚</span>Biblioteca</button>
     <button onclick="showSection('indicadores')"><span>📊</span>Indicadores</button>
   </div>
@@ -222,51 +83,31 @@ label{
 
 <section id="embajador" class="section">
   <button class="back" onclick="showSection('home')">← Volver</button>
-  <h2 class="title">Panel Embajador</h2>
+  <h2 class="title">Zona Embajador</h2>
 
   <div class="personal-card" onclick="showSection('entrevistas')">
-    <span class="icon">🎤</span>
-    <div>
-      <h3>Entrevistas</h3>
-      <p>Registro y seguimiento de entrevistas realizadas</p>
-    </div>
-    <span class="arrow">›</span>
+    <h3>🎤 Entrevistas</h3>
+    <p>Registro y seguimiento de entrevistas realizadas</p>
   </div>
 
   <div class="personal-card" onclick="showSection('planes')">
-    <span class="icon">📋</span>
-    <div>
-      <h3>Planes de Acción</h3>
-      <p>Registro y seguimiento de planes de acción</p>
-    </div>
-    <span class="arrow">›</span>
+    <h3>📋 Planes de Acción</h3>
+    <p>Registro y seguimiento de planes de acción</p>
   </div>
 
   <div class="personal-card" onclick="showSection('capacitaciones')">
-    <span class="icon">🎓</span>
-    <div>
-      <h3>Capacitaciones</h3>
-      <p>Registro y seguimiento de capacitaciones</p>
-    </div>
-    <span class="arrow">›</span>
+    <h3>🎓 Capacitaciones</h3>
+    <p>Registro y seguimiento de capacitaciones</p>
   </div>
 
   <div class="personal-card" onclick="showSection('registroNuevos')">
-    <span class="icon">➕</span>
-    <div>
-      <h3>Registro de Colaboradores Nuevos</h3>
-      <p>Registro de nuevos colaboradores</p>
-    </div>
-    <span class="arrow">›</span>
+    <h3>➕ Registro de Colaboradores Nuevos</h3>
+    <p>Registro de nuevos colaboradores</p>
   </div>
 
   <div class="personal-card" onclick="showSection('misRegistros')">
-    <span class="icon">🗂️</span>
-    <div>
-      <h3>Mis Registros</h3>
-      <p>Acceso rápido a todos tus registros</p>
-    </div>
-    <span class="arrow">›</span>
+    <h3>🗂️ Mis Registros</h3>
+    <p>Acceso rápido a todos tus registros</p>
   </div>
 </section>
 
@@ -278,23 +119,35 @@ label{
 
 <section id="detalleTienda" class="section">
   <button class="back" onclick="showSection('tiendas')">← Volver a tiendas</button>
-  <h2 id="nombreTienda" class="title"></h2>
+  <h2 id="detalleNombre" class="title"></h2>
 
   <div class="card">
-    <h3>Líder</h3>
-    <p id="liderTienda">Por definir</p>
+    <span class="badge">Líder</span>
+    <h3 id="detalleLider"></h3>
   </div>
 
   <div class="card">
     <h3>Ejecutivos</h3>
-    <div id="ejecutivosTienda"></div>
+    <div id="detalleEjecutivos"></div>
   </div>
 </section>
 
-<section id="colaboradores" class="section">
+<section id="capacitacionMes" class="section">
   <button class="back" onclick="showSection('home')">← Volver</button>
-  <h2 class="title">Colaboradores</h2>
-  <div id="listaColaboradores"></div>
+  <h2 class="title">Capacitación del Mes</h2>
+
+  <div class="card">
+    <span class="badge">Curso activo</span>
+    <h3>Planes WOM Segmento Empresa</h3>
+    <p>Capacitación enfocada en la comercialización de planes empresa WOM.</p>
+    <p><b>Estado:</b> Activa</p>
+    <p><b>Mes:</b> Junio</p>
+  </div>
+
+  <div class="card">
+    <h3>Participantes</h3>
+    <div id="participantesCurso"></div>
+  </div>
 </section>
 
 <section id="biblioteca" class="section">
@@ -327,8 +180,8 @@ label{
   </div>
 
   <div class="card">
-    <h3>Planes WOM Segmento Empresa</h3>
-    <p>Medición del avance de la capacitación mensual.</p>
+    <h3>Avance Capacitación del Mes</h3>
+    <p>Participantes capacitados en Planes WOM Segmento Empresa.</p>
   </div>
 </section>
 
@@ -339,28 +192,18 @@ label{
   <div class="card">
     <label>Fecha</label>
     <input id="entrevistaFecha" type="date">
-
     <label>Tienda</label>
     <select id="entrevistaTienda"></select>
-
     <label>Persona entrevistada</label>
     <input id="entrevistaPersona" placeholder="Nombre">
-
     <label>Cargo</label>
     <input id="entrevistaCargo" placeholder="Líder / Ejecutivo">
-
     <label>Fortalezas detectadas</label>
     <textarea id="entrevistaFortalezas"></textarea>
-
     <label>Oportunidades de mejora</label>
     <textarea id="entrevistaOportunidades"></textarea>
-
     <label>Compromisos</label>
     <textarea id="entrevistaCompromisos"></textarea>
-
-    <label>Observaciones</label>
-    <textarea id="entrevistaObservaciones"></textarea>
-
     <button class="save" onclick="guardarEntrevista()">Guardar entrevista</button>
   </div>
 </section>
@@ -372,23 +215,18 @@ label{
   <div class="card">
     <label>Tienda</label>
     <select id="planTienda"></select>
-
     <label>Acción</label>
     <textarea id="planAccion"></textarea>
-
     <label>Responsable</label>
     <input id="planResponsable">
-
     <label>Fecha compromiso</label>
     <input id="planFecha" type="date">
-
     <label>Estado</label>
     <select id="planEstado">
       <option>Pendiente</option>
       <option>En proceso</option>
       <option>Completado</option>
     </select>
-
     <button class="save" onclick="guardarPlan()">Guardar plan</button>
   </div>
 </section>
@@ -400,29 +238,18 @@ label{
   <div class="card">
     <label>Fecha</label>
     <input id="capFecha" type="date">
-
     <label>Tienda</label>
     <select id="capTienda"></select>
-
     <label>Capacitación</label>
     <input id="capNombre" value="Planes WOM Segmento Empresa">
-
     <label>Participantes</label>
     <textarea id="capParticipantes" placeholder="Nombre de participantes"></textarea>
-
     <label>Estado</label>
     <select id="capEstado">
       <option>Pendiente</option>
       <option>Capacitado</option>
       <option>Reforzar</option>
     </select>
-
-    <label>Observaciones</label>
-    <textarea id="capObservaciones"></textarea>
-
-    <label>Compromisos</label>
-    <textarea id="capCompromisos"></textarea>
-
     <button class="save" onclick="guardarCapacitacion()">Guardar capacitación</button>
   </div>
 </section>
@@ -434,20 +261,16 @@ label{
   <div class="card">
     <label>Nombre</label>
     <input id="nuevoNombre" placeholder="Nombre colaborador">
-
     <label>Cargo</label>
     <input id="nuevoCargo" placeholder="Ejecutivo / Líder">
-
     <label>Tienda</label>
     <select id="nuevoTienda"></select>
-
     <label>Estado capacitación inicial</label>
     <select id="nuevoEstado">
       <option>Pendiente</option>
       <option>Capacitado</option>
       <option>Reforzar</option>
     </select>
-
     <button class="save" onclick="guardarNuevoColaborador()">Guardar colaborador</button>
   </div>
 </section>
@@ -457,17 +280,17 @@ label{
   <h2 class="title">Mis Registros</h2>
 
   <div class="card">
-    <h3>Entrevistas guardadas</h3>
+    <h3>Entrevistas</h3>
     <div id="historialEntrevistas"></div>
   </div>
 
   <div class="card">
-    <h3>Capacitaciones guardadas</h3>
+    <h3>Capacitaciones</h3>
     <div id="historialCapacitaciones"></div>
   </div>
 
   <div class="card">
-    <h3>Planes de acción guardados</h3>
+    <h3>Planes de Acción</h3>
     <div id="listaPlanes"></div>
   </div>
 </section>
@@ -475,166 +298,236 @@ label{
 </main>
 
 <script>
-const CODIGO_EMBAJADOR = "2026";
-
-const tiendas = [
-  "Sucursal Valdivia",
-  "Kiosco Plaza Los Ríos",
-  "Sucursal Villarrica",
-  "Sucursal Osorno",
-  "Sucursal Puerto Varas",
-  "Sucursal Paseo Costanera",
-  "Sucursal Puerto Montt Centro",
-  "Sucursal Ancud",
-  "Sucursal Castro",
-  "Kiosco Mall Castro",
-  "Street Temuco",
-  "Street Osorno",
-  "Street Puerto Montt",
-  "Street Chiloé"
+const tiendasData = [
+  {
+    nombre:"Sucursal Puerto Varas",
+    lider:"Angie Vanessa González Asenjo",
+    ejecutivos:[
+      "Yessenia Maribel Riffo Oyarzo",
+      "Paulina Andrea Sánchez Rivera",
+      "Jaime Sebastián Bustamante Malpu"
+    ]
+  },
+  {
+    nombre:"Sucursal Osorno",
+    lider:"Rolando Ignacio Fuentealba Alvarado",
+    ejecutivos:[
+      "Daniel Salamanca Silva",
+      "Constanza Elizabeth Echeverria Leyton",
+      "Yarela del Carmen Runca Hueichan",
+      "Nicolás Álvaro Veas Contreras"
+    ]
+  },
+  {
+    nombre:"Sucursal Valdivia",
+    lider:"Benllamin Alexander Gallegos Catalán",
+    ejecutivos:[
+      "Katherine Helen Sepúlveda Sanchez",
+      "Natalia Andrea Poblete Gomez",
+      "Paula Andrea Matus Vera",
+      "Cristian Mauricio Quilodrán Quilodrán"
+    ]
+  },
+  {
+    nombre:"Kiosco Plaza Los Ríos",
+    lider:"Benllamin Alexander Gallegos Catalán",
+    ejecutivos:[
+      "Yarela Belén Álvarez Monsalve",
+      "Elisa Sophia Levinier Sarabia",
+      "Ámbar Ignacia Muñoz Mora"
+    ]
+  },
+  {
+    nombre:"Sucursal Villarrica",
+    lider:"Felipe Alfonso Calderón Muñoz",
+    ejecutivos:[
+      "Daniela Nicole Cruzat Garrido",
+      "Norberto Simón Arriagada Solis",
+      "Carlo Ignacio Bernales Navarrete",
+      "Yonatan Eduardo Jimenez Saez"
+    ]
+  },
+  {
+    nombre:"Sucursal Paseo Costanera",
+    lider:"Por definir",
+    ejecutivos:[]
+  },
+  {
+    nombre:"Sucursal Puerto Montt Centro",
+    lider:"Gisel Danae Bustamante Oyarzo",
+    ejecutivos:[
+      "Viviana Soledad Arismendi Contreras",
+      "Fernando José Jorquera Infante",
+      "Daniela Estefania Gallardo Hernández",
+      "Pamela del Pilar Rojas González"
+    ]
+  },
+  {
+    nombre:"Sucursal Ancud",
+    lider:"Gabriela Beatriz Valle Barría",
+    ejecutivos:[
+      "Javier Alejandro Arismendi Allancán",
+      "Manuel Abraham Vasquez Toro",
+      "Brandon Germán Ramirez Ortloff"
+    ]
+  },
+  {
+    nombre:"Sucursal Castro",
+    lider:"Reannys Nerlibeth Chavez Labastidas",
+    ejecutivos:[
+      "Constanza del Carmen Flores Agurto",
+      "Jessica Romina Aguila Vidal",
+      "Estefany Dominic Subiabre Barrientos",
+      "Riter Gerardo Oyarzo Cardenas"
+    ]
+  },
+  {
+    nombre:"Kiosco Mall Castro",
+    lider:"Reannys Nerlibeth Chavez Labastidas",
+    ejecutivos:[
+      "Beatriz Andrea Dominguez Ruiz",
+      "Juan Carlos Albornoz Cardenas",
+      "Susana Katherine Acevedo Molina",
+      "Gabriela Soledad Oyarzo Diaz"
+    ]
+  },
+  {
+    nombre:"Street Temuco",
+    lider:"Max Aleksandr Chutzinski Mansilla",
+    ejecutivos:[
+      "María Antonieta Orellana Vasquez",
+      "Claudio Enrique Rain Huentemil",
+      "Juan Pablo Valdivieso Padilla",
+      "Catalina Antonia Alvial Orellana",
+      "Karla Alejandra Navarrete Hill",
+      "David Alejandro Zambrano Zuñiga",
+      "Manuel Alejandro Mella Mella",
+      "Nicolás Eduardo Cerda Morales"
+    ]
+  },
+  {
+    nombre:"Street Puerto Montt Osorno",
+    lider:"Fabián Andrés Gallardo Gómez",
+    ejecutivos:[
+      "Yessenia Alejandra Ojeda Ojeda",
+      "Antonia Millaray Eisele San Martín",
+      "Felipe Tomas Nahuelpan Cartes",
+      "Carlo Gustavo Nuñez Salgado",
+      "Aron Benjamín Loy Borquez",
+      "Cristina Andrea Billeke Saez"
+    ]
+  },
+  {
+    nombre:"Street Chiloé",
+    lider:"Axel Andrés Humberto Rojas Ojeda",
+    ejecutivos:[
+      "Julieth Isabel Orozco Herrera",
+      "Paulina Isabel Pérez Vargas",
+      "Sebastián Alfonso Chacón Villarroel",
+      "Johanna Paola Varas Lagos"
+    ]
+  }
 ];
 
-function accesoEmbajador(){
-  const codigo = prompt("Ingresa el código de acceso");
-  if(codigo === CODIGO_EMBAJADOR){
-    showSection("embajador");
-  }else{
-    alert("Código incorrecto");
-  }
+function pedirCodigo(){
+  const codigo = prompt("Ingrese código Embajador");
+  if(codigo === "2026"){showSection("embajador")}
+  else if(codigo !== null){alert("Código incorrecto")}
 }
 
 function showSection(id){
-  document.querySelectorAll(".section").forEach(s => s.classList.remove("active"));
+  document.querySelectorAll(".section").forEach(s=>s.classList.remove("active"));
   document.getElementById(id).classList.add("active");
   window.scrollTo(0,0);
 }
 
 function cargarTiendas(){
-  const cont = document.getElementById("listaTiendas");
-  cont.innerHTML = "";
+  listaTiendas.innerHTML = tiendasData.map((t,i)=>`
+    <div class="card" onclick="abrirTienda(${i})">
+      <h3>${t.nombre}</h3>
+      <p>${t.ejecutivos.length} ejecutivos · Ver detalle</p>
+    </div>
+  `).join("");
 
-  tiendas.forEach(tienda => {
-    cont.innerHTML += `
-      <div class="card" onclick="abrirTienda('${tienda}')">
-        <h3>${tienda}</h3>
-        <p>Ver líder y ejecutivos</p>
-      </div>
-    `;
-  });
-
-  document.querySelectorAll("select").forEach(select => {
+  document.querySelectorAll("select").forEach(select=>{
     if(select.id.toLowerCase().includes("tienda")){
-      select.innerHTML = tiendas.map(t => `<option>${t}</option>`).join("");
+      select.innerHTML = tiendasData.map(t=>`<option>${t.nombre}</option>`).join("");
     }
   });
 }
 
-function abrirTienda(tienda){
-  document.getElementById("nombreTienda").innerText = tienda;
-  document.getElementById("liderTienda").innerText = "Por definir";
-  document.getElementById("ejecutivosTienda").innerHTML = "<p>No hay ejecutivos cargados todavía.</p>";
+function abrirTienda(i){
+  const t = tiendasData[i];
+  detalleNombre.innerText = t.nombre;
+  detalleLider.innerText = t.lider;
+  detalleEjecutivos.innerHTML = t.ejecutivos.length
+    ? t.ejecutivos.map(e=>`<div class="persona">👤 <b>${e}</b><br><small>Ejecutivo WOM</small></div>`).join("")
+    : "<p>No hay ejecutivos cargados todavía.</p>";
   showSection("detalleTienda");
+}
+
+function guardarNuevoColaborador(){
+  const datos = JSON.parse(localStorage.getItem("colaboradores") || "[]");
+  datos.unshift({nombre:nuevoNombre.value,cargo:nuevoCargo.value,tienda:nuevoTienda.value,estado:nuevoEstado.value});
+  localStorage.setItem("colaboradores",JSON.stringify(datos));
+  mostrarParticipantes();
+  alert("Colaborador guardado");
+}
+
+function mostrarParticipantes(){
+  const datos = JSON.parse(localStorage.getItem("colaboradores") || "[]");
+  participantesCurso.innerHTML = datos.length ? datos.map(d=>`
+    <div class="card">
+      <h3>${d.nombre}</h3>
+      <p>${d.cargo} · ${d.tienda}</p>
+      <p>Estado: ${d.estado}</p>
+    </div>
+  `).join("") : "<p>No hay participantes cargados todavía.</p>";
 }
 
 function guardarEntrevista(){
   const datos = JSON.parse(localStorage.getItem("entrevistas") || "[]");
-  datos.unshift({
-    fecha: entrevistaFecha.value,
-    tienda: entrevistaTienda.value,
-    persona: entrevistaPersona.value,
-    cargo: entrevistaCargo.value,
-    compromisos: entrevistaCompromisos.value
-  });
-  localStorage.setItem("entrevistas", JSON.stringify(datos));
+  datos.unshift({fecha:entrevistaFecha.value,tienda:entrevistaTienda.value,persona:entrevistaPersona.value,cargo:entrevistaCargo.value});
+  localStorage.setItem("entrevistas",JSON.stringify(datos));
   mostrarRegistros();
   alert("Entrevista guardada");
 }
 
 function guardarCapacitacion(){
   const datos = JSON.parse(localStorage.getItem("capacitaciones") || "[]");
-  datos.unshift({
-    fecha: capFecha.value,
-    tienda: capTienda.value,
-    nombre: capNombre.value,
-    participantes: capParticipantes.value,
-    estado: capEstado.value
-  });
-  localStorage.setItem("capacitaciones", JSON.stringify(datos));
+  datos.unshift({fecha:capFecha.value,tienda:capTienda.value,nombre:capNombre.value,participantes:capParticipantes.value,estado:capEstado.value});
+  localStorage.setItem("capacitaciones",JSON.stringify(datos));
   mostrarRegistros();
   alert("Capacitación guardada");
 }
 
 function guardarPlan(){
   const datos = JSON.parse(localStorage.getItem("planes") || "[]");
-  datos.unshift({
-    tienda: planTienda.value,
-    accion: planAccion.value,
-    responsable: planResponsable.value,
-    fecha: planFecha.value,
-    estado: planEstado.value
-  });
-  localStorage.setItem("planes", JSON.stringify(datos));
+  datos.unshift({tienda:planTienda.value,accion:planAccion.value,responsable:planResponsable.value,fecha:planFecha.value,estado:planEstado.value});
+  localStorage.setItem("planes",JSON.stringify(datos));
   mostrarRegistros();
   alert("Plan guardado");
 }
 
-function guardarNuevoColaborador(){
-  const datos = JSON.parse(localStorage.getItem("colaboradores") || "[]");
-  datos.unshift({
-    nombre: nuevoNombre.value,
-    cargo: nuevoCargo.value,
-    tienda: nuevoTienda.value,
-    estado: nuevoEstado.value
-  });
-  localStorage.setItem("colaboradores", JSON.stringify(datos));
-  mostrarColaboradores();
-  alert("Colaborador guardado");
-}
-
-function mostrarColaboradores(){
-  const datos = JSON.parse(localStorage.getItem("colaboradores") || "[]");
-  const cont = document.getElementById("listaColaboradores");
-
-  cont.innerHTML = datos.length ? datos.map(d => `
-    <div class="card">
-      <h3>${d.nombre}</h3>
-      <p>${d.cargo} · ${d.tienda}</p>
-      <p>Estado capacitación: ${d.estado || "Pendiente"}</p>
-    </div>
-  `).join("") : "<div class='card'><p>No hay colaboradores cargados todavía.</p></div>";
-}
-
 function mostrarRegistros(){
   const entrevistas = JSON.parse(localStorage.getItem("entrevistas") || "[]");
-  historialEntrevistas.innerHTML = entrevistas.length ? entrevistas.map(d => `
-    <div class="card record">
-      <h3>${d.persona || "Sin nombre"}</h3>
-      <p>${d.fecha || ""} · ${d.tienda}</p>
-      <p>${d.cargo || ""}</p>
-    </div>
+  historialEntrevistas.innerHTML = entrevistas.length ? entrevistas.map(d=>`
+    <div class="card record"><h3>${d.persona || "Sin nombre"}</h3><p>${d.fecha} · ${d.tienda}</p><p>${d.cargo}</p></div>
   `).join("") : "<p>No hay entrevistas guardadas.</p>";
 
   const capacitaciones = JSON.parse(localStorage.getItem("capacitaciones") || "[]");
-  historialCapacitaciones.innerHTML = capacitaciones.length ? capacitaciones.map(d => `
-    <div class="card record">
-      <h3>${d.nombre}</h3>
-      <p>${d.fecha || ""} · ${d.tienda}</p>
-      <p>Estado: ${d.estado}</p>
-    </div>
+  historialCapacitaciones.innerHTML = capacitaciones.length ? capacitaciones.map(d=>`
+    <div class="card record"><h3>${d.nombre}</h3><p>${d.fecha} · ${d.tienda}</p><p>Estado: ${d.estado}</p></div>
   `).join("") : "<p>No hay capacitaciones guardadas.</p>";
 
   const planes = JSON.parse(localStorage.getItem("planes") || "[]");
-  listaPlanes.innerHTML = planes.length ? planes.map(d => `
-    <div class="card record">
-      <h3>${d.tienda}</h3>
-      <p>${d.accion}</p>
-      <p>${d.estado}</p>
-    </div>
+  listaPlanes.innerHTML = planes.length ? planes.map(d=>`
+    <div class="card record"><h3>${d.tienda}</h3><p>${d.accion}</p><p>${d.estado}</p></div>
   `).join("") : "<p>No hay planes guardados.</p>";
 }
 
 cargarTiendas();
-mostrarColaboradores();
+mostrarParticipantes();
 mostrarRegistros();
 </script>
 
