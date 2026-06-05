@@ -12,13 +12,12 @@
   --fondo:#f7f3ff;
   --texto:#171127;
   --gris:#6d6790;
-  --blanco:#ffffff;
+  --verde:#12b76a;
+  --rojo:#e11d48;
+  --amarillo:#f59e0b;
 }
 
-*{
-  box-sizing:border-box;
-  font-family:Arial, sans-serif;
-}
+*{box-sizing:border-box;font-family:Arial,sans-serif}
 
 body{
   margin:0;
@@ -29,18 +28,9 @@ body{
 header{
   background:linear-gradient(135deg,var(--morado),var(--azul));
   color:white;
-  padding:32px 18px 40px;
+  padding:32px 18px 38px;
   text-align:center;
   border-radius:0 0 34px 34px;
-}
-
-.logo{
-  width:180px;
-  max-width:90%;
-  background:white;
-  padding:10px;
-  border-radius:18px;
-  margin-bottom:18px;
 }
 
 header h1{
@@ -57,55 +47,53 @@ header p{
 
 main{
   padding:20px;
-  max-width:520px;
+  max-width:540px;
   margin:auto;
 }
 
-.section{
-  display:none;
-}
+.section{display:none}
+.section.active{display:block}
 
-.section.active{
-  display:block;
-}
-
-.menu{
-  display:grid;
-  grid-template-columns:1fr;
-  gap:16px;
-}
-
-.main-btn{
-  border:none;
-  border-radius:26px;
-  background:white;
+.title{
   color:var(--morado);
-  padding:26px 20px;
-  text-align:left;
-  box-shadow:0 10px 25px rgba(75,15,191,.12);
-}
-
-.main-btn span{
-  font-size:34px;
-  display:block;
-  margin-bottom:8px;
-}
-
-.main-btn h3{
-  margin:0;
   font-size:23px;
+  margin:24px 0 14px;
 }
 
-.main-btn p{
-  margin:6px 0 0;
+.card{
+  background:white;
+  border-radius:22px;
+  padding:18px;
+  margin-bottom:14px;
+  box-shadow:0 8px 20px rgba(75,15,191,.10);
+}
+
+.card h3{
+  margin:0;
+  color:var(--morado);
+  font-size:20px;
+}
+
+.card p{
   color:var(--gris);
   font-size:14px;
+}
+
+.badge{
+  display:inline-block;
+  background:#e9ddff;
+  color:var(--morado);
+  padding:7px 12px;
+  border-radius:20px;
+  font-size:13px;
+  font-weight:bold;
+  margin-bottom:10px;
 }
 
 .grid{
   display:grid;
   grid-template-columns:1fr 1fr;
-  gap:14px;
+  gap:12px;
 }
 
 .grid button,
@@ -113,22 +101,22 @@ main{
 .save,
 .danger{
   border:none;
-  border-radius:20px;
-  padding:16px;
+  border-radius:18px;
+  padding:14px;
   font-weight:bold;
 }
 
 .grid button{
-  min-height:105px;
+  min-height:88px;
   background:white;
   color:var(--morado);
-  font-size:16px;
-  box-shadow:0 10px 25px rgba(75,15,191,.12);
+  font-size:15px;
+  box-shadow:0 8px 20px rgba(75,15,191,.10);
 }
 
 .grid span{
   display:block;
-  font-size:30px;
+  font-size:27px;
   margin-bottom:6px;
 }
 
@@ -153,42 +141,6 @@ main{
   margin-top:8px;
 }
 
-.card{
-  background:white;
-  border-radius:22px;
-  padding:18px;
-  margin-bottom:14px;
-  box-shadow:0 8px 20px rgba(75,15,191,.10);
-}
-
-.card h3{
-  margin:0;
-  color:var(--morado);
-  font-size:20px;
-}
-
-.card p{
-  color:var(--gris);
-  font-size:14px;
-}
-
-.title{
-  color:var(--morado);
-  font-size:24px;
-  margin:8px 0 14px;
-}
-
-.badge{
-  display:inline-block;
-  background:#e9ddff;
-  color:var(--morado);
-  padding:7px 12px;
-  border-radius:20px;
-  font-size:13px;
-  font-weight:bold;
-  margin-bottom:10px;
-}
-
 input,select,textarea{
   width:100%;
   padding:13px;
@@ -198,9 +150,7 @@ input,select,textarea{
   font-size:15px;
 }
 
-textarea{
-  min-height:90px;
-}
+textarea{min-height:90px}
 
 label{
   font-size:13px;
@@ -213,13 +163,9 @@ label{
   border-bottom:1px solid #eee;
 }
 
-.persona:last-child{
-  border-bottom:none;
-}
+.persona:last-child{border-bottom:none}
 
-.record{
-  border-left:5px solid var(--morado);
-}
+.record{border-left:5px solid var(--morado)}
 
 .kpi{
   display:grid;
@@ -237,6 +183,24 @@ label{
   font-size:22px;
   color:var(--morado);
 }
+
+.estado-ok{color:var(--verde);font-weight:bold}
+.estado-alerta{color:var(--amarillo);font-weight:bold}
+.estado-rojo{color:var(--rojo);font-weight:bold}
+
+.interno{
+  text-align:center;
+  margin:32px 0 12px;
+}
+
+.interno button{
+  background:transparent;
+  border:none;
+  color:var(--gris);
+  font-size:12px;
+  text-decoration:underline;
+  margin:4px;
+}
 </style>
 </head>
 
@@ -250,112 +214,156 @@ label{
 <main>
 
 <section id="home" class="section active">
-  <div class="menu">
-    <button class="main-btn" onclick="showSection('academia')">
-      <span>🎓</span>
-      <h3>Academia</h3>
-      <p>Recursos, curso activo, reportes, tiendas y biblioteca.</p>
-    </button>
+  <h2 class="title">Curso Activo</h2>
+  <div id="cursoActivoVista"></div>
 
-    <button class="main-btn" onclick="pedirCodigo()">
-      <span>🔐</span>
-      <h3>Embajador</h3>
-      <p>Registro interno del trabajo como capacitador.</p>
-    </button>
+  <h2 class="title">Academia</h2>
+  <div class="grid">
+    <button onclick="showSection('tiendas')"><span>🏪</span>Tiendas</button>
+    <button onclick="showSection('biblioteca')"><span>📚</span>Biblioteca</button>
+    <button onclick="showSection('calendario')"><span>📅</span>Calendario</button>
+    <button onclick="showSection('recursos')"><span>🧩</span>Recursos</button>
+  </div>
+
+  <div class="interno">
+    <button onclick="pedirCodigoEmbajador()">🔐 Embajador</button>
+    <button onclick="pedirCodigoAdmin()">🏢 Administración Meridional</button>
   </div>
 </section>
 
-<section id="academia" class="section">
+<section id="tiendas" class="section">
   <button class="back" onclick="showSection('home')">← Volver</button>
-  <h2 class="title">Academia</h2>
+  <h2 class="title">Tiendas</h2>
+  <div id="listaTiendas"></div>
+</section>
 
-  <div class="grid">
-    <button onclick="showSection('cursoActivo')"><span>🎓</span>Curso Activo</button>
-    <button onclick="showSection('tiendas')"><span>🏪</span>Tiendas</button>
-    <button onclick="showSection('biblioteca')"><span>📚</span>Biblioteca</button>
-    <button onclick="showSection('reportes')"><span>📊</span>Reportes</button>
-  </div>
+<section id="detalleTienda" class="section">
+  <button class="back" onclick="showSection('tiendas')">← Volver</button>
+  <h2 id="detalleNombre" class="title"></h2>
+  <div class="card"><span class="badge">Líder</span><h3 id="detalleLider"></h3></div>
+  <div class="card"><h3>Ejecutivos</h3><div id="detalleEjecutivos"></div></div>
+</section>
+
+<section id="biblioteca" class="section">
+  <button class="back" onclick="showSection('home')">← Volver</button>
+  <h2 class="title">Biblioteca</h2>
+  <div class="card"><h3>Capacitaciones guardadas</h3><div id="bibliotecaCursos"></div></div>
+</section>
+
+<section id="calendario" class="section">
+  <button class="back" onclick="showSection('home')">← Volver</button>
+  <h2 class="title">Calendario</h2>
+  <div id="calendarioVista"></div>
+</section>
+
+<section id="recursos" class="section">
+  <button class="back" onclick="showSection('home')">← Volver</button>
+  <h2 class="title">Recursos</h2>
+  <div class="card"><h3>Presentaciones</h3><p>Material de apoyo para capacitaciones online.</p></div>
+  <div class="card"><h3>Guías Comerciales</h3><p>Argumentarios, procesos WOM y foco comercial.</p></div>
+  <div class="card"><h3>Reportes</h3><p>Documentos de seguimiento mensual.</p></div>
 </section>
 
 <section id="embajador" class="section">
   <button class="back" onclick="showSection('home')">← Volver</button>
   <h2 class="title">Zona Embajador</h2>
 
+  <div class="card">
+    <h3>Dashboard Embajador</h3>
+    <div id="dashboardEmbajador"></div>
+  </div>
+
   <div class="grid">
-    <button onclick="showSection('entrevistas')"><span>🎤</span>Entrevistas</button>
+    <button onclick="showSection('analisisKPI')"><span>📊</span>Análisis KPI</button>
+    <button onclick="showSection('entrevistas')"><span>🎤</span>Entrevistas Buenas Prácticas</button>
+    <button onclick="showSection('gestionarCurso')"><span>🎓</span>Diseño Curso</button>
+    <button onclick="showSection('capacitacionOnline')"><span>💻</span>Capacitación Online</button>
+    <button onclick="showSection('inasistencias')"><span>🚫</span>Inasistencias</button>
+    <button onclick="showSection('seguimiento')"><span>👥</span>Seguimiento</button>
     <button onclick="showSection('planes')"><span>📋</span>Planes Acción</button>
-    <button onclick="showSection('gestionarCurso')"><span>🎓</span>Gestionar Curso</button>
     <button onclick="showSection('cierreMensual')"><span>📈</span>Cierre Mensual</button>
-    <button onclick="showSection('gestionBase')"><span>👥</span>Tiendas y Colaboradores</button>
+    <button onclick="showSection('gestionBase')"><span>🏪</span>Tiendas y Colaboradores</button>
     <button onclick="showSection('misRegistros')"><span>🗂️</span>Mis Registros</button>
   </div>
 </section>
 
-<section id="cursoActivo" class="section">
-  <button class="back" onclick="showSection('academia')">← Volver</button>
-  <h2 class="title">Curso Activo</h2>
-  <div id="cursoActivoVista"></div>
-</section>
-
-<section id="tiendas" class="section">
-  <button class="back" onclick="showSection('academia')">← Volver</button>
-  <h2 class="title">Tiendas</h2>
-  <div id="listaTiendas"></div>
-</section>
-
-<section id="detalleTienda" class="section">
-  <button class="back" onclick="showSection('tiendas')">← Volver a tiendas</button>
-  <h2 id="detalleNombre" class="title"></h2>
+<section id="admin" class="section">
+  <button class="back" onclick="showSection('home')">← Volver</button>
+  <h2 class="title">Administración Meridional</h2>
 
   <div class="card">
-    <span class="badge">Líder</span>
-    <h3 id="detalleLider"></h3>
+    <h3>Resumen Ejecutivo</h3>
+    <div id="dashboardAdmin"></div>
   </div>
 
   <div class="card">
-    <h3>Ejecutivos</h3>
-    <div id="detalleEjecutivos"></div>
+    <h3>Reporte Ejecutivo</h3>
+    <div id="reporteEjecutivo"></div>
   </div>
 
   <div class="card">
-    <h3>Historial últimos registros</h3>
-    <div id="historialTienda"></div>
+    <h3>KPIs y Cumplimiento</h3>
+    <div id="adminKPI"></div>
   </div>
 </section>
 
-<section id="biblioteca" class="section">
-  <button class="back" onclick="showSection('academia')">← Volver</button>
-  <h2 class="title">Biblioteca</h2>
+<section id="analisisKPI" class="section">
+  <button class="back" onclick="showSection('embajador')">← Volver</button>
+  <h2 class="title">Análisis KPI</h2>
 
   <div class="card">
-    <h3>Capacitaciones guardadas</h3>
-    <div id="bibliotecaCursos"></div>
-  </div>
+    <label>Mes</label>
+    <input id="analisisMes" placeholder="Ej: Junio 2026">
 
-  <div class="card">
-    <h3>Recursos</h3>
-    <p>Presentaciones, guías comerciales, procesos y material de apoyo.</p>
+    <label>KPI analizado</label>
+    <input id="analisisKpiNombre" placeholder="Ej: Planes Empresa, Productividad, Portabilidad">
+
+    <label>Mejores resultados KPI</label>
+    <textarea id="analisisTop" placeholder="Nombres de ejecutivos destacados"></textarea>
+
+    <label>Resultados bajos / brechas</label>
+    <textarea id="analisisBajo" placeholder="Nombres o tiendas con bajo resultado"></textarea>
+
+    <label>Observaciones del análisis</label>
+    <textarea id="analisisObs"></textarea>
+
+    <button class="save" onclick="guardarAnalisis()">Guardar análisis</button>
   </div>
 </section>
 
-<section id="reportes" class="section">
-  <button class="back" onclick="showSection('academia')">← Volver</button>
-  <h2 class="title">Reportes</h2>
+<section id="entrevistas" class="section">
+  <button class="back" onclick="showSection('embajador')">← Volver</button>
+  <h2 class="title">Entrevista Buenas Prácticas</h2>
 
   <div class="card">
-    <h3>Avance Curso Activo</h3>
-    <p id="avanceCurso"></p>
-  </div>
+    <label>Fecha</label>
+    <input id="entrevistaFecha" type="date">
 
-  <div class="card">
-    <h3>Ventas registradas</h3>
-    <div id="indicadoresVentas"></div>
+    <label>Tienda</label>
+    <select id="entrevistaTienda"></select>
+
+    <label>Ejecutivo destacado</label>
+    <input id="entrevistaPersona">
+
+    <label>KPI destacado</label>
+    <input id="entrevistaKPI">
+
+    <label>Buenas prácticas detectadas</label>
+    <textarea id="entrevistaBuenas"></textarea>
+
+    <label>Técnicas utilizadas</label>
+    <textarea id="entrevistaTecnicas"></textarea>
+
+    <label>Ideas para capacitación</label>
+    <textarea id="entrevistaIdeas"></textarea>
+
+    <button class="save" onclick="guardarEntrevista()">Guardar entrevista</button>
   </div>
 </section>
 
 <section id="gestionarCurso" class="section">
   <button class="back" onclick="showSection('embajador')">← Volver</button>
-  <h2 class="title">Gestionar Curso Activo</h2>
+  <h2 class="title">Diseño Curso Activo</h2>
 
   <div class="card">
     <label>Nombre del curso</label>
@@ -366,6 +374,9 @@ label{
 
     <label>Objetivo</label>
     <textarea id="cursoObjetivo"></textarea>
+
+    <label>Buenas prácticas incorporadas</label>
+    <textarea id="cursoBuenasPracticas"></textarea>
 
     <label>Presentación / Link material</label>
     <input id="cursoPresentacion" placeholder="Link Drive, PDF o presentación">
@@ -378,14 +389,15 @@ label{
 
   <div class="card">
     <h3>Agregar participante</h3>
-
     <label>Colaborador</label>
     <select id="participanteNombre"></select>
 
     <label>Estado</label>
     <select id="participanteEstado">
-      <option>Pendiente</option>
-      <option>Capacitado</option>
+      <option>Convocado</option>
+      <option>Confirmado</option>
+      <option>Asistió</option>
+      <option>Ausente</option>
       <option>Reforzar</option>
     </select>
 
@@ -393,72 +405,96 @@ label{
   </div>
 
   <div class="card">
-    <h3>Participantes del curso</h3>
+    <h3>Participantes</h3>
     <div id="gestionParticipantes"></div>
   </div>
 
   <button class="save" onclick="guardarCursoEnBiblioteca()">Guardar en biblioteca</button>
 </section>
 
-<section id="cierreMensual" class="section">
+<section id="capacitacionOnline" class="section">
   <button class="back" onclick="showSection('embajador')">← Volver</button>
-  <h2 class="title">Cierre Mensual</h2>
-
-  <div class="card">
-    <label>Mes</label>
-    <input id="cierreMes" placeholder="Ej: Junio 2026">
-
-    <label>Tienda</label>
-    <select id="cierreTienda" onchange="actualizarParticipantesCierre()"></select>
-
-    <label>Participante</label>
-    <select id="cierreParticipante"></select>
-
-    <label>Ventas del participante</label>
-    <input id="ventasParticipante" type="number">
-
-    <label>Ventas totales de la tienda</label>
-    <input id="ventasTienda" type="number">
-
-    <label>Observaciones</label>
-    <textarea id="cierreObs"></textarea>
-
-    <button class="save" onclick="guardarCierreMensual()">Guardar cierre</button>
-  </div>
-
-  <div class="card">
-    <h3>Resumen del mes</h3>
-    <div id="resumenCierre"></div>
-  </div>
-</section>
-
-<section id="entrevistas" class="section">
-  <button class="back" onclick="showSection('embajador')">← Volver</button>
-  <h2 class="title">Registro de Entrevista</h2>
+  <h2 class="title">Capacitación Online</h2>
 
   <div class="card">
     <label>Fecha</label>
-    <input id="entrevistaFecha" type="date">
+    <input id="onlineFecha" type="date">
+
+    <label>Hora</label>
+    <input id="onlineHora" type="time">
+
+    <label>Link reunión</label>
+    <input id="onlineLink" placeholder="Teams / Meet">
+
+    <label>Duración</label>
+    <input id="onlineDuracion" placeholder="Ej: 45 minutos">
+
+    <label>Observaciones</label>
+    <textarea id="onlineObs"></textarea>
+
+    <button class="save" onclick="guardarOnline()">Guardar capacitación online</button>
+  </div>
+</section>
+
+<section id="inasistencias" class="section">
+  <button class="back" onclick="showSection('embajador')">← Volver</button>
+  <h2 class="title">Inasistencias</h2>
+
+  <div class="card">
+    <label>Fecha</label>
+    <input id="inaFecha" type="date">
 
     <label>Tienda</label>
-    <select id="entrevistaTienda"></select>
+    <select id="inaTienda"></select>
 
-    <label>Persona entrevistada</label>
-    <input id="entrevistaPersona">
+    <label>Colaborador</label>
+    <input id="inaPersona">
 
-    <label>Cargo</label>
-    <input id="entrevistaCargo">
+    <label>Actividad</label>
+    <input id="inaActividad" placeholder="Capacitación / Entrevista">
 
-    <label>Fortalezas</label>
-    <textarea id="entrevistaFortalezas"></textarea>
+    <label>Motivo informado</label>
+    <textarea id="inaMotivo"></textarea>
 
-    <label>Brechas / oportunidades</label>
-    <textarea id="entrevistaBrechas"></textarea>
+    <label>Reprogramar</label>
+    <select id="inaReprogramar">
+      <option>Sí</option>
+      <option>No</option>
+      <option>Pendiente</option>
+    </select>
 
-    <label>Compromisos</label>
-    <textarea id="entrevistaCompromisos"></textarea>
+    <button class="save" onclick="guardarInasistencia()">Guardar inasistencia</button>
+  </div>
+</section>
 
-    <button class="save" onclick="guardarEntrevista()">Guardar entrevista</button>
+<section id="seguimiento" class="section">
+  <button class="back" onclick="showSection('embajador')">← Volver</button>
+  <h2 class="title">Seguimiento</h2>
+
+  <div class="card">
+    <label>Fecha</label>
+    <input id="segFecha" type="date">
+
+    <label>Tienda</label>
+    <select id="segTienda"></select>
+
+    <label>Colaborador</label>
+    <input id="segPersona">
+
+    <label>Compromiso</label>
+    <textarea id="segCompromiso"></textarea>
+
+    <label>Fecha próxima revisión</label>
+    <input id="segProxima" type="date">
+
+    <label>Estado</label>
+    <select id="segEstado">
+      <option>Pendiente</option>
+      <option>En seguimiento</option>
+      <option>Cerrado</option>
+    </select>
+
+    <button class="save" onclick="guardarSeguimiento()">Guardar seguimiento</button>
   </div>
 </section>
 
@@ -490,65 +526,60 @@ label{
   </div>
 </section>
 
+<section id="cierreMensual" class="section">
+  <button class="back" onclick="showSection('embajador')">← Volver</button>
+  <h2 class="title">Cierre Mensual</h2>
+
+  <div class="card">
+    <label>Mes</label>
+    <input id="cierreMes" placeholder="Ej: Junio 2026">
+
+    <label>Tienda</label>
+    <select id="cierreTienda" onchange="actualizarParticipantesCierre()"></select>
+
+    <label>Participante</label>
+    <select id="cierreParticipante"></select>
+
+    <label>Ventas del participante</label>
+    <input id="ventasParticipante" type="number">
+
+    <label>Ventas totales de la tienda</label>
+    <input id="ventasTienda" type="number">
+
+    <button class="save" onclick="guardarCierreMensual()">Guardar cierre</button>
+  </div>
+</section>
+
 <section id="gestionBase" class="section">
   <button class="back" onclick="showSection('embajador')">← Volver</button>
   <h2 class="title">Tiendas y Colaboradores</h2>
 
   <div class="card">
     <h3>Agregar tienda</h3>
-    <label>Nombre tienda</label>
-    <input id="nuevaTiendaNombre">
-    <label>Líder</label>
-    <input id="nuevaTiendaLider">
+    <input id="nuevaTiendaNombre" placeholder="Nombre tienda">
+    <input id="nuevaTiendaLider" placeholder="Líder">
     <button class="save" onclick="agregarTienda()">Agregar tienda</button>
   </div>
 
   <div class="card">
     <h3>Agregar colaborador</h3>
-    <label>Nombre</label>
-    <input id="nuevoColaboradorNombre">
-
-    <label>Cargo</label>
+    <input id="nuevoColaboradorNombre" placeholder="Nombre">
     <select id="nuevoColaboradorCargo">
       <option>Ejecutivo WOM</option>
       <option>Líder</option>
     </select>
-
-    <label>Tienda</label>
     <select id="nuevoColaboradorTienda"></select>
-
     <button class="save" onclick="agregarColaborador()">Agregar colaborador</button>
   </div>
 
-  <div class="card">
-    <h3>Tiendas registradas</h3>
-    <div id="gestionTiendas"></div>
-  </div>
-
-  <div class="card">
-    <h3>Colaboradores registrados</h3>
-    <div id="gestionColaboradores"></div>
-  </div>
+  <div class="card"><h3>Tiendas registradas</h3><div id="gestionTiendas"></div></div>
+  <div class="card"><h3>Colaboradores registrados</h3><div id="gestionColaboradores"></div></div>
 </section>
 
 <section id="misRegistros" class="section">
   <button class="back" onclick="showSection('embajador')">← Volver</button>
   <h2 class="title">Mis Registros</h2>
-
-  <div class="card">
-    <h3>Entrevistas</h3>
-    <div id="historialEntrevistas"></div>
-  </div>
-
-  <div class="card">
-    <h3>Planes de Acción</h3>
-    <div id="listaPlanes"></div>
-  </div>
-
-  <div class="card">
-    <h3>Cierres Mensuales</h3>
-    <div id="historialCierres"></div>
-  </div>
+  <div id="misRegistrosVista"></div>
 </section>
 
 </main>
@@ -567,350 +598,115 @@ const baseTiendas=[
 {nombre:"Kiosco Mall Castro",lider:"Reannys Nerlibeth Chavez Labastidas",ejecutivos:["Beatriz Andrea Dominguez Ruiz","Juan Carlos Albornoz Cardenas","Susana Katherine Acevedo Molina","Gabriela Soledad Oyarzo Diaz"]},
 {nombre:"Street Temuco",lider:"Max Aleksandr Chutzinski Mansilla",ejecutivos:["María Antonieta Orellana Vasquez","Claudio Enrique Rain Huentemil","Juan Pablo Valdivieso Padilla","Catalina Antonia Alvial Orellana","Karla Alejandra Navarrete Hill","David Alejandro Zambrano Zuñiga","Manuel Alejandro Mella Mella","Nicolás Eduardo Cerda Morales"]},
 {nombre:"Street Puerto Montt Osorno",lider:"Fabián Andrés Gallardo Gómez",ejecutivos:["Yessenia Alejandra Ojeda Ojeda","Antonia Millaray Eisele San Martín","Felipe Tomas Nahuelpan Cartes","Carlo Gustavo Nuñez Salgado","Aron Benjamín Loy Borquez","Cristina Andrea Billeke Saez"]},
-{nombre:"Street Chiloé",lider:"Axel Andrés Humberto Rojas Ojeda",ejecutivos:["Julieth Isabel Orozco Herrera","Paulina Isabel Pérez Vargas","Sebastián Alfonso Chacón Villarroel","Johanna Paola Varas Lagos"]}
+{nombre:"Street Chiloé",lider:"Axel Andrés Humberto Rojas Ojeda",ejecutivos:["Julieth Isabel Orozco Herrera","Paulina Isabel Pérez Vargas","Sebastián Alfonso Chacón Villorroel","Johanna Paola Varas Lagos"]}
 ];
 
-function getTiendas(){return JSON.parse(localStorage.getItem("tiendas")||JSON.stringify(baseTiendas))}
-function setTiendas(data){localStorage.setItem("tiendas",JSON.stringify(data))}
-function getCierres(){return JSON.parse(localStorage.getItem("cierres")||"[]")}
-function setCierres(data){localStorage.setItem("cierres",JSON.stringify(data))}
-function getCurso(){return JSON.parse(localStorage.getItem("curso")||JSON.stringify({nombre:"Planes WOM Segmento Empresa",mes:"Junio",objetivo:"Fortalecer la comercialización de planes WOM para segmento empresa.",presentacion:"",kpi:"",participantes:[]}))}
-function setCurso(data){localStorage.setItem("curso",JSON.stringify(data))}
+function getLS(k,d){return JSON.parse(localStorage.getItem(k)||JSON.stringify(d))}
+function setLS(k,d){localStorage.setItem(k,JSON.stringify(d))}
+function getTiendas(){return getLS("tiendas",baseTiendas)}
+function setTiendas(d){setLS("tiendas",d)}
+function getCurso(){return getLS("curso",{nombre:"Planes WOM Segmento Empresa",mes:"Junio",objetivo:"Fortalecer la comercialización de planes WOM para segmento empresa.",buenasPracticas:"",presentacion:"",kpi:"",participantes:[]})}
 
-function pedirCodigo(){
-  const codigo=prompt("Ingrese código Embajador");
-  if(codigo==="2026")showSection("embajador");
-  else if(codigo!==null)alert("Código incorrecto");
-}
-
-function showSection(id){
-  document.querySelectorAll(".section").forEach(s=>s.classList.remove("active"));
-  const section=document.getElementById(id);
-  if(section)section.classList.add("active");
-  window.scrollTo(0,0);
-  refrescar();
-}
+function pedirCodigoEmbajador(){const c=prompt("Ingrese código Embajador");if(c==="2026")showSection("embajador");else if(c!==null)alert("Código incorrecto")}
+function pedirCodigoAdmin(){const c=prompt("Ingrese código Administración");if(c==="2027")showSection("admin");else if(c!==null)alert("Código incorrecto")}
+function showSection(id){document.querySelectorAll(".section").forEach(s=>s.classList.remove("active"));document.getElementById(id).classList.add("active");window.scrollTo(0,0);refrescar()}
 
 function refrescar(){
-  cargarTiendas();
-  cargarSelects();
-  mostrarCurso();
-  mostrarBiblioteca();
-  mostrarReportes();
-  mostrarGestion();
-  mostrarRegistros();
+ cargarTiendas(); cargarSelects(); mostrarCurso(); mostrarBiblioteca(); mostrarDashboards(); mostrarGestion(); mostrarRegistros();
 }
 
 function cargarSelects(){
-  const tiendas=getTiendas();
-
-  document.querySelectorAll("select").forEach(select=>{
-    if(select.id.toLowerCase().includes("tienda")){
-      select.innerHTML=tiendas.map(t=>`<option>${t.nombre}</option>`).join("");
-    }
-  });
-
-  const participante=document.getElementById("participanteNombre");
-  if(participante){
-    let personas=[];
-    tiendas.forEach(t=>{
-      personas.push({nombre:t.lider,cargo:"Líder",tienda:t.nombre});
-      t.ejecutivos.forEach(e=>personas.push({nombre:e,cargo:"Ejecutivo WOM",tienda:t.nombre}));
-    });
-    participante.innerHTML=personas.map(p=>`<option value="${p.nombre}|${p.cargo}|${p.tienda}">${p.nombre} · ${p.tienda}</option>`).join("");
-  }
-
-  actualizarParticipantesCierre();
+ const tiendas=getTiendas();
+ document.querySelectorAll("select").forEach(s=>{if(s.id.toLowerCase().includes("tienda"))s.innerHTML=tiendas.map(t=>`<option>${t.nombre}</option>`).join("")});
+ const p=document.getElementById("participanteNombre");
+ if(p){
+  let personas=[];
+  tiendas.forEach(t=>{personas.push({nombre:t.lider,cargo:"Líder",tienda:t.nombre});t.ejecutivos.forEach(e=>personas.push({nombre:e,cargo:"Ejecutivo WOM",tienda:t.nombre}))});
+  p.innerHTML=personas.map(x=>`<option value="${x.nombre}|${x.cargo}|${x.tienda}">${x.nombre} · ${x.tienda}</option>`).join("");
+ }
+ actualizarParticipantesCierre();
 }
 
 function cargarTiendas(){
-  const cont=document.getElementById("listaTiendas");
-  if(!cont)return;
-
-  cont.innerHTML=getTiendas().map((t,i)=>`
-    <div class="card" onclick="abrirTienda(${i})">
-      <h3>${t.nombre}</h3>
-      <p>${t.ejecutivos.length} ejecutivos · Líder: ${t.lider}</p>
-    </div>
-  `).join("");
+ const c=document.getElementById("listaTiendas"); if(!c)return;
+ c.innerHTML=getTiendas().map((t,i)=>`<div class="card" onclick="abrirTienda(${i})"><h3>${t.nombre}</h3><p>${t.ejecutivos.length} ejecutivos · Líder: ${t.lider}</p></div>`).join("");
 }
 
 function abrirTienda(i){
-  const t=getTiendas()[i];
-  document.getElementById("detalleNombre").innerText=t.nombre;
-  document.getElementById("detalleLider").innerText=t.lider;
-
-  document.getElementById("detalleEjecutivos").innerHTML=t.ejecutivos.length
-  ? t.ejecutivos.map(e=>`<div class="persona">👤 <b>${e}</b><br><small>Ejecutivo WOM</small></div>`).join("")
-  : "<p>No hay ejecutivos cargados.</p>";
-
-  const cierres=getCierres().filter(c=>c.tienda===t.nombre).slice(0,6);
-  document.getElementById("historialTienda").innerHTML=cierres.length
-  ? cierres.map(c=>`<div class="persona"><b>${c.mes}</b><br>Total tienda: ${c.ventasTienda}<br>${c.participante}: ${c.ventasParticipante}</div>`).join("")
-  : "<p>No hay registros de ventas.</p>";
-
-  showSection("detalleTienda");
+ const t=getTiendas()[i];
+ detalleNombre.innerText=t.nombre; detalleLider.innerText=t.lider;
+ detalleEjecutivos.innerHTML=t.ejecutivos.map(e=>`<div class="persona">👤 <b>${e}</b><br><small>Ejecutivo WOM</small></div>`).join("")||"<p>No hay ejecutivos.</p>";
+ showSection("detalleTienda");
 }
 
 function mostrarCurso(){
-  const curso=getCurso();
-
-  if(document.getElementById("cursoNombre"))cursoNombre.value=curso.nombre;
-  if(document.getElementById("cursoMes"))cursoMes.value=curso.mes;
-  if(document.getElementById("cursoObjetivo"))cursoObjetivo.value=curso.objetivo;
-  if(document.getElementById("cursoPresentacion"))cursoPresentacion.value=curso.presentacion;
-  if(document.getElementById("cursoKpi"))cursoKpi.value=curso.kpi;
-
-  const vista=document.getElementById("cursoActivoVista");
-  if(vista){
-    vista.innerHTML=`
-      <div class="card">
-        <span class="badge">Curso activo</span>
-        <h3>${curso.nombre}</h3>
-        <p><b>Mes:</b> ${curso.mes}</p>
-        <p><b>Objetivo:</b> ${curso.objetivo}</p>
-        <p><b>Presentación:</b> ${curso.presentacion ? `<a href="${curso.presentacion}" target="_blank">Abrir material</a>` : "Sin material cargado"}</p>
-        <p><b>KPI:</b><br>${curso.kpi || "Sin KPI cargado"}</p>
-        <h3>Participantes</h3>
-        ${curso.participantes.length ? curso.participantes.map(p=>`
-          <div class="persona">
-            <b>${p.nombre}</b><br>
-            <small>${p.cargo} · ${p.tienda}</small><br>
-            <small>Estado: ${p.estado}</small>
-          </div>`).join("") : "<p>No hay participantes cargados.</p>"}
-      </div>
-    `;
-  }
-
-  const gestion=document.getElementById("gestionParticipantes");
-  if(gestion){
-    gestion.innerHTML=curso.participantes.length ? curso.participantes.map((p,i)=>`
-      <div class="card">
-        <h3>${p.nombre}</h3>
-        <p>${p.cargo} · ${p.tienda}</p>
-        <label>Estado</label>
-        <select onchange="cambiarEstadoParticipante(${i},this.value)">
-          <option ${p.estado==="Pendiente"?"selected":""}>Pendiente</option>
-          <option ${p.estado==="Capacitado"?"selected":""}>Capacitado</option>
-          <option ${p.estado==="Reforzar"?"selected":""}>Reforzar</option>
-        </select>
-        <button class="danger" onclick="eliminarParticipante(${i})">Eliminar participante</button>
-      </div>
-    `).join("") : "<p>No hay participantes.</p>";
-  }
+ const curso=getCurso();
+ ["cursoNombre","cursoMes","cursoObjetivo","cursoBuenasPracticas","cursoPresentacion","cursoKpi"].forEach(id=>{if(document.getElementById(id))document.getElementById(id).value=curso[id.replace("curso","").charAt(0).toLowerCase()+id.replace("curso","").slice(1)]||""});
+ if(document.getElementById("cursoActivoVista")){
+  cursoActivoVista.innerHTML=`<div class="card"><span class="badge">Curso activo</span><h3>${curso.nombre}</h3><p><b>Mes:</b> ${curso.mes}</p><p><b>Objetivo:</b> ${curso.objetivo}</p><p><b>Presentación:</b> ${curso.presentacion?`<a href="${curso.presentacion}" target="_blank">Abrir material</a>`:"Sin material cargado"}</p><p><b>KPI:</b><br>${curso.kpi||"Sin KPI cargado"}</p><h3>Participantes</h3>${curso.participantes.length?curso.participantes.map(p=>`<div class="persona"><b>${p.nombre}</b><br><small>${p.cargo} · ${p.tienda}</small><br><small>Estado: ${p.estado}</small></div>`).join(""):"<p>No hay participantes cargados.</p>"}</div>`;
+ }
+ if(document.getElementById("gestionParticipantes")){
+  gestionParticipantes.innerHTML=curso.participantes.length?curso.participantes.map((p,i)=>`<div class="card"><h3>${p.nombre}</h3><p>${p.cargo} · ${p.tienda}</p><select onchange="cambiarEstadoParticipante(${i},this.value)"><option ${p.estado==="Convocado"?"selected":""}>Convocado</option><option ${p.estado==="Confirmado"?"selected":""}>Confirmado</option><option ${p.estado==="Asistió"?"selected":""}>Asistió</option><option ${p.estado==="Ausente"?"selected":""}>Ausente</option><option ${p.estado==="Reforzar"?"selected":""}>Reforzar</option></select><button class="danger" onclick="eliminarParticipante(${i})">Eliminar</button></div>`).join(""):"<p>No hay participantes.</p>";
+ }
 }
 
 function guardarCurso(){
-  const curso=getCurso();
-  curso.nombre=cursoNombre.value;
-  curso.mes=cursoMes.value;
-  curso.objetivo=cursoObjetivo.value;
-  curso.presentacion=cursoPresentacion.value;
-  curso.kpi=cursoKpi.value;
-  setCurso(curso);
-  alert("Curso actualizado");
-  refrescar();
+ const c=getCurso();
+ c.nombre=cursoNombre.value; c.mes=cursoMes.value; c.objetivo=cursoObjetivo.value; c.buenasPracticas=cursoBuenasPracticas.value; c.presentacion=cursoPresentacion.value; c.kpi=cursoKpi.value;
+ setLS("curso",c); alert("Curso actualizado"); refrescar();
 }
+function agregarParticipanteCurso(){const c=getCurso();const d=participanteNombre.value.split("|");c.participantes.push({nombre:d[0],cargo:d[1],tienda:d[2],estado:participanteEstado.value});setLS("curso",c);refrescar()}
+function cambiarEstadoParticipante(i,e){const c=getCurso();c.participantes[i].estado=e;setLS("curso",c);refrescar()}
+function eliminarParticipante(i){const c=getCurso();c.participantes.splice(i,1);setLS("curso",c);refrescar()}
 
-function agregarParticipanteCurso(){
-  const curso=getCurso();
-  const datos=participanteNombre.value.split("|");
-  curso.participantes.push({nombre:datos[0],cargo:datos[1],tienda:datos[2],estado:participanteEstado.value});
-  setCurso(curso);
-  refrescar();
-}
+function guardarAnalisis(){let d=getLS("analisis",[]);d.unshift({mes:analisisMes.value,kpi:analisisKpiNombre.value,top:analisisTop.value,bajo:analisisBajo.value,obs:analisisObs.value});setLS("analisis",d);alert("Análisis guardado");refrescar()}
+function guardarEntrevista(){let d=getLS("entrevistas",[]);d.unshift({fecha:entrevistaFecha.value,tienda:entrevistaTienda.value,persona:entrevistaPersona.value,kpi:entrevistaKPI.value,buenas:entrevistaBuenas.value,tecnicas:entrevistaTecnicas.value,ideas:entrevistaIdeas.value});setLS("entrevistas",d);alert("Entrevista guardada");refrescar()}
+function guardarOnline(){let d=getLS("online",[]);d.unshift({fecha:onlineFecha.value,hora:onlineHora.value,link:onlineLink.value,duracion:onlineDuracion.value,obs:onlineObs.value});setLS("online",d);alert("Capacitación online guardada");refrescar()}
+function guardarInasistencia(){let d=getLS("inasistencias",[]);d.unshift({fecha:inaFecha.value,tienda:inaTienda.value,persona:inaPersona.value,actividad:inaActividad.value,motivo:inaMotivo.value,reprogramar:inaReprogramar.value});setLS("inasistencias",d);alert("Inasistencia guardada");refrescar()}
+function guardarSeguimiento(){let d=getLS("seguimientos",[]);d.unshift({fecha:segFecha.value,tienda:segTienda.value,persona:segPersona.value,compromiso:segCompromiso.value,proxima:segProxima.value,estado:segEstado.value});setLS("seguimientos",d);alert("Seguimiento guardado");refrescar()}
+function guardarPlan(){let d=getLS("planes",[]);d.unshift({tienda:planTienda.value,accion:planAccion.value,responsable:planResponsable.value,fecha:planFecha.value,estado:planEstado.value});setLS("planes",d);alert("Plan guardado");refrescar()}
+function guardarCierreMensual(){let d=getLS("cierres",[]);d.unshift({mes:cierreMes.value,tienda:cierreTienda.value,participante:cierreParticipante.value,ventasParticipante:Number(ventasParticipante.value||0),ventasTienda:Number(ventasTienda.value||0)});setLS("cierres",d);alert("Cierre guardado");refrescar()}
 
-function cambiarEstadoParticipante(i,estado){
-  const curso=getCurso();
-  curso.participantes[i].estado=estado;
-  setCurso(curso);
-  refrescar();
-}
+function actualizarParticipantesCierre(){if(!document.getElementById("cierreTienda"))return;const t=getTiendas().find(x=>x.nombre===cierreTienda.value);if(!t)return;cierreParticipante.innerHTML=[t.lider,...t.ejecutivos].map(p=>`<option>${p}</option>`).join("")}
+function guardarCursoEnBiblioteca(){let b=getLS("biblioteca",[]);b.unshift({...getCurso(),fecha:new Date().toLocaleDateString()});setLS("biblioteca",b);alert("Guardado en biblioteca");refrescar()}
+function mostrarBiblioteca(){if(!document.getElementById("bibliotecaCursos"))return;const b=getLS("biblioteca",[]);bibliotecaCursos.innerHTML=b.length?b.map(x=>`<div class="card"><h3>${x.nombre}</h3><p>${x.mes} · ${x.fecha}</p><p>${x.participantes.length} participantes</p></div>`).join(""):"<p>No hay capacitaciones guardadas.</p>"}
 
-function eliminarParticipante(i){
-  const curso=getCurso();
-  curso.participantes.splice(i,1);
-  setCurso(curso);
-  refrescar();
-}
-
-function actualizarParticipantesCierre(){
-  const tiendaSelect=document.getElementById("cierreTienda");
-  const participanteSelect=document.getElementById("cierreParticipante");
-  if(!tiendaSelect || !participanteSelect)return;
-
-  const tienda=getTiendas().find(t=>t.nombre===tiendaSelect.value);
-  if(!tienda)return;
-
-  participanteSelect.innerHTML=[tienda.lider,...tienda.ejecutivos].map(p=>`<option>${p}</option>`).join("");
-}
-
-function guardarCierreMensual(){
-  const cierres=getCierres();
-  cierres.unshift({
-    mes:cierreMes.value,
-    tienda:cierreTienda.value,
-    participante:cierreParticipante.value,
-    ventasParticipante:Number(ventasParticipante.value||0),
-    ventasTienda:Number(ventasTienda.value||0),
-    obs:cierreObs.value
-  });
-  setCierres(cierres);
-  alert("Cierre guardado");
-  refrescar();
-}
-
-function guardarCursoEnBiblioteca(){
-  const biblioteca=JSON.parse(localStorage.getItem("biblioteca")||"[]");
-  biblioteca.unshift({...getCurso(),fecha:new Date().toLocaleDateString()});
-  localStorage.setItem("biblioteca",JSON.stringify(biblioteca));
-  alert("Curso guardado en biblioteca");
-  refrescar();
-}
-
-function mostrarBiblioteca(){
-  const cont=document.getElementById("bibliotecaCursos");
-  if(!cont)return;
-
-  const biblioteca=JSON.parse(localStorage.getItem("biblioteca")||"[]");
-  cont.innerHTML=biblioteca.length ? biblioteca.map(c=>`
-    <div class="card">
-      <h3>${c.nombre}</h3>
-      <p>${c.mes} · ${c.fecha}</p>
-      <p>${c.participantes.length} participantes</p>
-    </div>
-  `).join("") : "<p>No hay capacitaciones guardadas.</p>";
-}
-
-function mostrarReportes(){
-  const avance=document.getElementById("avanceCurso");
-  const ventas=document.getElementById("indicadoresVentas");
-  const resumen=document.getElementById("resumenCierre");
-
-  const curso=getCurso();
-  const total=curso.participantes.length;
-  const cap=curso.participantes.filter(p=>p.estado==="Capacitado").length;
-
-  if(avance)avance.innerText=total ? `${cap} de ${total} participantes capacitados (${Math.round(cap/total*100)}%)` : "Sin participantes cargados.";
-
-  const cierres=getCierres();
-  if(!cierres.length){
-    if(ventas)ventas.innerHTML="<p>No hay ventas registradas.</p>";
-    if(resumen)resumen.innerHTML="<p>No hay cierres registrados.</p>";
-    return;
-  }
-
-  const mes=cierres[0].mes;
-  const actuales=cierres.filter(c=>c.mes===mes);
-  const tiendas={};
-  actuales.forEach(c=>tiendas[c.tienda]=c.ventasTienda);
-  const totalTiendas=Object.values(tiendas).reduce((a,b)=>a+b,0);
-
-  const html=`<div class="kpi"><div><strong>${totalTiendas}</strong><br>Ventas tiendas</div><div><strong>${actuales.length}</strong><br>Registros</div></div>`;
-
-  if(ventas)ventas.innerHTML=html;
-  if(resumen)resumen.innerHTML=`<p><b>Mes:</b> ${mes}</p><p><b>Ventas totales tiendas:</b> ${totalTiendas}</p><p><b>Registros individuales:</b> ${actuales.length}</p>`;
+function mostrarDashboards(){
+ const curso=getCurso(), entrevistas=getLS("entrevistas",[]), online=getLS("online",[]), inas=getLS("inasistencias",[]), planes=getLS("planes",[]), seg=getLS("seguimientos",[]), cierres=getLS("cierres",[]);
+ const asistieron=curso.participantes.filter(p=>p.estado==="Asistió").length;
+ const ausentes=curso.participantes.filter(p=>p.estado==="Ausente").length;
+ const tiendasImpactadas=[...new Set(curso.participantes.map(p=>p.tienda))].length;
+ const totalVentas=cierres.length?[...new Map(cierres.map(c=>[c.tienda,c.ventasTienda])).values()].reduce((a,b)=>a+b,0):0;
+ const html=`<div class="kpi"><div><strong>${online.length}</strong><br>Capacitaciones online</div><div><strong>${entrevistas.length}</strong><br>Entrevistas</div><div><strong>${asistieron}</strong><br>Asistentes</div><div><strong>${ausentes}</strong><br>Ausentes</div><div><strong>${seg.length}</strong><br>Seguimientos</div><div><strong>${tiendasImpactadas}</strong><br>Tiendas impactadas</div></div>`;
+ if(document.getElementById("dashboardEmbajador"))dashboardEmbajador.innerHTML=html;
+ if(document.getElementById("dashboardAdmin"))dashboardAdmin.innerHTML=html;
+ if(document.getElementById("adminKPI"))adminKPI.innerHTML=`<div class="kpi"><div><strong>${totalVentas}</strong><br>Ventas tiendas registradas</div><div><strong>${planes.length}</strong><br>Planes acción</div></div>`;
+ if(document.getElementById("reporteEjecutivo"))reporteEjecutivo.innerHTML=`<p>Se registran ${entrevistas.length} entrevistas de buenas prácticas, ${online.length} capacitaciones online, ${curso.participantes.length} participantes en curso activo, ${inas.length} inasistencias y ${seg.length} seguimientos activos.</p>`;
+ if(document.getElementById("calendarioVista"))calendarioVista.innerHTML=online.length?online.map(o=>`<div class="card"><h3>${getCurso().nombre}</h3><p>${o.fecha} · ${o.hora}</p><p>${o.link?`<a href="${o.link}" target="_blank">Entrar a capacitación</a>`:"Sin link"}</p></div>`).join(""):"<div class='card'><p>No hay capacitaciones programadas.</p></div>";
 }
 
 function mostrarGestion(){
-  const tiendas=getTiendas();
-
-  if(document.getElementById("gestionTiendas")){
-    gestionTiendas.innerHTML=tiendas.map((t,i)=>`
-      <div class="card">
-        <h3>${t.nombre}</h3>
-        <p>Líder: ${t.lider}</p>
-        <button class="danger" onclick="eliminarTienda(${i})">Eliminar tienda</button>
-      </div>
-    `).join("");
-  }
-
-  if(document.getElementById("gestionColaboradores")){
-    gestionColaboradores.innerHTML=tiendas.map((t,i)=>`
-      <div class="card">
-        <h3>${t.nombre}</h3>
-        <p><b>Líder:</b> ${t.lider}</p>
-        ${t.ejecutivos.map((e,j)=>`<div class="persona">${e}<button class="danger" onclick="eliminarColaborador(${i},${j})">Eliminar</button></div>`).join("")}
-      </div>
-    `).join("");
-  }
+ const tiendas=getTiendas();
+ if(document.getElementById("gestionTiendas"))gestionTiendas.innerHTML=tiendas.map((t,i)=>`<div class="card"><h3>${t.nombre}</h3><p>Líder: ${t.lider}</p><button class="danger" onclick="eliminarTienda(${i})">Eliminar</button></div>`).join("");
+ if(document.getElementById("gestionColaboradores"))gestionColaboradores.innerHTML=tiendas.map((t,i)=>`<div class="card"><h3>${t.nombre}</h3>${t.ejecutivos.map((e,j)=>`<div class="persona">${e}<button class="danger" onclick="eliminarColaborador(${i},${j})">Eliminar</button></div>`).join("")}</div>`).join("");
 }
-
-function agregarTienda(){
-  const tiendas=getTiendas();
-  tiendas.push({nombre:nuevaTiendaNombre.value,lider:nuevaTiendaLider.value||"Por definir",ejecutivos:[]});
-  setTiendas(tiendas);
-  refrescar();
-}
-
-function eliminarTienda(i){
-  const tiendas=getTiendas();
-  tiendas.splice(i,1);
-  setTiendas(tiendas);
-  refrescar();
-}
-
-function agregarColaborador(){
-  const tiendas=getTiendas();
-  const tienda=tiendas.find(t=>t.nombre===nuevoColaboradorTienda.value);
-  if(nuevoColaboradorCargo.value==="Líder")tienda.lider=nuevoColaboradorNombre.value;
-  else tienda.ejecutivos.push(nuevoColaboradorNombre.value);
-  setTiendas(tiendas);
-  refrescar();
-}
-
-function eliminarColaborador(i,j){
-  const tiendas=getTiendas();
-  tiendas[i].ejecutivos.splice(j,1);
-  setTiendas(tiendas);
-  refrescar();
-}
-
-function guardarEntrevista(){
-  const datos=JSON.parse(localStorage.getItem("entrevistas")||"[]");
-  datos.unshift({
-    fecha:entrevistaFecha.value,
-    tienda:entrevistaTienda.value,
-    persona:entrevistaPersona.value,
-    cargo:entrevistaCargo.value,
-    fortalezas:entrevistaFortalezas.value,
-    brechas:entrevistaBrechas.value,
-    compromisos:entrevistaCompromisos.value
-  });
-  localStorage.setItem("entrevistas",JSON.stringify(datos));
-  alert("Entrevista guardada");
-  refrescar();
-}
-
-function guardarPlan(){
-  const datos=JSON.parse(localStorage.getItem("planes")||"[]");
-  datos.unshift({
-    tienda:planTienda.value,
-    accion:planAccion.value,
-    responsable:planResponsable.value,
-    fecha:planFecha.value,
-    estado:planEstado.value
-  });
-  localStorage.setItem("planes",JSON.stringify(datos));
-  alert("Plan guardado");
-  refrescar();
-}
+function agregarTienda(){let t=getTiendas();t.push({nombre:nuevaTiendaNombre.value,lider:nuevaTiendaLider.value||"Por definir",ejecutivos:[]});setTiendas(t);refrescar()}
+function eliminarTienda(i){let t=getTiendas();t.splice(i,1);setTiendas(t);refrescar()}
+function agregarColaborador(){let t=getTiendas();let tienda=t.find(x=>x.nombre===nuevoColaboradorTienda.value);if(nuevoColaboradorCargo.value==="Líder")tienda.lider=nuevoColaboradorNombre.value;else tienda.ejecutivos.push(nuevoColaboradorNombre.value);setTiendas(t);refrescar()}
+function eliminarColaborador(i,j){let t=getTiendas();t[i].ejecutivos.splice(j,1);setTiendas(t);refrescar()}
 
 function mostrarRegistros(){
-  if(document.getElementById("historialEntrevistas")){
-    const datos=JSON.parse(localStorage.getItem("entrevistas")||"[]");
-    historialEntrevistas.innerHTML=datos.length ? datos.map(d=>`<div class="card record"><h3>${d.persona}</h3><p>${d.fecha} · ${d.tienda}</p><p>${d.compromisos}</p></div>`).join("") : "<p>No hay entrevistas.</p>";
-  }
-
-  if(document.getElementById("listaPlanes")){
-    const datos=JSON.parse(localStorage.getItem("planes")||"[]");
-    listaPlanes.innerHTML=datos.length ? datos.map(d=>`<div class="card record"><h3>${d.tienda}</h3><p>${d.accion}</p><p>${d.estado}</p></div>`).join("") : "<p>No hay planes.</p>";
-  }
-
-  if(document.getElementById("historialCierres")){
-    const datos=getCierres();
-    historialCierres.innerHTML=datos.length ? datos.map(d=>`<div class="card record"><h3>${d.participante}</h3><p>${d.mes} · ${d.tienda}</p><p>Ventas participante: ${d.ventasParticipante}</p><p>Total tienda: ${d.ventasTienda}</p></div>`).join("") : "<p>No hay cierres.</p>";
-  }
+ if(!document.getElementById("misRegistrosVista"))return;
+ const bloques=[
+  ["Análisis KPI",getLS("analisis",[]).map(x=>`${x.mes} · ${x.kpi}`)],
+  ["Entrevistas",getLS("entrevistas",[]).map(x=>`${x.fecha} · ${x.persona}`)],
+  ["Capacitaciones Online",getLS("online",[]).map(x=>`${x.fecha} · ${x.hora}`)],
+  ["Inasistencias",getLS("inasistencias",[]).map(x=>`${x.fecha} · ${x.persona}`)],
+  ["Seguimientos",getLS("seguimientos",[]).map(x=>`${x.persona} · ${x.estado}`)],
+  ["Planes de Acción",getLS("planes",[]).map(x=>`${x.tienda} · ${x.estado}`)],
+  ["Cierres",getLS("cierres",[]).map(x=>`${x.mes} · ${x.tienda}`)]
+ ];
+ misRegistrosVista.innerHTML=bloques.map(b=>`<div class="card"><h3>${b[0]}</h3>${b[1].length?b[1].map(i=>`<div class="persona">${i}</div>`).join(""):"<p>Sin registros.</p>"}</div>`).join("");
 }
 
 refrescar();
