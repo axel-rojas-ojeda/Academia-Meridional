@@ -16,30 +16,125 @@
   --rojo:#e11d48;
   --amarillo:#f59e0b;
 }
+
 *{box-sizing:border-box;font-family:Arial,sans-serif}
-body{margin:0;background:var(--fondo);color:var(--texto)}
+
+body{
+  margin:0;
+  background:var(--fondo);
+  color:var(--texto);
+}
+
 header{
   background:linear-gradient(135deg,var(--morado),var(--azul));
   color:white;
-  padding:32px 18px 38px;
+  padding:36px 18px 44px;
   text-align:center;
   border-radius:0 0 34px 34px;
 }
-header h1{margin:0;font-size:34px;line-height:1.1;text-transform:uppercase}
-header p{margin:10px 0 0;font-size:15px}
-main{padding:20px;max-width:540px;margin:auto}
+
+header h1{
+  margin:0;
+  font-size:34px;
+  line-height:1.1;
+  text-transform:uppercase;
+}
+
+header p{
+  margin:10px 0 0;
+  font-size:15px;
+}
+
+main{
+  padding:20px;
+  width:100%;
+  max-width:1200px;
+  margin:auto;
+}
+
 .section{display:none}
 .section.active{display:block}
-.title{color:var(--morado);font-size:24px;margin:24px 0 14px}
+
+.title{
+  color:var(--morado);
+  font-size:24px;
+  margin:26px 0 16px;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+  gap:14px;
+}
+
+button{
+  cursor:pointer;
+}
+
+.grid button,
+.back,
+.save,
+.danger{
+  border:none;
+  border-radius:18px;
+  padding:16px;
+  font-weight:bold;
+}
+
+.grid button{
+  min-height:105px;
+  background:white;
+  color:var(--morado);
+  font-size:16px;
+  box-shadow:0 8px 20px rgba(75,15,191,.10);
+}
+
+.grid span{
+  display:block;
+  font-size:30px;
+  margin-bottom:6px;
+}
+
+.back{
+  background:white;
+  color:var(--morado);
+  box-shadow:0 8px 20px rgba(75,15,191,.12);
+  margin-bottom:14px;
+}
+
+.save{
+  width:100%;
+  color:white;
+  background:linear-gradient(135deg,var(--morado),var(--azul));
+  margin-top:8px;
+}
+
+.danger{
+  width:100%;
+  background:#ffe8ef;
+  color:#c4003f;
+  margin-top:8px;
+}
+
 .card{
   background:white;
   border-radius:22px;
-  padding:18px;
-  margin-bottom:14px;
+  padding:20px;
+  margin-bottom:16px;
   box-shadow:0 8px 20px rgba(75,15,191,.10);
 }
-.card h3{margin:0;color:var(--morado);font-size:20px}
-.card p{color:var(--gris);font-size:14px}
+
+.card h3{
+  margin:0;
+  color:var(--morado);
+  font-size:20px;
+}
+
+.card p{
+  color:var(--gris);
+  font-size:15px;
+}
+
 .badge{
   display:inline-block;
   background:#e9ddff;
@@ -50,59 +145,66 @@ main{padding:20px;max-width:540px;margin:auto}
   font-weight:bold;
   margin-bottom:10px;
 }
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.grid button,.back,.save,.danger{
-  border:none;
-  border-radius:18px;
-  padding:14px;
-  font-weight:bold;
-}
-.grid button{
-  min-height:92px;
-  background:white;
-  color:var(--morado);
-  font-size:15px;
-  box-shadow:0 8px 20px rgba(75,15,191,.10);
-}
-.grid span{display:block;font-size:28px;margin-bottom:6px}
-.back{
-  background:white;
-  color:var(--morado);
-  box-shadow:0 8px 20px rgba(75,15,191,.12);
-  margin-bottom:14px;
-}
-.save{
-  width:100%;
-  color:white;
-  background:linear-gradient(135deg,var(--morado),var(--azul));
-  margin-top:8px;
-}
-.danger{width:100%;background:#ffe8ef;color:#c4003f;margin-top:8px}
+
 input,select,textarea{
   width:100%;
-  padding:13px;
+  padding:14px;
   border:1px solid #ddd;
   border-radius:14px;
   margin:7px 0 13px;
   font-size:15px;
 }
-textarea{min-height:90px}
-label{font-size:13px;color:var(--gris);font-weight:bold}
-.persona{padding:10px 0;border-bottom:1px solid #eee}
-.persona:last-child{border-bottom:none}
-.record{border-left:5px solid var(--morado)}
-.kpi{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.kpi div{background:#f2ebff;padding:14px;border-radius:16px}
-.kpi strong{font-size:22px;color:var(--morado)}
-.interno{text-align:center;margin:32px 0 12px}
-.interno button{
-  background:transparent;
-  border:none;
+
+textarea{min-height:100px}
+
+label{
+  font-size:13px;
   color:var(--gris);
-  font-size:12px;
-  text-decoration:underline;
-  margin:4px;
+  font-weight:bold;
 }
+
+.persona{
+  padding:10px 0;
+  border-bottom:1px solid #eee;
+}
+
+.persona:last-child{border-bottom:none}
+
+.kpi{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+  gap:12px;
+}
+
+.kpi div{
+  background:#f2ebff;
+  padding:16px;
+  border-radius:16px;
+}
+
+.kpi strong{
+  font-size:24px;
+  color:var(--morado);
+}
+
+.interno{
+  text-align:center;
+  margin:34px 0 12px;
+}
+
+.interno button{
+  background:white;
+  border:1px solid #e5ddff;
+  color:var(--morado);
+  font-size:14px;
+  font-weight:600;
+  text-decoration:none;
+  margin:6px;
+  padding:10px 14px;
+  border-radius:16px;
+  box-shadow:0 4px 12px rgba(75,15,191,.08);
+}
+
 .course-hero{
   background:linear-gradient(135deg,var(--morado),var(--azul));
   color:white;
@@ -110,17 +212,33 @@ label{font-size:13px;color:var(--gris);font-weight:bold}
   padding:24px;
   margin-bottom:16px;
 }
-.course-hero h2{margin:0;font-size:27px;line-height:1.1}
-.course-hero p{color:#eee;margin:10px 0 0}
+
+.course-hero h2{
+  margin:0;
+  font-size:28px;
+  line-height:1.1;
+}
+
+.course-hero p{
+  color:#eee;
+  margin:10px 0 0;
+}
+
 .course-card{
   background:white;
   border-radius:22px;
-  padding:18px;
-  margin-bottom:14px;
+  padding:20px;
+  margin-bottom:16px;
   border-left:6px solid var(--morado);
   box-shadow:0 8px 20px rgba(75,15,191,.10);
 }
-.course-card h3{margin:0;color:var(--morado)}
+
+.course-card h3{
+  margin:0;
+  color:var(--morado);
+  font-size:20px;
+}
+
 .material-btn{
   display:block;
   text-align:center;
@@ -132,6 +250,7 @@ label{font-size:13px;color:var(--gris);font-weight:bold}
   font-weight:bold;
   margin-top:10px;
 }
+
 .progress{
   height:14px;
   background:#eee4ff;
@@ -139,9 +258,35 @@ label{font-size:13px;color:var(--gris);font-weight:bold}
   overflow:hidden;
   margin-top:10px;
 }
+
 .progress div{
   height:100%;
   background:linear-gradient(135deg,var(--morado),var(--azul));
+}
+
+@media(min-width:768px){
+  header h1{font-size:48px}
+  header p{font-size:18px}
+  .title{font-size:30px}
+  .card,.course-card{padding:24px}
+  .card h3,.course-card h3{font-size:24px}
+  .grid{grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
+  .grid button{min-height:130px;font-size:18px}
+  .grid span{font-size:36px}
+  .course-hero h2{font-size:40px}
+}
+
+@media(min-width:1024px){
+  .section.active{
+    max-width:1100px;
+    margin:auto;
+  }
+  .course-hero{
+    padding:34px;
+  }
+  .course-hero h2{
+    font-size:46px;
+  }
 }
 </style>
 </head>
@@ -215,7 +360,6 @@ label{font-size:13px;color:var(--gris);font-weight:bold}
   <button class="back" onclick="showSection('home')">← Volver</button>
   <h2 class="title">Reportes</h2>
   <div class="card"><h3>Avance Curso Activo</h3><div id="avancePublico"></div></div>
-  <div class="card"><h3>Calendario y recursos</h3><p>Reportes generales de formación y recursos disponibles.</p></div>
 </section>
 
 <section id="embajador" class="section">
@@ -257,7 +401,7 @@ label{font-size:13px;color:var(--gris);font-weight:bold}
     <label>KPI analizado</label><input id="analisisKpiNombre" placeholder="Ej: Planes Empresa, Productividad">
     <label>Mejores resultados KPI</label><textarea id="analisisTop"></textarea>
     <label>Resultados bajos / brechas</label><textarea id="analisisBajo"></textarea>
-    <label>Observaciones del análisis</label><textarea id="analisisObs"></textarea>
+    <label>Observaciones</label><textarea id="analisisObs"></textarea>
     <button class="save" onclick="guardarAnalisis()">Guardar análisis</button>
   </div>
 </section>
