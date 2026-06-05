@@ -3,46 +3,155 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Academia Meridional</title>
+<title>Meridional</title>
 
 <style>
+:root{
+  --morado:#4b0fbf;
+  --morado2:#2d066f;
+  --azul:#1e5eff;
+  --fondo:#f6f3ff;
+  --texto:#1f1638;
+  --gris:#6d6790;
+  --blanco:#fff;
+}
+
+*{
+  box-sizing:border-box;
+  font-family:Arial, sans-serif;
+}
+
 body{
-    margin:0;
-    font-family:Arial, sans-serif;
-    background:#f5f5f5;
+  margin:0;
+  background:var(--fondo);
+  color:var(--texto);
 }
 
 header{
-    background:#4B0FBB;
-    color:white;
-    padding:20px;
-    text-align:center;
+  background:linear-gradient(135deg,var(--morado),var(--azul));
+  color:white;
+  padding:26px 18px;
+  text-align:center;
+  border-radius:0 0 28px 28px;
 }
 
-h1{
-    margin:0;
+header h1{
+  margin:0;
+  font-size:34px;
+  letter-spacing:1px;
 }
 
-.container{
-    padding:15px;
+header p{
+  margin:8px 0 0;
+  font-size:14px;
+}
+
+main{
+  padding:16px;
+  max-width:520px;
+  margin:auto;
+}
+
+.menu{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+  margin-bottom:18px;
+}
+
+.menu button,
+.back,
+.save{
+  border:none;
+  border-radius:18px;
+  padding:16px;
+  font-size:15px;
+  font-weight:bold;
+  background:white;
+  box-shadow:0 8px 20px rgba(75,15,191,.12);
+  color:var(--morado);
+}
+
+.save{
+  background:linear-gradient(135deg,var(--morado),var(--azul));
+  color:white;
+  width:100%;
+  margin-top:10px;
+}
+
+.back{
+  margin-bottom:14px;
+}
+
+.section{
+  display:none;
+}
+
+.section.active{
+  display:block;
 }
 
 .card{
-    background:white;
-    border-radius:12px;
-    padding:15px;
-    margin-bottom:12px;
-    box-shadow:0 2px 6px rgba(0,0,0,0.1);
+  background:white;
+  padding:16px;
+  border-radius:18px;
+  margin-bottom:12px;
+  box-shadow:0 8px 20px rgba(75,15,191,.10);
 }
 
 .card h3{
-    margin:0;
-    color:#4B0FBB;
+  margin:0;
+  color:var(--morado);
 }
 
 .card p{
-    margin-top:8px;
-    color:#666;
+  margin:7px 0 0;
+  color:var(--gris);
+  font-size:14px;
+}
+
+input, select, textarea{
+  width:100%;
+  padding:13px;
+  border:1px solid #ddd;
+  border-radius:14px;
+  margin:7px 0 13px;
+  font-size:15px;
+}
+
+textarea{
+  min-height:90px;
+}
+
+label{
+  font-size:13px;
+  color:var(--gris);
+  font-weight:bold;
+}
+
+.title{
+  margin:10px 0 14px;
+  font-size:22px;
+  color:var(--morado);
+}
+
+.phase{
+  font-size:12px;
+  color:white;
+  background:var(--morado);
+  padding:5px 10px;
+  border-radius:20px;
+  display:inline-block;
+  margin-bottom:8px;
+}
+
+.small{
+  font-size:13px;
+  color:var(--gris);
+}
+
+.record{
+  border-left:5px solid var(--morado);
 }
 </style>
 </head>
@@ -50,68 +159,370 @@ h1{
 <body>
 
 <header>
-    <h1>Academia Meridional</h1>
-    <p>Sucursales Meridional</p>
+  <h1>MERIDIONAL</h1>
+  <p>Transformando conocimiento en resultados</p>
 </header>
 
-<div class="container">
+<main>
 
-<div class="card">
-<h3>Puerto Varas</h3>
-<p>Ver ejecutivos</p>
-</div>
+<section id="home" class="section active">
+  <div class="menu">
+    <button onclick="showSection('tiendas')">🏪 Tiendas</button>
+    <button onclick="showSection('entrevistas')">🎤 Entrevistas</button>
+    <button onclick="showSection('capacitaciones')">🎓 Capacitaciones</button>
+    <button onclick="showSection('colaboradores')">👥 Colaboradores</button>
+    <button onclick="showSection('planes')">📋 Planes Acción</button>
+    <button onclick="showSection('biblioteca')">📚 Biblioteca</button>
+  </div>
 
-<div class="card">
-<h3>Osorno</h3>
-<p>Ver ejecutivos</p>
-</div>
+  <div class="card">
+    <span class="phase">Fase 1</span>
+    <h3>Registro operativo</h3>
+    <p>Tiendas, entrevistas, capacitaciones y colaboradores.</p>
+  </div>
 
-<div class="card">
-<h3>Ancud</h3>
-<p>Ver ejecutivos</p>
-</div>
+  <div class="card">
+    <span class="phase">Fase 2</span>
+    <h3>Seguimiento</h3>
+    <p>Planes de acción, biblioteca e historial de registros.</p>
+  </div>
+</section>
 
-<div class="card">
-<h3>Castro</h3>
-<p>Ver ejecutivos</p>
-</div>
+<section id="tiendas" class="section">
+  <button class="back" onclick="showSection('home')">← Volver</button>
+  <h2 class="title">Tiendas Meridional</h2>
+  <div id="listaTiendas"></div>
+</section>
 
-<div class="card">
-<h3>Puerto Montt Centro</h3>
-<p>Ver ejecutivos</p>
-</div>
+<section id="detalleTienda" class="section">
+  <button class="back" onclick="showSection('tiendas')">← Volver a tiendas</button>
+  <h2 id="nombreTienda" class="title"></h2>
+  <div class="card">
+    <h3>Líder</h3>
+    <p id="liderTienda">Por definir</p>
+  </div>
+  <div class="card">
+    <h3>Ejecutivos</h3>
+    <div id="ejecutivosTienda"></div>
+  </div>
+</section>
 
-<div class="card">
-<h3>Paseo Costanera</h3>
-<p>Ver ejecutivos</p>
-</div>
+<section id="entrevistas" class="section">
+  <button class="back" onclick="showSection('home')">← Volver</button>
+  <h2 class="title">Registro de Entrevista</h2>
 
-<div class="card">
-<h3>Valdivia</h3>
-<p>Ver ejecutivos</p>
-</div>
+  <div class="card">
+    <label>Fecha</label>
+    <input id="entrevistaFecha" type="date">
 
-<div class="card">
-<h3>Villarrica</h3>
-<p>Ver ejecutivos</p>
-</div>
+    <label>Tienda</label>
+    <select id="entrevistaTienda"></select>
 
-<div class="card">
-<h3>WOM Street Puerto Montt</h3>
-<p>Ver ejecutivos</p>
-</div>
+    <label>Persona entrevistada</label>
+    <input id="entrevistaPersona" placeholder="Nombre">
 
-<div class="card">
-<h3>WOM Street Chiloé</h3>
-<p>Ver ejecutivos</p>
-</div>
+    <label>Cargo</label>
+    <input id="entrevistaCargo" placeholder="Líder / Ejecutivo">
 
-<div class="card">
-<h3>WOM Street Temuco</h3>
-<p>Ver ejecutivos</p>
-</div>
+    <label>Fortalezas detectadas</label>
+    <textarea id="entrevistaFortalezas"></textarea>
 
-</div>
+    <label>Oportunidades de mejora</label>
+    <textarea id="entrevistaOportunidades"></textarea>
+
+    <label>Compromisos</label>
+    <textarea id="entrevistaCompromisos"></textarea>
+
+    <label>Observaciones</label>
+    <textarea id="entrevistaObservaciones"></textarea>
+
+    <button class="save" onclick="guardarEntrevista()">Guardar entrevista</button>
+  </div>
+
+  <h3 class="title">Historial</h3>
+  <div id="historialEntrevistas"></div>
+</section>
+
+<section id="capacitaciones" class="section">
+  <button class="back" onclick="showSection('home')">← Volver</button>
+  <h2 class="title">Registro de Capacitación</h2>
+
+  <div class="card">
+    <label>Fecha</label>
+    <input id="capFecha" type="date">
+
+    <label>Tienda</label>
+    <select id="capTienda"></select>
+
+    <label>Capacitación</label>
+    <input id="capNombre" value="Planes WOM Segmento Empresa">
+
+    <label>Participantes</label>
+    <textarea id="capParticipantes" placeholder="Nombre de participantes"></textarea>
+
+    <label>Estado</label>
+    <select id="capEstado">
+      <option>Pendiente</option>
+      <option>Capacitado</option>
+      <option>Reforzar</option>
+    </select>
+
+    <label>Observaciones</label>
+    <textarea id="capObservaciones"></textarea>
+
+    <label>Compromisos</label>
+    <textarea id="capCompromisos"></textarea>
+
+    <button class="save" onclick="guardarCapacitacion()">Guardar capacitación</button>
+  </div>
+
+  <h3 class="title">Historial</h3>
+  <div id="historialCapacitaciones"></div>
+</section>
+
+<section id="colaboradores" class="section">
+  <button class="back" onclick="showSection('home')">← Volver</button>
+  <h2 class="title">Colaboradores</h2>
+
+  <div class="card">
+    <label>Nombre</label>
+    <input id="colNombre" placeholder="Nombre colaborador">
+
+    <label>Cargo</label>
+    <input id="colCargo" placeholder="Ejecutivo / Líder">
+
+    <label>Tienda</label>
+    <select id="colTienda"></select>
+
+    <button class="save" onclick="guardarColaborador()">Agregar colaborador</button>
+  </div>
+
+  <div id="listaColaboradores"></div>
+</section>
+
+<section id="planes" class="section">
+  <button class="back" onclick="showSection('home')">← Volver</button>
+  <h2 class="title">Planes de Acción</h2>
+
+  <div class="card">
+    <label>Tienda</label>
+    <select id="planTienda"></select>
+
+    <label>Acción</label>
+    <textarea id="planAccion"></textarea>
+
+    <label>Responsable</label>
+    <input id="planResponsable">
+
+    <label>Fecha compromiso</label>
+    <input id="planFecha" type="date">
+
+    <label>Estado</label>
+    <select id="planEstado">
+      <option>Pendiente</option>
+      <option>En proceso</option>
+      <option>Completado</option>
+    </select>
+
+    <button class="save" onclick="guardarPlan()">Guardar plan</button>
+  </div>
+
+  <div id="listaPlanes"></div>
+</section>
+
+<section id="biblioteca" class="section">
+  <button class="back" onclick="showSection('home')">← Volver</button>
+  <h2 class="title">Biblioteca</h2>
+
+  <div class="card">
+    <h3>Planes WOM Segmento Empresa</h3>
+    <p>Material base de capacitación mensual.</p>
+  </div>
+
+  <div class="card">
+    <h3>Técnicas de Venta</h3>
+    <p>Guías y apoyo para entrevistas y refuerzos.</p>
+  </div>
+
+  <div class="card">
+    <h3>Manejo de Objeciones</h3>
+    <p>Material pendiente de carga.</p>
+  </div>
+</section>
+
+</main>
+
+<script>
+const tiendas = [
+  "Sucursal Valdivia",
+  "Kiosco Plaza Los Ríos",
+  "Sucursal Villarrica",
+  "Sucursal Osorno",
+  "Sucursal Puerto Varas",
+  "Sucursal Paseo Costanera",
+  "Sucursal Puerto Montt Centro",
+  "Sucursal Ancud",
+  "Sucursal Castro",
+  "Kiosco Mall Castro",
+  "Street Temuco",
+  "Street Osorno",
+  "Street Puerto Montt",
+  "Street Chiloé"
+];
+
+function showSection(id){
+  document.querySelectorAll(".section").forEach(s => s.classList.remove("active"));
+  document.getElementById(id).classList.add("active");
+}
+
+function cargarTiendas(){
+  const cont = document.getElementById("listaTiendas");
+  cont.innerHTML = "";
+
+  tiendas.forEach(tienda => {
+    cont.innerHTML += `
+      <div class="card" onclick="abrirTienda('${tienda}')">
+        <h3>${tienda}</h3>
+        <p>Ver líder y ejecutivos</p>
+      </div>
+    `;
+  });
+
+  document.querySelectorAll("select").forEach(select => {
+    if(select.id.includes("Tienda")){
+      select.innerHTML = tiendas.map(t => `<option>${t}</option>`).join("");
+    }
+  });
+}
+
+function abrirTienda(tienda){
+  document.getElementById("nombreTienda").innerText = tienda;
+  document.getElementById("liderTienda").innerText = "Por definir";
+  document.getElementById("ejecutivosTienda").innerHTML = `
+    <p class="small">Los ejecutivos se irán agregando desde el módulo Colaboradores.</p>
+  `;
+  showSection("detalleTienda");
+}
+
+function guardarEntrevista(){
+  const datos = JSON.parse(localStorage.getItem("entrevistas") || "[]");
+
+  datos.unshift({
+    fecha: entrevistaFecha.value,
+    tienda: entrevistaTienda.value,
+    persona: entrevistaPersona.value,
+    cargo: entrevistaCargo.value,
+    fortalezas: entrevistaFortalezas.value,
+    oportunidades: entrevistaOportunidades.value,
+    compromisos: entrevistaCompromisos.value,
+    observaciones: entrevistaObservaciones.value
+  });
+
+  localStorage.setItem("entrevistas", JSON.stringify(datos));
+  mostrarEntrevistas();
+  alert("Entrevista guardada");
+}
+
+function mostrarEntrevistas(){
+  const datos = JSON.parse(localStorage.getItem("entrevistas") || "[]");
+  historialEntrevistas.innerHTML = datos.map(d => `
+    <div class="card record">
+      <h3>${d.persona || "Sin nombre"}</h3>
+      <p>${d.fecha || ""} · ${d.tienda}</p>
+      <p><b>Cargo:</b> ${d.cargo || ""}</p>
+      <p><b>Compromisos:</b> ${d.compromisos || ""}</p>
+    </div>
+  `).join("");
+}
+
+function guardarCapacitacion(){
+  const datos = JSON.parse(localStorage.getItem("capacitaciones") || "[]");
+
+  datos.unshift({
+    fecha: capFecha.value,
+    tienda: capTienda.value,
+    nombre: capNombre.value,
+    participantes: capParticipantes.value,
+    estado: capEstado.value,
+    observaciones: capObservaciones.value,
+    compromisos: capCompromisos.value
+  });
+
+  localStorage.setItem("capacitaciones", JSON.stringify(datos));
+  mostrarCapacitaciones();
+  alert("Capacitación guardada");
+}
+
+function mostrarCapacitaciones(){
+  const datos = JSON.parse(localStorage.getItem("capacitaciones") || "[]");
+  historialCapacitaciones.innerHTML = datos.map(d => `
+    <div class="card record">
+      <h3>${d.nombre}</h3>
+      <p>${d.fecha || ""} · ${d.tienda}</p>
+      <p><b>Estado:</b> ${d.estado}</p>
+      <p><b>Participantes:</b> ${d.participantes || ""}</p>
+    </div>
+  `).join("");
+}
+
+function guardarColaborador(){
+  const datos = JSON.parse(localStorage.getItem("colaboradores") || "[]");
+
+  datos.unshift({
+    nombre: colNombre.value,
+    cargo: colCargo.value,
+    tienda: colTienda.value
+  });
+
+  localStorage.setItem("colaboradores", JSON.stringify(datos));
+  mostrarColaboradores();
+  alert("Colaborador agregado");
+}
+
+function mostrarColaboradores(){
+  const datos = JSON.parse(localStorage.getItem("colaboradores") || "[]");
+  listaColaboradores.innerHTML = datos.map(d => `
+    <div class="card">
+      <h3>${d.nombre}</h3>
+      <p>${d.cargo} · ${d.tienda}</p>
+    </div>
+  `).join("");
+}
+
+function guardarPlan(){
+  const datos = JSON.parse(localStorage.getItem("planes") || "[]");
+
+  datos.unshift({
+    tienda: planTienda.value,
+    accion: planAccion.value,
+    responsable: planResponsable.value,
+    fecha: planFecha.value,
+    estado: planEstado.value
+  });
+
+  localStorage.setItem("planes", JSON.stringify(datos));
+  mostrarPlanes();
+  alert("Plan guardado");
+}
+
+function mostrarPlanes(){
+  const datos = JSON.parse(localStorage.getItem("planes") || "[]");
+  listaPlanes.innerHTML = datos.map(d => `
+    <div class="card record">
+      <h3>${d.tienda}</h3>
+      <p><b>Acción:</b> ${d.accion}</p>
+      <p><b>Responsable:</b> ${d.responsable}</p>
+      <p><b>Estado:</b> ${d.estado}</p>
+    </div>
+  `).join("");
+}
+
+cargarTiendas();
+mostrarEntrevistas();
+mostrarCapacitaciones();
+mostrarColaboradores();
+mostrarPlanes();
+</script>
 
 </body>
 </html>
