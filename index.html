@@ -3,17 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Meridional</title>
+<title>Academia Meridional</title>
 
 <style>
 :root{
   --morado:#4b0fbf;
-  --morado2:#2d066f;
+  --morado2:#26045f;
   --azul:#1e5eff;
-  --fondo:#f6f3ff;
-  --texto:#1f1638;
+  --fondo:#f7f3ff;
+  --texto:#171127;
   --gris:#6d6790;
-  --blanco:#fff;
+  --blanco:#ffffff;
 }
 
 *{
@@ -30,57 +30,27 @@ body{
 header{
   background:linear-gradient(135deg,var(--morado),var(--azul));
   color:white;
-  padding:26px 18px;
+  padding:30px 18px 34px;
   text-align:center;
-  border-radius:0 0 28px 28px;
+  border-radius:0 0 34px 34px;
 }
 
 header h1{
   margin:0;
   font-size:34px;
-  letter-spacing:1px;
+  line-height:1.1;
+  text-transform:uppercase;
 }
 
 header p{
-  margin:8px 0 0;
-  font-size:14px;
+  margin:10px 0 0;
+  font-size:15px;
 }
 
 main{
-  padding:16px;
+  padding:18px;
   max-width:520px;
   margin:auto;
-}
-
-.menu{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:12px;
-  margin-bottom:18px;
-}
-
-.menu button,
-.back,
-.save{
-  border:none;
-  border-radius:18px;
-  padding:16px;
-  font-size:15px;
-  font-weight:bold;
-  background:white;
-  box-shadow:0 8px 20px rgba(75,15,191,.12);
-  color:var(--morado);
-}
-
-.save{
-  background:linear-gradient(135deg,var(--morado),var(--azul));
-  color:white;
-  width:100%;
-  margin-top:10px;
-}
-
-.back{
-  margin-bottom:14px;
 }
 
 .section{
@@ -91,10 +61,96 @@ main{
   display:block;
 }
 
+.block-title{
+  font-size:15px;
+  font-weight:bold;
+  color:var(--morado);
+  margin:22px 0 12px;
+  text-transform:uppercase;
+}
+
+.menu{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:13px;
+}
+
+.menu button{
+  min-height:92px;
+  border:none;
+  border-radius:22px;
+  background:white;
+  color:var(--morado);
+  font-size:17px;
+  font-weight:bold;
+  box-shadow:0 10px 25px rgba(75,15,191,.12);
+}
+
+.menu span{
+  display:block;
+  font-size:26px;
+  margin-bottom:6px;
+}
+
+.personal-box{
+  border:1.5px solid var(--morado);
+  border-radius:22px;
+  padding:14px;
+  background:rgba(255,255,255,.55);
+}
+
+.personal-card{
+  background:white;
+  border-radius:18px;
+  padding:16px;
+  margin-bottom:10px;
+  box-shadow:0 8px 20px rgba(75,15,191,.10);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+}
+
+.personal-card:last-child{
+  margin-bottom:0;
+}
+
+.personal-card div{
+  flex:1;
+}
+
+.personal-card h3{
+  margin:0;
+  font-size:17px;
+  color:var(--texto);
+}
+
+.personal-card p{
+  margin:5px 0 0;
+  color:var(--gris);
+  font-size:13px;
+}
+
+.icon{
+  width:44px;
+  height:44px;
+  border-radius:50%;
+  background:#f0e8ff;
+  display:grid;
+  place-items:center;
+  font-size:23px;
+}
+
+.arrow{
+  color:var(--morado);
+  font-size:24px;
+  font-weight:bold;
+}
+
 .card{
   background:white;
-  padding:16px;
   border-radius:18px;
+  padding:16px;
   margin-bottom:12px;
   box-shadow:0 8px 20px rgba(75,15,191,.10);
 }
@@ -108,6 +164,26 @@ main{
   margin:7px 0 0;
   color:var(--gris);
   font-size:14px;
+}
+
+.back,
+.save{
+  border:none;
+  border-radius:18px;
+  padding:14px;
+  font-size:15px;
+  font-weight:bold;
+  background:white;
+  color:var(--morado);
+  box-shadow:0 8px 20px rgba(75,15,191,.12);
+  margin-bottom:14px;
+}
+
+.save{
+  width:100%;
+  color:white;
+  background:linear-gradient(135deg,var(--morado),var(--azul));
+  margin-top:8px;
 }
 
 input, select, textarea{
@@ -130,24 +206,9 @@ label{
 }
 
 .title{
-  margin:10px 0 14px;
-  font-size:22px;
   color:var(--morado);
-}
-
-.phase{
-  font-size:12px;
-  color:white;
-  background:var(--morado);
-  padding:5px 10px;
-  border-radius:20px;
-  display:inline-block;
-  margin-bottom:8px;
-}
-
-.small{
-  font-size:13px;
-  color:var(--gris);
+  font-size:22px;
+  margin:8px 0 14px;
 }
 
 .record{
@@ -159,33 +220,72 @@ label{
 <body>
 
 <header>
-  <h1>MERIDIONAL</h1>
+  <h1>Academia<br>Meridional</h1>
   <p>Transformando conocimiento en resultados</p>
 </header>
 
 <main>
 
 <section id="home" class="section active">
+
+  <div class="block-title">Navegación general</div>
+
   <div class="menu">
-    <button onclick="showSection('tiendas')">🏪 Tiendas</button>
-    <button onclick="showSection('entrevistas')">🎤 Entrevistas</button>
-    <button onclick="showSection('capacitaciones')">🎓 Capacitaciones</button>
-    <button onclick="showSection('colaboradores')">👥 Colaboradores</button>
-    <button onclick="showSection('planes')">📋 Planes Acción</button>
-    <button onclick="showSection('biblioteca')">📚 Biblioteca</button>
+    <button onclick="showSection('tiendas')"><span>🏪</span>Tiendas</button>
+    <button onclick="showSection('colaboradores')"><span>👥</span>Colaboradores</button>
+    <button onclick="showSection('biblioteca')"><span>📚</span>Biblioteca</button>
+    <button onclick="showSection('indicadores')"><span>📊</span>Indicadores</button>
   </div>
 
-  <div class="card">
-    <span class="phase">Fase 1</span>
-    <h3>Registro operativo</h3>
-    <p>Tiendas, entrevistas, capacitaciones y colaboradores.</p>
+  <div class="block-title">Uso exclusivo personal</div>
+
+  <div class="personal-box">
+    <div class="personal-card" onclick="showSection('entrevistas')">
+      <span class="icon">🎤</span>
+      <div>
+        <h3>Entrevistas</h3>
+        <p>Registro y seguimiento de entrevistas realizadas</p>
+      </div>
+      <span class="arrow">›</span>
+    </div>
+
+    <div class="personal-card" onclick="showSection('planes')">
+      <span class="icon">📋</span>
+      <div>
+        <h3>Planes de Acción</h3>
+        <p>Registro y seguimiento de planes de acción</p>
+      </div>
+      <span class="arrow">›</span>
+    </div>
+
+    <div class="personal-card" onclick="showSection('capacitaciones')">
+      <span class="icon">🎓</span>
+      <div>
+        <h3>Capacitaciones</h3>
+        <p>Registro y seguimiento de capacitaciones</p>
+      </div>
+      <span class="arrow">›</span>
+    </div>
+
+    <div class="personal-card" onclick="showSection('registroNuevos')">
+      <span class="icon">➕</span>
+      <div>
+        <h3>Registro de Colaboradores Nuevos</h3>
+        <p>Registro de nuevos colaboradores</p>
+      </div>
+      <span class="arrow">›</span>
+    </div>
+
+    <div class="personal-card" onclick="showSection('misRegistros')">
+      <span class="icon">🗂️</span>
+      <div>
+        <h3>Mis Registros</h3>
+        <p>Acceso rápido a todos tus registros</p>
+      </div>
+      <span class="arrow">›</span>
+    </div>
   </div>
 
-  <div class="card">
-    <span class="phase">Fase 2</span>
-    <h3>Seguimiento</h3>
-    <p>Planes de acción, biblioteca e historial de registros.</p>
-  </div>
 </section>
 
 <section id="tiendas" class="section">
@@ -197,13 +297,56 @@ label{
 <section id="detalleTienda" class="section">
   <button class="back" onclick="showSection('tiendas')">← Volver a tiendas</button>
   <h2 id="nombreTienda" class="title"></h2>
+
   <div class="card">
     <h3>Líder</h3>
     <p id="liderTienda">Por definir</p>
   </div>
+
   <div class="card">
     <h3>Ejecutivos</h3>
     <div id="ejecutivosTienda"></div>
+  </div>
+</section>
+
+<section id="colaboradores" class="section">
+  <button class="back" onclick="showSection('home')">← Volver</button>
+  <h2 class="title">Colaboradores</h2>
+  <div id="listaColaboradores"></div>
+</section>
+
+<section id="biblioteca" class="section">
+  <button class="back" onclick="showSection('home')">← Volver</button>
+  <h2 class="title">Biblioteca</h2>
+
+  <div class="card">
+    <h3>Planes WOM Segmento Empresa</h3>
+    <p>Material base de capacitación mensual.</p>
+  </div>
+
+  <div class="card">
+    <h3>Técnicas de Venta</h3>
+    <p>Guías y apoyo para entrevistas y refuerzos.</p>
+  </div>
+
+  <div class="card">
+    <h3>Manejo de Objeciones</h3>
+    <p>Material pendiente de carga.</p>
+  </div>
+</section>
+
+<section id="indicadores" class="section">
+  <button class="back" onclick="showSection('home')">← Volver</button>
+  <h2 class="title">Indicadores</h2>
+
+  <div class="card">
+    <h3>Productividad Global</h3>
+    <p>Seguimiento de ventas y cumplimiento.</p>
+  </div>
+
+  <div class="card">
+    <h3>Planes WOM Segmento Empresa</h3>
+    <p>Medición del avance de la capacitación mensual.</p>
   </div>
 </section>
 
@@ -238,9 +381,34 @@ label{
 
     <button class="save" onclick="guardarEntrevista()">Guardar entrevista</button>
   </div>
+</section>
 
-  <h3 class="title">Historial</h3>
-  <div id="historialEntrevistas"></div>
+<section id="planes" class="section">
+  <button class="back" onclick="showSection('home')">← Volver</button>
+  <h2 class="title">Planes de Acción</h2>
+
+  <div class="card">
+    <label>Tienda</label>
+    <select id="planTienda"></select>
+
+    <label>Acción</label>
+    <textarea id="planAccion"></textarea>
+
+    <label>Responsable</label>
+    <input id="planResponsable">
+
+    <label>Fecha compromiso</label>
+    <input id="planFecha" type="date">
+
+    <label>Estado</label>
+    <select id="planEstado">
+      <option>Pendiente</option>
+      <option>En proceso</option>
+      <option>Completado</option>
+    </select>
+
+    <button class="save" onclick="guardarPlan()">Guardar plan</button>
+  </div>
 </section>
 
 <section id="capacitaciones" class="section">
@@ -275,78 +443,50 @@ label{
 
     <button class="save" onclick="guardarCapacitacion()">Guardar capacitación</button>
   </div>
-
-  <h3 class="title">Historial</h3>
-  <div id="historialCapacitaciones"></div>
 </section>
 
-<section id="colaboradores" class="section">
+<section id="registroNuevos" class="section">
   <button class="back" onclick="showSection('home')">← Volver</button>
-  <h2 class="title">Colaboradores</h2>
+  <h2 class="title">Registro de Colaborador Nuevo</h2>
 
   <div class="card">
     <label>Nombre</label>
-    <input id="colNombre" placeholder="Nombre colaborador">
+    <input id="nuevoNombre" placeholder="Nombre colaborador">
 
     <label>Cargo</label>
-    <input id="colCargo" placeholder="Ejecutivo / Líder">
+    <input id="nuevoCargo" placeholder="Ejecutivo / Líder">
 
     <label>Tienda</label>
-    <select id="colTienda"></select>
+    <select id="nuevoTienda"></select>
 
-    <button class="save" onclick="guardarColaborador()">Agregar colaborador</button>
-  </div>
-
-  <div id="listaColaboradores"></div>
-</section>
-
-<section id="planes" class="section">
-  <button class="back" onclick="showSection('home')">← Volver</button>
-  <h2 class="title">Planes de Acción</h2>
-
-  <div class="card">
-    <label>Tienda</label>
-    <select id="planTienda"></select>
-
-    <label>Acción</label>
-    <textarea id="planAccion"></textarea>
-
-    <label>Responsable</label>
-    <input id="planResponsable">
-
-    <label>Fecha compromiso</label>
-    <input id="planFecha" type="date">
-
-    <label>Estado</label>
-    <select id="planEstado">
+    <label>Estado capacitación inicial</label>
+    <select id="nuevoEstado">
       <option>Pendiente</option>
-      <option>En proceso</option>
-      <option>Completado</option>
+      <option>Capacitado</option>
+      <option>Reforzar</option>
     </select>
 
-    <button class="save" onclick="guardarPlan()">Guardar plan</button>
+    <button class="save" onclick="guardarNuevoColaborador()">Guardar colaborador</button>
   </div>
-
-  <div id="listaPlanes"></div>
 </section>
 
-<section id="biblioteca" class="section">
+<section id="misRegistros" class="section">
   <button class="back" onclick="showSection('home')">← Volver</button>
-  <h2 class="title">Biblioteca</h2>
+  <h2 class="title">Mis Registros</h2>
 
   <div class="card">
-    <h3>Planes WOM Segmento Empresa</h3>
-    <p>Material base de capacitación mensual.</p>
+    <h3>Entrevistas guardadas</h3>
+    <div id="historialEntrevistas"></div>
   </div>
 
   <div class="card">
-    <h3>Técnicas de Venta</h3>
-    <p>Guías y apoyo para entrevistas y refuerzos.</p>
+    <h3>Capacitaciones guardadas</h3>
+    <div id="historialCapacitaciones"></div>
   </div>
 
   <div class="card">
-    <h3>Manejo de Objeciones</h3>
-    <p>Material pendiente de carga.</p>
+    <h3>Planes de acción guardados</h3>
+    <div id="listaPlanes"></div>
   </div>
 </section>
 
@@ -373,6 +513,7 @@ const tiendas = [
 function showSection(id){
   document.querySelectorAll(".section").forEach(s => s.classList.remove("active"));
   document.getElementById(id).classList.add("active");
+  window.scrollTo(0,0);
 }
 
 function cargarTiendas(){
@@ -389,7 +530,7 @@ function cargarTiendas(){
   });
 
   document.querySelectorAll("select").forEach(select => {
-    if(select.id.includes("Tienda")){
+    if(select.id.toLowerCase().includes("tienda")){
       select.innerHTML = tiendas.map(t => `<option>${t}</option>`).join("");
     }
   });
@@ -398,100 +539,40 @@ function cargarTiendas(){
 function abrirTienda(tienda){
   document.getElementById("nombreTienda").innerText = tienda;
   document.getElementById("liderTienda").innerText = "Por definir";
-  document.getElementById("ejecutivosTienda").innerHTML = `
-    <p class="small">Los ejecutivos se irán agregando desde el módulo Colaboradores.</p>
-  `;
+  document.getElementById("ejecutivosTienda").innerHTML = "<p>No hay ejecutivos cargados todavía.</p>";
   showSection("detalleTienda");
 }
 
 function guardarEntrevista(){
   const datos = JSON.parse(localStorage.getItem("entrevistas") || "[]");
-
   datos.unshift({
     fecha: entrevistaFecha.value,
     tienda: entrevistaTienda.value,
     persona: entrevistaPersona.value,
     cargo: entrevistaCargo.value,
-    fortalezas: entrevistaFortalezas.value,
-    oportunidades: entrevistaOportunidades.value,
-    compromisos: entrevistaCompromisos.value,
-    observaciones: entrevistaObservaciones.value
+    compromisos: entrevistaCompromisos.value
   });
-
   localStorage.setItem("entrevistas", JSON.stringify(datos));
-  mostrarEntrevistas();
+  mostrarRegistros();
   alert("Entrevista guardada");
-}
-
-function mostrarEntrevistas(){
-  const datos = JSON.parse(localStorage.getItem("entrevistas") || "[]");
-  historialEntrevistas.innerHTML = datos.map(d => `
-    <div class="card record">
-      <h3>${d.persona || "Sin nombre"}</h3>
-      <p>${d.fecha || ""} · ${d.tienda}</p>
-      <p><b>Cargo:</b> ${d.cargo || ""}</p>
-      <p><b>Compromisos:</b> ${d.compromisos || ""}</p>
-    </div>
-  `).join("");
 }
 
 function guardarCapacitacion(){
   const datos = JSON.parse(localStorage.getItem("capacitaciones") || "[]");
-
   datos.unshift({
     fecha: capFecha.value,
     tienda: capTienda.value,
     nombre: capNombre.value,
     participantes: capParticipantes.value,
-    estado: capEstado.value,
-    observaciones: capObservaciones.value,
-    compromisos: capCompromisos.value
+    estado: capEstado.value
   });
-
   localStorage.setItem("capacitaciones", JSON.stringify(datos));
-  mostrarCapacitaciones();
+  mostrarRegistros();
   alert("Capacitación guardada");
-}
-
-function mostrarCapacitaciones(){
-  const datos = JSON.parse(localStorage.getItem("capacitaciones") || "[]");
-  historialCapacitaciones.innerHTML = datos.map(d => `
-    <div class="card record">
-      <h3>${d.nombre}</h3>
-      <p>${d.fecha || ""} · ${d.tienda}</p>
-      <p><b>Estado:</b> ${d.estado}</p>
-      <p><b>Participantes:</b> ${d.participantes || ""}</p>
-    </div>
-  `).join("");
-}
-
-function guardarColaborador(){
-  const datos = JSON.parse(localStorage.getItem("colaboradores") || "[]");
-
-  datos.unshift({
-    nombre: colNombre.value,
-    cargo: colCargo.value,
-    tienda: colTienda.value
-  });
-
-  localStorage.setItem("colaboradores", JSON.stringify(datos));
-  mostrarColaboradores();
-  alert("Colaborador agregado");
-}
-
-function mostrarColaboradores(){
-  const datos = JSON.parse(localStorage.getItem("colaboradores") || "[]");
-  listaColaboradores.innerHTML = datos.map(d => `
-    <div class="card">
-      <h3>${d.nombre}</h3>
-      <p>${d.cargo} · ${d.tienda}</p>
-    </div>
-  `).join("");
 }
 
 function guardarPlan(){
   const datos = JSON.parse(localStorage.getItem("planes") || "[]");
-
   datos.unshift({
     tienda: planTienda.value,
     accion: planAccion.value,
@@ -499,29 +580,69 @@ function guardarPlan(){
     fecha: planFecha.value,
     estado: planEstado.value
   });
-
   localStorage.setItem("planes", JSON.stringify(datos));
-  mostrarPlanes();
+  mostrarRegistros();
   alert("Plan guardado");
 }
 
-function mostrarPlanes(){
-  const datos = JSON.parse(localStorage.getItem("planes") || "[]");
-  listaPlanes.innerHTML = datos.map(d => `
+function guardarNuevoColaborador(){
+  const datos = JSON.parse(localStorage.getItem("colaboradores") || "[]");
+  datos.unshift({
+    nombre: nuevoNombre.value,
+    cargo: nuevoCargo.value,
+    tienda: nuevoTienda.value,
+    estado: nuevoEstado.value
+  });
+  localStorage.setItem("colaboradores", JSON.stringify(datos));
+  mostrarColaboradores();
+  alert("Colaborador guardado");
+}
+
+function mostrarColaboradores(){
+  const datos = JSON.parse(localStorage.getItem("colaboradores") || "[]");
+  const cont = document.getElementById("listaColaboradores");
+
+  cont.innerHTML = datos.length ? datos.map(d => `
+    <div class="card">
+      <h3>${d.nombre}</h3>
+      <p>${d.cargo} · ${d.tienda}</p>
+      <p>Estado capacitación: ${d.estado || "Pendiente"}</p>
+    </div>
+  `).join("") : "<div class='card'><p>No hay colaboradores cargados todavía.</p></div>";
+}
+
+function mostrarRegistros(){
+  const entrevistas = JSON.parse(localStorage.getItem("entrevistas") || "[]");
+  historialEntrevistas.innerHTML = entrevistas.length ? entrevistas.map(d => `
+    <div class="card record">
+      <h3>${d.persona || "Sin nombre"}</h3>
+      <p>${d.fecha || ""} · ${d.tienda}</p>
+      <p>${d.cargo || ""}</p>
+    </div>
+  `).join("") : "<p>No hay entrevistas guardadas.</p>";
+
+  const capacitaciones = JSON.parse(localStorage.getItem("capacitaciones") || "[]");
+  historialCapacitaciones.innerHTML = capacitaciones.length ? capacitaciones.map(d => `
+    <div class="card record">
+      <h3>${d.nombre}</h3>
+      <p>${d.fecha || ""} · ${d.tienda}</p>
+      <p>Estado: ${d.estado}</p>
+    </div>
+  `).join("") : "<p>No hay capacitaciones guardadas.</p>";
+
+  const planes = JSON.parse(localStorage.getItem("planes") || "[]");
+  listaPlanes.innerHTML = planes.length ? planes.map(d => `
     <div class="card record">
       <h3>${d.tienda}</h3>
-      <p><b>Acción:</b> ${d.accion}</p>
-      <p><b>Responsable:</b> ${d.responsable}</p>
-      <p><b>Estado:</b> ${d.estado}</p>
+      <p>${d.accion}</p>
+      <p>${d.estado}</p>
     </div>
-  `).join("");
+  `).join("") : "<p>No hay planes guardados.</p>";
 }
 
 cargarTiendas();
-mostrarEntrevistas();
-mostrarCapacitaciones();
 mostrarColaboradores();
-mostrarPlanes();
+mostrarRegistros();
 </script>
 
 </body>
