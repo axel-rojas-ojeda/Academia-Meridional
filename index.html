@@ -4,730 +4,258 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Academia Meridional</title>
-
 <style>
-:root{
-  --morado:#4b0fbf;
-  --azul:#1e5eff;
-  --fondo:#f7f3ff;
-  --texto:#171127;
-  --gris:#6d6790;
-  --verde:#12b76a;
-  --rojo:#e11d48;
-  --amarillo:#f59e0b;
-}
-
+:root{--m:#4b0fbf;--a:#1e5eff;--bg:#f6f3ff;--t:#171127;--g:#6d6790;--w:#fff}
 *{box-sizing:border-box;font-family:Arial,sans-serif}
-
-body{
-  margin:0;
-  background:var(--fondo);
-  color:var(--texto);
-}
-
-header{
-  background:linear-gradient(135deg,var(--morado),var(--azul));
-  color:white;
-  padding:36px 18px 44px;
-  text-align:center;
-  border-radius:0 0 34px 34px;
-}
-
-header h1{
-  margin:0;
-  font-size:34px;
-  line-height:1.1;
-  text-transform:uppercase;
-}
-
-header p{
-  margin:10px 0 0;
-  font-size:15px;
-}
-
-main{
-  padding:20px;
-  width:100%;
-  max-width:1200px;
-  margin:auto;
-}
-
-.section{display:none}
-.section.active{display:block}
-
-.title{
-  color:var(--morado);
-  font-size:24px;
-  margin:26px 0 16px;
-}
-
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-  gap:14px;
-}
-
-button{
-  cursor:pointer;
-}
-
-.grid button,
-.back,
-.save,
-.danger{
-  border:none;
-  border-radius:18px;
-  padding:16px;
-  font-weight:bold;
-}
-
-.grid button{
-  min-height:105px;
-  background:white;
-  color:var(--morado);
-  font-size:16px;
-  box-shadow:0 8px 20px rgba(75,15,191,.10);
-}
-
-.grid span{
-  display:block;
-  font-size:30px;
-  margin-bottom:6px;
-}
-
-.back{
-  background:white;
-  color:var(--morado);
-  box-shadow:0 8px 20px rgba(75,15,191,.12);
-  margin-bottom:14px;
-}
-
-.save{
-  width:100%;
-  color:white;
-  background:linear-gradient(135deg,var(--morado),var(--azul));
-  margin-top:8px;
-}
-
-.danger{
-  width:100%;
-  background:#ffe8ef;
-  color:#c4003f;
-  margin-top:8px;
-}
-
-.card{
-  background:white;
-  border-radius:22px;
-  padding:20px;
-  margin-bottom:16px;
-  box-shadow:0 8px 20px rgba(75,15,191,.10);
-}
-
-.card h3{
-  margin:0;
-  color:var(--morado);
-  font-size:20px;
-}
-
-.card p{
-  color:var(--gris);
-  font-size:15px;
-}
-
-.badge{
-  display:inline-block;
-  background:#e9ddff;
-  color:var(--morado);
-  padding:7px 12px;
-  border-radius:20px;
-  font-size:13px;
-  font-weight:bold;
-  margin-bottom:10px;
-}
-
-input,select,textarea{
-  width:100%;
-  padding:14px;
-  border:1px solid #ddd;
-  border-radius:14px;
-  margin:7px 0 13px;
-  font-size:15px;
-}
-
-textarea{min-height:100px}
-
-label{
-  font-size:13px;
-  color:var(--gris);
-  font-weight:bold;
-}
-
-.persona{
-  padding:10px 0;
-  border-bottom:1px solid #eee;
-}
-
-.persona:last-child{border-bottom:none}
-
-.kpi{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
-  gap:12px;
-}
-
-.kpi div{
-  background:#f2ebff;
-  padding:16px;
-  border-radius:16px;
-}
-
-.kpi strong{
-  font-size:24px;
-  color:var(--morado);
-}
-
-.interno{
-  text-align:center;
-  margin:34px 0 12px;
-}
-
-.interno button{
-  background:white;
-  border:1px solid #e5ddff;
-  color:var(--morado);
-  font-size:14px;
-  font-weight:600;
-  text-decoration:none;
-  margin:6px;
-  padding:10px 14px;
-  border-radius:16px;
-  box-shadow:0 4px 12px rgba(75,15,191,.08);
-}
-
-.course-hero{
-  background:linear-gradient(135deg,var(--morado),var(--azul));
-  color:white;
-  border-radius:26px;
-  padding:24px;
-  margin-bottom:16px;
-}
-
-.course-hero h2{
-  margin:0;
-  font-size:28px;
-  line-height:1.1;
-}
-
-.course-hero p{
-  color:#eee;
-  margin:10px 0 0;
-}
-
-.course-card{
-  background:white;
-  border-radius:22px;
-  padding:20px;
-  margin-bottom:16px;
-  border-left:6px solid var(--morado);
-  box-shadow:0 8px 20px rgba(75,15,191,.10);
-}
-
-.course-card h3{
-  margin:0;
-  color:var(--morado);
-  font-size:20px;
-}
-
-.material-btn{
-  display:block;
-  text-align:center;
-  background:linear-gradient(135deg,var(--morado),var(--azul));
-  color:white;
-  padding:16px;
-  border-radius:18px;
-  text-decoration:none;
-  font-weight:bold;
-  margin-top:10px;
-}
-
-.progress{
-  height:14px;
-  background:#eee4ff;
-  border-radius:20px;
-  overflow:hidden;
-  margin-top:10px;
-}
-
-.progress div{
-  height:100%;
-  background:linear-gradient(135deg,var(--morado),var(--azul));
-}
-
-@media(min-width:768px){
-  header h1{font-size:48px}
-  header p{font-size:18px}
-  .title{font-size:30px}
-  .card,.course-card{padding:24px}
-  .card h3,.course-card h3{font-size:24px}
-  .grid{grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
-  .grid button{min-height:130px;font-size:18px}
-  .grid span{font-size:36px}
-  .course-hero h2{font-size:40px}
-}
-
-@media(min-width:1024px){
-  .section.active{
-    max-width:1100px;
-    margin:auto;
-  }
-  .course-hero{
-    padding:34px;
-  }
-  .course-hero h2{
-    font-size:46px;
-  }
-}
+body{margin:0;background:var(--bg);color:var(--t)}
+header{background:linear-gradient(135deg,var(--m),var(--a));color:white;padding:40px 20px;border-radius:0 0 36px 36px;text-align:center}
+header h1{margin:0;font-size:36px;text-transform:uppercase}
+header p{margin:10px 0 0}
+main{max-width:1200px;margin:auto;padding:22px}
+.section{display:none}.active{display:block}
+.card{background:white;border-radius:24px;padding:22px;margin-bottom:18px;box-shadow:0 8px 22px rgba(75,15,191,.12)}
+.card h3{margin:0;color:var(--m)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
+button{border:none;border-radius:20px;padding:18px;font-weight:bold;cursor:pointer}
+.grid button{background:white;color:var(--m);min-height:120px;font-size:17px;box-shadow:0 8px 22px rgba(75,15,191,.12)}
+.grid span{display:block;font-size:34px;margin-bottom:8px}
+.back,.save{background:linear-gradient(135deg,var(--m),var(--a));color:white;margin-bottom:15px}
+input,select,textarea{width:100%;padding:14px;border:1px solid #ddd;border-radius:14px;margin:8px 0 14px}
+textarea{min-height:90px}
+.kpi{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px}
+.kpi div{background:#f1eaff;border-radius:18px;padding:16px}
+.kpi strong{font-size:26px;color:var(--m)}
+.interno{text-align:center;margin:30px 0}
+.interno button{background:white;color:var(--m);border:1px solid #e5ddff;padding:11px 16px;margin:5px;font-size:14px}
+.hero{background:linear-gradient(135deg,var(--m),var(--a));color:white;border-radius:28px;padding:28px;margin-bottom:18px}
+.hero h2{margin:0;font-size:34px}
+.badge{display:inline-block;background:#eee4ff;color:var(--m);padding:7px 12px;border-radius:20px;font-size:13px;font-weight:bold;margin-bottom:10px}
+.persona{padding:11px 0;border-bottom:1px solid #eee}
 </style>
 </head>
-
 <body>
 
 <header>
-  <h1>Academia<br>Meridional</h1>
-  <p>Transformando conocimiento en resultados</p>
+<h1>Academia Meridional</h1>
+<p>Formación, seguimiento y resultados comerciales</p>
 </header>
 
 <main>
 
 <section id="home" class="section active">
-  <h2 class="title">Academia</h2>
+<div class="card">
+<h3>Resumen Ejecutivo</h3>
+<div class="kpi" id="resumenHome"></div>
+</div>
 
-  <div class="grid">
-    <button onclick="showSection('cursoActivo')"><span>🎓</span>Curso Activo</button>
-    <button onclick="showSection('tiendas')"><span>🏪</span>Tiendas</button>
-    <button onclick="showSection('biblioteca')"><span>📚</span>Biblioteca</button>
-    <button onclick="showSection('calendario')"><span>📅</span>Calendario</button>
-    <button onclick="showSection('recursos')"><span>🧩</span>Recursos</button>
-    <button onclick="showSection('reportesPublicos')"><span>📊</span>Reportes</button>
-  </div>
+<div class="hero">
+<h2 id="homeCurso">Curso Activo</h2>
+<p id="homeCursoDetalle"></p>
+</div>
 
-  <div class="interno">
-    <button onclick="pedirCodigoEmbajador()">🔐 Embajador</button>
-    <button onclick="pedirCodigoAdmin()">🏢 Administración Meridional</button>
-  </div>
+<div class="grid">
+<button onclick="show('curso')"><span>🎓</span>Curso Activo</button>
+<button onclick="show('tiendas')"><span>🏪</span>Tiendas</button>
+<button onclick="show('biblioteca')"><span>📚</span>Biblioteca</button>
+<button onclick="show('calendario')"><span>📅</span>Calendario</button>
+<button onclick="show('recursos')"><span>🧩</span>Recursos</button>
+<button onclick="show('reportes')"><span>📊</span>Reportes</button>
+</div>
+
+<div class="interno">
+<button onclick="codigoEmbajador()">🔐 Embajador</button>
+<button onclick="codigoAdmin()">🏢 Administración Meridional</button>
+</div>
 </section>
 
-<section id="cursoActivo" class="section">
-  <button class="back" onclick="showSection('home')">← Volver</button>
-  <div id="cursoAcademiaVista"></div>
+<section id="curso" class="section">
+<button class="back" onclick="show('home')">← Volver</button>
+<div id="cursoVista"></div>
 </section>
 
 <section id="tiendas" class="section">
-  <button class="back" onclick="showSection('home')">← Volver</button>
-  <h2 class="title">Tiendas</h2>
-  <div id="listaTiendas"></div>
-</section>
-
-<section id="detalleTienda" class="section">
-  <button class="back" onclick="showSection('tiendas')">← Volver</button>
-  <h2 id="detalleNombre" class="title"></h2>
-  <div class="card"><span class="badge">Líder</span><h3 id="detalleLider"></h3></div>
-  <div class="card"><h3>Ejecutivos</h3><div id="detalleEjecutivos"></div></div>
+<button class="back" onclick="show('home')">← Volver</button>
+<h2>Tiendas</h2>
+<div id="listaTiendas"></div>
 </section>
 
 <section id="biblioteca" class="section">
-  <button class="back" onclick="showSection('home')">← Volver</button>
-  <h2 class="title">Biblioteca</h2>
-  <div class="card"><h3>Capacitaciones guardadas</h3><div id="bibliotecaCursos"></div></div>
+<button class="back" onclick="show('home')">← Volver</button>
+<h2>Biblioteca</h2>
+<div id="bibliotecaVista"></div>
 </section>
 
 <section id="calendario" class="section">
-  <button class="back" onclick="showSection('home')">← Volver</button>
-  <h2 class="title">Calendario</h2>
-  <div id="calendarioVista"></div>
+<button class="back" onclick="show('home')">← Volver</button>
+<h2>Calendario</h2>
+<div id="calendarioVista"></div>
 </section>
 
 <section id="recursos" class="section">
-  <button class="back" onclick="showSection('home')">← Volver</button>
-  <h2 class="title">Recursos</h2>
-  <div class="card"><h3>Presentaciones</h3><p>Material de apoyo para capacitaciones online.</p></div>
-  <div class="card"><h3>Guías Comerciales</h3><p>Argumentarios, procesos WOM y foco comercial.</p></div>
-  <div class="card"><h3>Reportes</h3><p>Documentos de seguimiento mensual.</p></div>
+<button class="back" onclick="show('home')">← Volver</button>
+<h2>Recursos</h2>
+<div class="card"><h3>Presentaciones</h3><p>Material de apoyo para capacitaciones online.</p></div>
+<div class="card"><h3>Guías Comerciales</h3><p>Argumentarios, foco comercial y procesos WOM.</p></div>
+<div class="card"><h3>Reportes</h3><p>Documentos de seguimiento mensual.</p></div>
 </section>
 
-<section id="reportesPublicos" class="section">
-  <button class="back" onclick="showSection('home')">← Volver</button>
-  <h2 class="title">Reportes</h2>
-  <div class="card"><h3>Avance Curso Activo</h3><div id="avancePublico"></div></div>
+<section id="reportes" class="section">
+<button class="back" onclick="show('home')">← Volver</button>
+<h2>Reportes</h2>
+<div class="card"><h3>Indicadores generales</h3><div id="reportesVista"></div></div>
 </section>
 
 <section id="embajador" class="section">
-  <button class="back" onclick="showSection('home')">← Volver</button>
-  <h2 class="title">Zona Embajador</h2>
-
-  <div class="card">
-    <h3>Dashboard Embajador</h3>
-    <div id="dashboardEmbajador"></div>
-  </div>
-
-  <div class="grid">
-    <button onclick="showSection('analisisKPI')"><span>📊</span>Análisis KPI</button>
-    <button onclick="showSection('entrevistas')"><span>🎤</span>Entrevistas Buenas Prácticas</button>
-    <button onclick="showSection('gestionarCurso')"><span>🎓</span>Diseño Curso</button>
-    <button onclick="showSection('capacitacionOnline')"><span>💻</span>Capacitación Online</button>
-    <button onclick="showSection('inasistencias')"><span>🚫</span>Inasistencias</button>
-    <button onclick="showSection('seguimiento')"><span>👥</span>Seguimiento</button>
-    <button onclick="showSection('planes')"><span>📋</span>Planes Acción</button>
-    <button onclick="showSection('cierreMensual')"><span>📈</span>Cierre Mensual</button>
-    <button onclick="showSection('gestionBase')"><span>🏪</span>Tiendas y Colaboradores</button>
-    <button onclick="showSection('misRegistros')"><span>🗂️</span>Mis Registros</button>
-  </div>
+<button class="back" onclick="show('home')">← Volver</button>
+<h2>Zona Embajador</h2>
+<div class="grid">
+<button onclick="show('gestionCurso')"><span>🎓</span>Gestionar Curso</button>
+<button onclick="show('analisis')"><span>📊</span>Análisis KPI</button>
+<button onclick="show('entrevista')"><span>🎤</span>Entrevistas</button>
+<button onclick="show('online')"><span>💻</span>Capacitación Online</button>
+<button onclick="show('inasistencia')"><span>🚫</span>Inasistencias</button>
+<button onclick="show('seguimiento')"><span>👥</span>Seguimiento</button>
+</div>
 </section>
 
 <section id="admin" class="section">
-  <button class="back" onclick="showSection('home')">← Volver</button>
-  <h2 class="title">Administración Meridional</h2>
-  <div class="card"><h3>Resumen Ejecutivo</h3><div id="dashboardAdmin"></div></div>
-  <div class="card"><h3>Reporte Ejecutivo</h3><div id="reporteEjecutivo"></div></div>
-  <div class="card"><h3>KPIs y Cumplimiento</h3><div id="adminKPI"></div></div>
+<button class="back" onclick="show('home')">← Volver</button>
+<h2>Administración Meridional</h2>
+<div class="card"><h3>Dashboard Ejecutivo</h3><div id="adminVista"></div></div>
 </section>
 
-<section id="analisisKPI" class="section">
-  <button class="back" onclick="showSection('embajador')">← Volver</button>
-  <h2 class="title">Análisis KPI</h2>
-  <div class="card">
-    <label>Mes</label><input id="analisisMes" placeholder="Ej: Junio 2026">
-    <label>KPI analizado</label><input id="analisisKpiNombre" placeholder="Ej: Planes Empresa, Productividad">
-    <label>Mejores resultados KPI</label><textarea id="analisisTop"></textarea>
-    <label>Resultados bajos / brechas</label><textarea id="analisisBajo"></textarea>
-    <label>Observaciones</label><textarea id="analisisObs"></textarea>
-    <button class="save" onclick="guardarAnalisis()">Guardar análisis</button>
-  </div>
+<section id="gestionCurso" class="section">
+<button class="back" onclick="show('embajador')">← Volver</button>
+<h2>Gestionar Curso Activo</h2>
+<div class="card">
+<label>Curso</label><input id="cursoNombre">
+<label>Mes</label><input id="cursoMes">
+<label>Objetivo</label><textarea id="cursoObjetivo"></textarea>
+<label>Presentación / Link</label><input id="cursoLink">
+<label>KPI trabajado</label><textarea id="cursoKpi"></textarea>
+<button class="save" onclick="guardarCurso()">Guardar curso</button>
+</div>
+<div class="card">
+<h3>Agregar participante</h3>
+<select id="participante"></select>
+<select id="estadoParticipante">
+<option>Convocado</option><option>Confirmado</option><option>Asistió</option><option>Ausente</option><option>Reforzar</option>
+</select>
+<button class="save" onclick="agregarParticipante()">Agregar</button>
+</div>
+<div id="participantesGestion"></div>
 </section>
 
-<section id="entrevistas" class="section">
-  <button class="back" onclick="showSection('embajador')">← Volver</button>
-  <h2 class="title">Entrevista Buenas Prácticas</h2>
-  <div class="card">
-    <label>Fecha</label><input id="entrevistaFecha" type="date">
-    <label>Tienda</label><select id="entrevistaTienda"></select>
-    <label>Ejecutivo destacado</label><input id="entrevistaPersona">
-    <label>KPI destacado</label><input id="entrevistaKPI">
-    <label>Buenas prácticas detectadas</label><textarea id="entrevistaBuenas"></textarea>
-    <label>Técnicas utilizadas</label><textarea id="entrevistaTecnicas"></textarea>
-    <label>Ideas para capacitación</label><textarea id="entrevistaIdeas"></textarea>
-    <button class="save" onclick="guardarEntrevista()">Guardar entrevista</button>
-  </div>
+<section id="analisis" class="section">
+<button class="back" onclick="show('embajador')">← Volver</button>
+<h2>Análisis KPI</h2>
+<div class="card">
+<input id="anaMes" placeholder="Mes">
+<input id="anaKpi" placeholder="KPI analizado">
+<textarea id="anaTop" placeholder="Mejores resultados"></textarea>
+<textarea id="anaBrecha" placeholder="Brechas detectadas"></textarea>
+<button class="save" onclick="guardar('analisis')">Guardar análisis</button>
+</div>
 </section>
 
-<section id="gestionarCurso" class="section">
-  <button class="back" onclick="showSection('embajador')">← Volver</button>
-  <h2 class="title">Diseño Curso Activo</h2>
-
-  <div class="card">
-    <label>Nombre del curso</label><input id="cursoNombre">
-    <label>Mes</label><input id="cursoMes">
-    <label>Objetivo</label><textarea id="cursoObjetivo"></textarea>
-    <label>Buenas prácticas incorporadas</label><textarea id="cursoBuenasPracticas"></textarea>
-    <label>Presentación / Link material</label><input id="cursoPresentacion" placeholder="Link Drive, PDF o presentación">
-    <label>Datos KPI</label><textarea id="cursoKpi"></textarea>
-    <button class="save" onclick="guardarCurso()">Guardar curso</button>
-  </div>
-
-  <div class="card">
-    <h3>Agregar participante</h3>
-    <label>Colaborador</label><select id="participanteNombre"></select>
-    <label>Estado</label>
-    <select id="participanteEstado">
-      <option>Convocado</option>
-      <option>Confirmado</option>
-      <option>Asistió</option>
-      <option>Ausente</option>
-      <option>Reforzar</option>
-    </select>
-    <button class="save" onclick="agregarParticipanteCurso()">Agregar participante</button>
-  </div>
-
-  <div class="card">
-    <h3>Participantes</h3>
-    <div id="gestionParticipantes"></div>
-  </div>
-
-  <button class="save" onclick="guardarCursoEnBiblioteca()">Guardar en biblioteca</button>
+<section id="entrevista" class="section">
+<button class="back" onclick="show('embajador')">← Volver</button>
+<h2>Entrevista Buenas Prácticas</h2>
+<div class="card">
+<input id="entPersona" placeholder="Ejecutivo destacado">
+<select id="entTienda"></select>
+<textarea id="entBuenas" placeholder="Buenas prácticas detectadas"></textarea>
+<textarea id="entIdeas" placeholder="Ideas para capacitación"></textarea>
+<button class="save" onclick="guardar('entrevistas')">Guardar entrevista</button>
+</div>
 </section>
 
-<section id="capacitacionOnline" class="section">
-  <button class="back" onclick="showSection('embajador')">← Volver</button>
-  <h2 class="title">Capacitación Online</h2>
-  <div class="card">
-    <label>Fecha</label><input id="onlineFecha" type="date">
-    <label>Hora</label><input id="onlineHora" type="time">
-    <label>Link reunión</label><input id="onlineLink" placeholder="Teams / Meet">
-    <label>Duración</label><input id="onlineDuracion" placeholder="Ej: 45 minutos">
-    <label>Observaciones</label><textarea id="onlineObs"></textarea>
-    <button class="save" onclick="guardarOnline()">Guardar capacitación online</button>
-  </div>
+<section id="online" class="section">
+<button class="back" onclick="show('embajador')">← Volver</button>
+<h2>Capacitación Online</h2>
+<div class="card">
+<input id="onFecha" type="date">
+<input id="onHora" type="time">
+<input id="onLink" placeholder="Link Teams / Meet">
+<textarea id="onObs" placeholder="Observaciones"></textarea>
+<button class="save" onclick="guardar('online')">Guardar capacitación</button>
+</div>
 </section>
 
-<section id="inasistencias" class="section">
-  <button class="back" onclick="showSection('embajador')">← Volver</button>
-  <h2 class="title">Inasistencias</h2>
-  <div class="card">
-    <label>Fecha</label><input id="inaFecha" type="date">
-    <label>Tienda</label><select id="inaTienda"></select>
-    <label>Colaborador</label><input id="inaPersona">
-    <label>Actividad</label><input id="inaActividad" placeholder="Capacitación / Entrevista">
-    <label>Motivo informado</label><textarea id="inaMotivo"></textarea>
-    <label>Reprogramar</label>
-    <select id="inaReprogramar"><option>Sí</option><option>No</option><option>Pendiente</option></select>
-    <button class="save" onclick="guardarInasistencia()">Guardar inasistencia</button>
-  </div>
+<section id="inasistencia" class="section">
+<button class="back" onclick="show('embajador')">← Volver</button>
+<h2>Inasistencias</h2>
+<div class="card">
+<input id="inaPersona" placeholder="Colaborador">
+<select id="inaTienda"></select>
+<input id="inaActividad" placeholder="Actividad">
+<textarea id="inaMotivo" placeholder="Motivo"></textarea>
+<button class="save" onclick="guardar('inasistencias')">Guardar inasistencia</button>
+</div>
 </section>
 
 <section id="seguimiento" class="section">
-  <button class="back" onclick="showSection('embajador')">← Volver</button>
-  <h2 class="title">Seguimiento</h2>
-  <div class="card">
-    <label>Fecha</label><input id="segFecha" type="date">
-    <label>Tienda</label><select id="segTienda"></select>
-    <label>Colaborador</label><input id="segPersona">
-    <label>Compromiso</label><textarea id="segCompromiso"></textarea>
-    <label>Fecha próxima revisión</label><input id="segProxima" type="date">
-    <label>Estado</label>
-    <select id="segEstado"><option>Pendiente</option><option>En seguimiento</option><option>Cerrado</option></select>
-    <button class="save" onclick="guardarSeguimiento()">Guardar seguimiento</button>
-  </div>
-</section>
-
-<section id="planes" class="section">
-  <button class="back" onclick="showSection('embajador')">← Volver</button>
-  <h2 class="title">Planes de Acción</h2>
-  <div class="card">
-    <label>Tienda</label><select id="planTienda"></select>
-    <label>Acción</label><textarea id="planAccion"></textarea>
-    <label>Responsable</label><input id="planResponsable">
-    <label>Fecha compromiso</label><input id="planFecha" type="date">
-    <label>Estado</label>
-    <select id="planEstado"><option>Pendiente</option><option>En proceso</option><option>Completado</option></select>
-    <button class="save" onclick="guardarPlan()">Guardar plan</button>
-  </div>
-</section>
-
-<section id="cierreMensual" class="section">
-  <button class="back" onclick="showSection('embajador')">← Volver</button>
-  <h2 class="title">Cierre Mensual</h2>
-  <div class="card">
-    <label>Mes</label><input id="cierreMes" placeholder="Ej: Junio 2026">
-    <label>Tienda</label><select id="cierreTienda" onchange="actualizarParticipantesCierre()"></select>
-    <label>Participante</label><select id="cierreParticipante"></select>
-    <label>Ventas del participante</label><input id="ventasParticipante" type="number">
-    <label>Ventas totales de la tienda</label><input id="ventasTienda" type="number">
-    <button class="save" onclick="guardarCierreMensual()">Guardar cierre</button>
-  </div>
-</section>
-
-<section id="gestionBase" class="section">
-  <button class="back" onclick="showSection('embajador')">← Volver</button>
-  <h2 class="title">Tiendas y Colaboradores</h2>
-  <div class="card">
-    <h3>Agregar tienda</h3>
-    <input id="nuevaTiendaNombre" placeholder="Nombre tienda">
-    <input id="nuevaTiendaLider" placeholder="Líder">
-    <button class="save" onclick="agregarTienda()">Agregar tienda</button>
-  </div>
-  <div class="card">
-    <h3>Agregar colaborador</h3>
-    <input id="nuevoColaboradorNombre" placeholder="Nombre">
-    <select id="nuevoColaboradorCargo"><option>Ejecutivo WOM</option><option>Líder</option></select>
-    <select id="nuevoColaboradorTienda"></select>
-    <button class="save" onclick="agregarColaborador()">Agregar colaborador</button>
-  </div>
-  <div class="card"><h3>Tiendas registradas</h3><div id="gestionTiendas"></div></div>
-  <div class="card"><h3>Colaboradores registrados</h3><div id="gestionColaboradores"></div></div>
-</section>
-
-<section id="misRegistros" class="section">
-  <button class="back" onclick="showSection('embajador')">← Volver</button>
-  <h2 class="title">Mis Registros</h2>
-  <div id="misRegistrosVista"></div>
+<button class="back" onclick="show('embajador')">← Volver</button>
+<h2>Seguimiento</h2>
+<div class="card">
+<input id="segPersona" placeholder="Colaborador">
+<select id="segTienda"></select>
+<textarea id="segCompromiso" placeholder="Compromiso"></textarea>
+<select id="segEstado"><option>Pendiente</option><option>En seguimiento</option><option>Cerrado</option></select>
+<button class="save" onclick="guardar('seguimientos')">Guardar seguimiento</button>
+</div>
 </section>
 
 </main>
 
 <script>
-const baseTiendas=[
-{nombre:"Sucursal Puerto Varas",lider:"Angie Vanessa González Asenjo",ejecutivos:["Yessenia Maribel Riffo Oyarzo","Paulina Andrea Sánchez Rivera","Jaime Sebastián Bustamante Malpu"]},
-{nombre:"Sucursal Osorno",lider:"Rolando Ignacio Fuentealba Alvarado",ejecutivos:["Daniel Salamanca Silva","Constanza Elizabeth Echeverria Leyton","Yarela del Carmen Runca Hueichan","Nicolás Álvaro Veas Contreras"]},
-{nombre:"Sucursal Valdivia",lider:"Benllamin Alexander Gallegos Catalán",ejecutivos:["Katherine Helen Sepúlveda Sanchez","Natalia Andrea Poblete Gomez","Paula Andrea Matus Vera","Cristian Mauricio Quilodrán Quilodrán"]},
-{nombre:"Kiosco Plaza Los Ríos",lider:"Benllamin Alexander Gallegos Catalán",ejecutivos:["Yarela Belén Álvarez Monsalve","Elisa Sophia Levinier Sarabia","Ámbar Ignacia Muñoz Mora"]},
-{nombre:"Sucursal Villarrica",lider:"Felipe Alfonso Calderón Muñoz",ejecutivos:["Daniela Nicole Cruzat Garrido","Norberto Simón Arriagada Solis","Carlo Ignacio Bernales Navarrete","Yonatan Eduardo Jimenez Saez"]},
-{nombre:"Sucursal Paseo Costanera",lider:"Por definir",ejecutivos:[]},
-{nombre:"Sucursal Puerto Montt Centro",lider:"Gisel Danae Bustamante Oyarzo",ejecutivos:["Viviana Soledad Arismendi Contreras","Fernando José Jorquera Infante","Daniela Estefania Gallardo Hernández","Pamela del Pilar Rojas González"]},
-{nombre:"Sucursal Ancud",lider:"Gabriela Beatriz Valle Barría",ejecutivos:["Javier Alejandro Arismendi Allancán","Manuel Abraham Vasquez Toro","Brandon Germán Ramirez Ortloff"]},
-{nombre:"Sucursal Castro",lider:"Reannys Nerlibeth Chavez Labastidas",ejecutivos:["Constanza del Carmen Flores Agurto","Jessica Romina Aguila Vidal","Estefany Dominic Subiabre Barrientos","Riter Gerardo Oyarzo Cardenas"]},
-{nombre:"Kiosco Mall Castro",lider:"Reannys Nerlibeth Chavez Labastidas",ejecutivos:["Beatriz Andrea Dominguez Ruiz","Juan Carlos Albornoz Cardenas","Susana Katherine Acevedo Molina","Gabriela Soledad Oyarzo Diaz"]},
-{nombre:"Street Temuco",lider:"Max Aleksandr Chutzinski Mansilla",ejecutivos:["María Antonieta Orellana Vasquez","Claudio Enrique Rain Huentemil","Juan Pablo Valdivieso Padilla","Catalina Antonia Alvial Orellana","Karla Alejandra Navarrete Hill","David Alejandro Zambrano Zuñiga","Manuel Alejandro Mella Mella","Nicolás Eduardo Cerda Morales"]},
-{nombre:"Street Puerto Montt Osorno",lider:"Fabián Andrés Gallardo Gómez",ejecutivos:["Yessenia Alejandra Ojeda Ojeda","Antonia Millaray Eisele San Martín","Felipe Tomas Nahuelpan Cartes","Carlo Gustavo Nuñez Salgado","Aron Benjamín Loy Borquez","Cristina Andrea Billeke Saez"]},
-{nombre:"Street Chiloé",lider:"Axel Andrés Humberto Rojas Ojeda",ejecutivos:["Julieth Isabel Orozco Herrera","Paulina Isabel Pérez Vargas","Sebastián Alfonso Chacón Villorroel","Johanna Paola Varas Lagos"]}
+const tiendas=[
+["Sucursal Puerto Varas","Angie Vanessa González Asenjo",["Yessenia Maribel Riffo Oyarzo","Paulina Andrea Sánchez Rivera","Jaime Sebastián Bustamante Malpu"]],
+["Sucursal Osorno","Rolando Ignacio Fuentealba Alvarado",["Daniel Salamanca Silva","Constanza Elizabeth Echeverria Leyton","Yarela del Carmen Runca Hueichan","Nicolás Álvaro Veas Contreras"]],
+["Sucursal Valdivia","Benllamin Alexander Gallegos Catalán",["Katherine Helen Sepúlveda Sanchez","Natalia Andrea Poblete Gomez","Paula Andrea Matus Vera","Cristian Mauricio Quilodrán Quilodrán"]],
+["Kiosco Plaza Los Ríos","Benllamin Alexander Gallegos Catalán",["Yarela Belén Álvarez Monsalve","Elisa Sophia Levinier Sarabia","Ámbar Ignacia Muñoz Mora"]],
+["Sucursal Villarrica","Felipe Alfonso Calderón Muñoz",["Daniela Nicole Cruzat Garrido","Norberto Simón Arriagada Solis","Carlo Ignacio Bernales Navarrete","Yonatan Eduardo Jimenez Saez"]],
+["Sucursal Puerto Montt Centro","Gisel Danae Bustamante Oyarzo",["Viviana Soledad Arismendi Contreras","Fernando José Jorquera Infante","Daniela Estefania Gallardo Hernández","Pamela del Pilar Rojas González"]],
+["Sucursal Ancud","Gabriela Beatriz Valle Barría",["Javier Alejandro Arismendi Allancán","Manuel Abraham Vasquez Toro","Brandon Germán Ramirez Ortloff"]],
+["Sucursal Castro","Reannys Nerlibeth Chavez Labastidas",["Constanza del Carmen Flores Agurto","Jessica Romina Aguila Vidal","Estefany Dominic Subiabre Barrientos","Riter Gerardo Oyarzo Cardenas"]],
+["Kiosco Mall Castro","Reannys Nerlibeth Chavez Labastidas",["Beatriz Andrea Dominguez Ruiz","Juan Carlos Albornoz Cardenas","Susana Katherine Acevedo Molina","Gabriela Soledad Oyarzo Diaz"]],
+["Street Temuco","Max Aleksandr Chutzinski Mansilla",["María Antonieta Orellana Vasquez","Claudio Enrique Rain Huentemil","Juan Pablo Valdivieso Padilla","Catalina Antonia Alvial Orellana"]],
+["Street Puerto Montt Osorno","Fabián Andrés Gallardo Gómez",["Yessenia Alejandra Ojeda Ojeda","Antonia Millaray Eisele San Martín","Felipe Tomas Nahuelpan Cartes","Carlo Gustavo Nuñez Salgado"]],
+["Street Chiloé","Axel Andrés Humberto Rojas Ojeda",["Julieth Isabel Orozco Herrera","Paulina Isabel Pérez Vargas","Sebastián Alfonso Chacón Villarroel","Johanna Paola Varas Lagos"]]
 ];
 
-function getLS(k,d){return JSON.parse(localStorage.getItem(k)||JSON.stringify(d))}
-function setLS(k,d){localStorage.setItem(k,JSON.stringify(d))}
-function getTiendas(){return getLS("tiendas",baseTiendas)}
-function setTiendas(d){setLS("tiendas",d)}
-function getCurso(){return getLS("curso",{nombre:"Planes WOM Segmento Empresa",mes:"Junio",objetivo:"Fortalecer la comercialización de planes WOM para segmento empresa.",buenasPracticas:"",presentacion:"",kpi:"",participantes:[]})}
+function ls(k,d){return JSON.parse(localStorage.getItem(k)||JSON.stringify(d))}
+function set(k,d){localStorage.setItem(k,JSON.stringify(d))}
+function curso(){return ls("curso",{nombre:"Planes WOM Segmento Empresa",mes:"Junio",objetivo:"Fortalecer la comercialización de planes WOM para segmento empresa.",link:"",kpi:"",participantes:[]})}
 
-function pedirCodigoEmbajador(){const c=prompt("Ingrese código Embajador");if(c==="2026")showSection("embajador");else if(c!==null)alert("Código incorrecto")}
-function pedirCodigoAdmin(){const c=prompt("Ingrese código Administración");if(c==="2027")showSection("admin");else if(c!==null)alert("Código incorrecto")}
-function showSection(id){document.querySelectorAll(".section").forEach(s=>s.classList.remove("active"));document.getElementById(id).classList.add("active");window.scrollTo(0,0);refrescar()}
+function show(id){document.querySelectorAll(".section").forEach(s=>s.classList.remove("active"));document.getElementById(id).classList.add("active");window.scrollTo(0,0);render()}
+function codigoEmbajador(){if(prompt("Código Embajador")==="2026")show("embajador")}
+function codigoAdmin(){if(prompt("Código Administración")==="2027")show("admin")}
 
-function refrescar(){
- cargarTiendas(); cargarSelects(); mostrarCurso(); mostrarBiblioteca(); mostrarDashboards(); mostrarGestion(); mostrarRegistros();
+function render(){
+const c=curso(), total=c.participantes.length, asist=c.participantes.filter(p=>p.estado==="Asistió").length, aus=c.participantes.filter(p=>p.estado==="Ausente").length;
+homeCurso.textContent=c.nombre; homeCursoDetalle.textContent=`${c.mes} · ${total} participantes`;
+resumenHome.innerHTML=`<div><strong>${total}</strong><br>Participantes</div><div><strong>${asist}</strong><br>Asistentes</div><div><strong>${aus}</strong><br>Ausentes</div><div><strong>${ls("online",[]).length}</strong><br>Capacitaciones</div>`;
+cursoVista.innerHTML=`<div class="hero"><h2>${c.nombre}</h2><p>${c.mes}</p></div><div class="card"><h3>Objetivo</h3><p>${c.objetivo}</p></div><div class="card"><h3>Presentación</h3><p>${c.link?`<a href="${c.link}" target="_blank">Abrir presentación</a>`:"Sin material cargado"}</p></div><div class="card"><h3>KPI</h3><p>${c.kpi||"Sin KPI cargado"}</p></div><div class="card"><h3>Participantes</h3>${c.participantes.map(p=>`<div class="persona"><b>${p.nombre}</b><br>${p.tienda}<br>Estado: ${p.estado}</div>`).join("")||"Sin participantes"}</div>`;
+listaTiendas.innerHTML=tiendas.map(t=>`<div class="card"><h3>${t[0]}</h3><p>Líder: ${t[1]}</p><p>${t[2].length} ejecutivos</p></div>`).join("");
+bibliotecaVista.innerHTML=ls("biblioteca",[]).map(b=>`<div class="card"><h3>${b.nombre}</h3><p>${b.mes}</p></div>`).join("")||"<p>No hay capacitaciones guardadas.</p>";
+calendarioVista.innerHTML=ls("online",[]).map(o=>`<div class="card"><h3>${c.nombre}</h3><p>${o.fecha} · ${o.hora}</p><p>${o.link}</p></div>`).join("")||"<p>No hay capacitaciones programadas.</p>";
+reportesVista.innerHTML=resumenHome.innerHTML;
+adminVista.innerHTML=resumenHome.innerHTML;
+reporteEjecutivo.innerHTML=`<p>Se registran ${ls("entrevistas",[]).length} entrevistas, ${ls("online",[]).length} capacitaciones online, ${ls("inasistencias",[]).length} inasistencias y ${ls("seguimientos",[]).length} seguimientos.</p>`;
+cursoNombre.value=c.nombre; cursoMes.value=c.mes; cursoObjetivo.value=c.objetivo; cursoLink.value=c.link; cursoKpi.value=c.kpi;
+const personas=[];tiendas.forEach(t=>{personas.push([t[1],"Líder",t[0]]);t[2].forEach(e=>personas.push([e,"Ejecutivo WOM",t[0]]))});
+participante.innerHTML=personas.map(p=>`<option value="${p.join("|")}">${p[0]} · ${p[2]}</option>`).join("");
+["entTienda","inaTienda","segTienda"].forEach(id=>document.getElementById(id).innerHTML=tiendas.map(t=>`<option>${t[0]}</option>`).join(""));
+participantesGestion.innerHTML=c.participantes.map((p,i)=>`<div class="card"><h3>${p.nombre}</h3><p>${p.tienda}</p><button class="danger" onclick="eliminarParticipante(${i})">Eliminar</button></div>`).join("")||"<p>No hay participantes.</p>";
 }
 
-function cargarSelects(){
- const tiendas=getTiendas();
- document.querySelectorAll("select").forEach(s=>{if(s.id.toLowerCase().includes("tienda"))s.innerHTML=tiendas.map(t=>`<option>${t.nombre}</option>`).join("")});
- const p=document.getElementById("participanteNombre");
- if(p){
-  let personas=[];
-  tiendas.forEach(t=>{personas.push({nombre:t.lider,cargo:"Líder",tienda:t.nombre});t.ejecutivos.forEach(e=>personas.push({nombre:e,cargo:"Ejecutivo WOM",tienda:t.nombre}))});
-  p.innerHTML=personas.map(x=>`<option value="${x.nombre}|${x.cargo}|${x.tienda}">${x.nombre} · ${x.tienda}</option>`).join("");
- }
- actualizarParticipantesCierre();
-}
+function guardarCurso(){const c=curso();c.nombre=cursoNombre.value;c.mes=cursoMes.value;c.objetivo=cursoObjetivo.value;c.link=cursoLink.value;c.kpi=cursoKpi.value;set("curso",c);alert("Curso guardado");render()}
+function agregarParticipante(){const c=curso();const d=participante.value.split("|");c.participantes.push({nombre:d[0],cargo:d[1],tienda:d[2],estado:estadoParticipante.value});set("curso",c);render()}
+function eliminarParticipante(i){const c=curso();c.participantes.splice(i,1);set("curso",c);render()}
+function guardar(tipo){const d=ls(tipo,[]);d.unshift({fecha:new Date().toLocaleDateString(),tipo});set(tipo,d);alert("Registro guardado");render()}
 
-function cargarTiendas(){
- const c=document.getElementById("listaTiendas"); if(!c)return;
- c.innerHTML=getTiendas().map((t,i)=>`<div class="card" onclick="abrirTienda(${i})"><h3>${t.nombre}</h3><p>${t.ejecutivos.length} ejecutivos · Líder: ${t.lider}</p></div>`).join("");
-}
-
-function abrirTienda(i){
- const t=getTiendas()[i];
- detalleNombre.innerText=t.nombre; detalleLider.innerText=t.lider;
- detalleEjecutivos.innerHTML=t.ejecutivos.map(e=>`<div class="persona">👤 <b>${e}</b><br><small>Ejecutivo WOM</small></div>`).join("")||"<p>No hay ejecutivos.</p>";
- showSection("detalleTienda");
-}
-
-function mostrarCurso(){
- const curso=getCurso();
-
- if(document.getElementById("cursoNombre"))cursoNombre.value=curso.nombre;
- if(document.getElementById("cursoMes"))cursoMes.value=curso.mes;
- if(document.getElementById("cursoObjetivo"))cursoObjetivo.value=curso.objetivo;
- if(document.getElementById("cursoBuenasPracticas"))cursoBuenasPracticas.value=curso.buenasPracticas;
- if(document.getElementById("cursoPresentacion"))cursoPresentacion.value=curso.presentacion;
- if(document.getElementById("cursoKpi"))cursoKpi.value=curso.kpi;
-
- const total=curso.participantes.length;
- const asistio=curso.participantes.filter(p=>p.estado==="Asistió").length;
- const avance=total?Math.round((asistio/total)*100):0;
-
- if(document.getElementById("cursoAcademiaVista")){
-  cursoAcademiaVista.innerHTML=`
-  <div class="course-hero">
-    <span class="badge">Curso activo</span>
-    <h2>${curso.nombre}</h2>
-    <p>${curso.mes}</p>
-  </div>
-
-  <div class="course-card">
-    <h3>🎯 Objetivo</h3>
-    <p>${curso.objetivo || "Sin objetivo cargado."}</p>
-  </div>
-
-  <div class="course-card">
-    <h3>📎 Presentación</h3>
-    <p>${curso.presentacion ? "Material disponible para revisión." : "Sin material cargado."}</p>
-    ${curso.presentacion ? `<a class="material-btn" href="${curso.presentacion}" target="_blank">Abrir presentación</a>` : ""}
-  </div>
-
-  <div class="course-card">
-    <h3>📊 KPI del curso</h3>
-    <p>${curso.kpi || "Sin KPI cargado."}</p>
-  </div>
-
-  <div class="course-card">
-    <h3>✅ Estado de avance</h3>
-    <p>${asistio} de ${total} participantes con asistencia registrada.</p>
-    <div class="progress"><div style="width:${avance}%"></div></div>
-  </div>
-
-  <div class="course-card">
-    <h3>👥 Participantes</h3>
-    ${curso.participantes.length?curso.participantes.map(p=>`<div class="persona"><b>${p.nombre}</b><br><small>${p.cargo} · ${p.tienda}</small><br><small>Estado: ${p.estado}</small></div>`).join(""):"<p>No hay participantes cargados.</p>"}
-  </div>
-  `;
- }
-
- if(document.getElementById("gestionParticipantes")){
-  gestionParticipantes.innerHTML=curso.participantes.length?curso.participantes.map((p,i)=>`<div class="card"><h3>${p.nombre}</h3><p>${p.cargo} · ${p.tienda}</p><select onchange="cambiarEstadoParticipante(${i},this.value)"><option ${p.estado==="Convocado"?"selected":""}>Convocado</option><option ${p.estado==="Confirmado"?"selected":""}>Confirmado</option><option ${p.estado==="Asistió"?"selected":""}>Asistió</option><option ${p.estado==="Ausente"?"selected":""}>Ausente</option><option ${p.estado==="Reforzar"?"selected":""}>Reforzar</option></select><button class="danger" onclick="eliminarParticipante(${i})">Eliminar</button></div>`).join(""):"<p>No hay participantes.</p>";
- }
-}
-
-function guardarCurso(){
- const c=getCurso();
- c.nombre=cursoNombre.value; c.mes=cursoMes.value; c.objetivo=cursoObjetivo.value; c.buenasPracticas=cursoBuenasPracticas.value; c.presentacion=cursoPresentacion.value; c.kpi=cursoKpi.value;
- setLS("curso",c); alert("Curso actualizado"); refrescar();
-}
-function agregarParticipanteCurso(){const c=getCurso();const d=participanteNombre.value.split("|");c.participantes.push({nombre:d[0],cargo:d[1],tienda:d[2],estado:participanteEstado.value});setLS("curso",c);refrescar()}
-function cambiarEstadoParticipante(i,e){const c=getCurso();c.participantes[i].estado=e;setLS("curso",c);refrescar()}
-function eliminarParticipante(i){const c=getCurso();c.participantes.splice(i,1);setLS("curso",c);refrescar()}
-
-function guardarAnalisis(){let d=getLS("analisis",[]);d.unshift({mes:analisisMes.value,kpi:analisisKpiNombre.value,top:analisisTop.value,bajo:analisisBajo.value,obs:analisisObs.value});setLS("analisis",d);alert("Análisis guardado");refrescar()}
-function guardarEntrevista(){let d=getLS("entrevistas",[]);d.unshift({fecha:entrevistaFecha.value,tienda:entrevistaTienda.value,persona:entrevistaPersona.value,kpi:entrevistaKPI.value,buenas:entrevistaBuenas.value,tecnicas:entrevistaTecnicas.value,ideas:entrevistaIdeas.value});setLS("entrevistas",d);alert("Entrevista guardada");refrescar()}
-function guardarOnline(){let d=getLS("online",[]);d.unshift({fecha:onlineFecha.value,hora:onlineHora.value,link:onlineLink.value,duracion:onlineDuracion.value,obs:onlineObs.value});setLS("online",d);alert("Capacitación online guardada");refrescar()}
-function guardarInasistencia(){let d=getLS("inasistencias",[]);d.unshift({fecha:inaFecha.value,tienda:inaTienda.value,persona:inaPersona.value,actividad:inaActividad.value,motivo:inaMotivo.value,reprogramar:inaReprogramar.value});setLS("inasistencias",d);alert("Inasistencia guardada");refrescar()}
-function guardarSeguimiento(){let d=getLS("seguimientos",[]);d.unshift({fecha:segFecha.value,tienda:segTienda.value,persona:segPersona.value,compromiso:segCompromiso.value,proxima:segProxima.value,estado:segEstado.value});setLS("seguimientos",d);alert("Seguimiento guardado");refrescar()}
-function guardarPlan(){let d=getLS("planes",[]);d.unshift({tienda:planTienda.value,accion:planAccion.value,responsable:planResponsable.value,fecha:planFecha.value,estado:planEstado.value});setLS("planes",d);alert("Plan guardado");refrescar()}
-function guardarCierreMensual(){let d=getLS("cierres",[]);d.unshift({mes:cierreMes.value,tienda:cierreTienda.value,participante:cierreParticipante.value,ventasParticipante:Number(ventasParticipante.value||0),ventasTienda:Number(ventasTienda.value||0)});setLS("cierres",d);alert("Cierre guardado");refrescar()}
-
-function actualizarParticipantesCierre(){if(!document.getElementById("cierreTienda"))return;const t=getTiendas().find(x=>x.nombre===cierreTienda.value);if(!t)return;cierreParticipante.innerHTML=[t.lider,...t.ejecutivos].map(p=>`<option>${p}</option>`).join("")}
-function guardarCursoEnBiblioteca(){let b=getLS("biblioteca",[]);b.unshift({...getCurso(),fecha:new Date().toLocaleDateString()});setLS("biblioteca",b);alert("Guardado en biblioteca");refrescar()}
-function mostrarBiblioteca(){if(!document.getElementById("bibliotecaCursos"))return;const b=getLS("biblioteca",[]);bibliotecaCursos.innerHTML=b.length?b.map(x=>`<div class="card"><h3>${x.nombre}</h3><p>${x.mes} · ${x.fecha}</p><p>${x.participantes.length} participantes</p></div>`).join(""):"<p>No hay capacitaciones guardadas.</p>"}
-
-function mostrarDashboards(){
- const curso=getCurso(), entrevistas=getLS("entrevistas",[]), online=getLS("online",[]), inas=getLS("inasistencias",[]), planes=getLS("planes",[]), seg=getLS("seguimientos",[]), cierres=getLS("cierres",[]);
- const asistieron=curso.participantes.filter(p=>p.estado==="Asistió").length;
- const ausentes=curso.participantes.filter(p=>p.estado==="Ausente").length;
- const tiendasImpactadas=[...new Set(curso.participantes.map(p=>p.tienda))].length;
- const totalVentas=cierres.length?[...new Map(cierres.map(c=>[c.tienda,c.ventasTienda])).values()].reduce((a,b)=>a+b,0):0;
- const html=`<div class="kpi"><div><strong>${online.length}</strong><br>Capacitaciones online</div><div><strong>${entrevistas.length}</strong><br>Entrevistas</div><div><strong>${asistieron}</strong><br>Asistentes</div><div><strong>${ausentes}</strong><br>Ausentes</div><div><strong>${seg.length}</strong><br>Seguimientos</div><div><strong>${tiendasImpactadas}</strong><br>Tiendas impactadas</div></div>`;
- if(document.getElementById("dashboardEmbajador"))dashboardEmbajador.innerHTML=html;
- if(document.getElementById("dashboardAdmin"))dashboardAdmin.innerHTML=html;
- if(document.getElementById("adminKPI"))adminKPI.innerHTML=`<div class="kpi"><div><strong>${totalVentas}</strong><br>Ventas tiendas registradas</div><div><strong>${planes.length}</strong><br>Planes acción</div></div>`;
- if(document.getElementById("reporteEjecutivo"))reporteEjecutivo.innerHTML=`<p>Se registran ${entrevistas.length} entrevistas de buenas prácticas, ${online.length} capacitaciones online, ${curso.participantes.length} participantes en curso activo, ${inas.length} inasistencias y ${seg.length} seguimientos activos.</p>`;
- if(document.getElementById("calendarioVista"))calendarioVista.innerHTML=online.length?online.map(o=>`<div class="card"><h3>${getCurso().nombre}</h3><p>${o.fecha} · ${o.hora}</p><p>${o.link?`<a href="${o.link}" target="_blank">Entrar a capacitación</a>`:"Sin link"}</p></div>`).join(""):"<div class='card'><p>No hay capacitaciones programadas.</p></div>";
- if(document.getElementById("avancePublico"))avancePublico.innerHTML=`<p>Participantes: ${curso.participantes.length}</p><p>Asistentes registrados: ${asistieron}</p><p>Ausentes registrados: ${ausentes}</p>`;
-}
-
-function mostrarGestion(){
- const tiendas=getTiendas();
- if(document.getElementById("gestionTiendas"))gestionTiendas.innerHTML=tiendas.map((t,i)=>`<div class="card"><h3>${t.nombre}</h3><p>Líder: ${t.lider}</p><button class="danger" onclick="eliminarTienda(${i})">Eliminar</button></div>`).join("");
- if(document.getElementById("gestionColaboradores"))gestionColaboradores.innerHTML=tiendas.map((t,i)=>`<div class="card"><h3>${t.nombre}</h3>${t.ejecutivos.map((e,j)=>`<div class="persona">${e}<button class="danger" onclick="eliminarColaborador(${i},${j})">Eliminar</button></div>`).join("")}</div>`).join("");
-}
-function agregarTienda(){let t=getTiendas();t.push({nombre:nuevaTiendaNombre.value,lider:nuevaTiendaLider.value||"Por definir",ejecutivos:[]});setTiendas(t);refrescar()}
-function eliminarTienda(i){let t=getTiendas();t.splice(i,1);setTiendas(t);refrescar()}
-function agregarColaborador(){let t=getTiendas();let tienda=t.find(x=>x.nombre===nuevoColaboradorTienda.value);if(nuevoColaboradorCargo.value==="Líder")tienda.lider=nuevoColaboradorNombre.value;else tienda.ejecutivos.push(nuevoColaboradorNombre.value);setTiendas(t);refrescar()}
-function eliminarColaborador(i,j){let t=getTiendas();t[i].ejecutivos.splice(j,1);setTiendas(t);refrescar()}
-
-function mostrarRegistros(){
- if(!document.getElementById("misRegistrosVista"))return;
- const bloques=[
-  ["Análisis KPI",getLS("analisis",[]).map(x=>`${x.mes} · ${x.kpi}`)],
-  ["Entrevistas",getLS("entrevistas",[]).map(x=>`${x.fecha} · ${x.persona}`)],
-  ["Capacitaciones Online",getLS("online",[]).map(x=>`${x.fecha} · ${x.hora}`)],
-  ["Inasistencias",getLS("inasistencias",[]).map(x=>`${x.fecha} · ${x.persona}`)],
-  ["Seguimientos",getLS("seguimientos",[]).map(x=>`${x.persona} · ${x.estado}`)],
-  ["Planes de Acción",getLS("planes",[]).map(x=>`${x.tienda} · ${x.estado}`)],
-  ["Cierres",getLS("cierres",[]).map(x=>`${x.mes} · ${x.tienda}`)]
- ];
- misRegistrosVista.innerHTML=bloques.map(b=>`<div class="card"><h3>${b[0]}</h3>${b[1].length?b[1].map(i=>`<div class="persona">${i}</div>`).join(""):"<p>Sin registros.</p>"}</div>`).join("");
-}
-
-refrescar();
+render();
 </script>
-
 </body>
 </html>
